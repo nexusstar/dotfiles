@@ -5,16 +5,16 @@ This repository consists of configuration for some tools I use within my Linux (
 ## Install
 
 1. Download or clone repository
-1. Install plugs by running :PlugInstall
 1. Add [vim-plug][]
 
     curl -fLo __dotfiles-dir__/vim/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    
+
+1. Install plugs by running :PlugInstall
 1. Install [YouCompleteMe][]
 Compiling YCM **with** semantic support for C-family languages:
 
     cd __dotfiles-dir__/vim/.vim/plugged/YouCompleteMe
-    ./install.sh --clang-completer
+    ./install.sh --clang-completer --omnisharp-completer
 
 
 
