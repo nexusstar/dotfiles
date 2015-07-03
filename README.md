@@ -21,7 +21,8 @@ Compiling YCM **with** semantic support for C-family languages:
 
 ## Author
 
-[NexusStar][] / [@NexusStar][]
+(@nexusstar)
+
 
 ## Vim key bindings
 
