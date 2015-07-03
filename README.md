@@ -39,10 +39,11 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
 >
 >Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
 
-##Based on dotfiles by [@OliverCaldwell]: https://twitter.com/OliverCaldwell
+##Based on dotfiles by [OliverCaldwell][]
 
-##Help and documentation
+[OliverCaldwell]: https://twitter.com/OliverCaldwell
 [the unlicence]: http://unlicense.org/
 [vim-plug]: https://github.com/junegunn/vim-plug
 [YouCompleteMe]:https://github.com/Valloric/YouCompleteMe
 [vim-syntax-expand]:https://github.com/Wolfy87/vim-syntax-expand
+[unlicense]:UNLICENSE
