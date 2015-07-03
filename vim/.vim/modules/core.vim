@@ -31,3 +31,8 @@ set completeopt-=preview
 
 " Make session files minimal.
 set sessionoptions=blank,curdir,folds,help,tabpages,winsize
+
+" Make 256 color terminal
+if $COLORTERM ==  'gnome-terminal'
+  set t_Co=256
+endif
