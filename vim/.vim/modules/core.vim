@@ -36,3 +36,6 @@ set sessionoptions=blank,curdir,folds,help,tabpages,winsize
 if $COLORTERM ==  'gnome-terminal'
   set t_Co=256
 endif
+
+" Automaticaly change the current directory
+set autochdir
