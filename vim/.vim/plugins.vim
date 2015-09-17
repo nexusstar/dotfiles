@@ -57,3 +57,4 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'walm/jshint.vim'
 Plug 'csscomb/vim-csscomb'
+Plug 'git://git.drupal.org/project/vimrc.git', { 'rtp': 'bundle/vim-plugin-for-drupal' }
