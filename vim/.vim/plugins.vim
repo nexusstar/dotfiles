@@ -60,3 +60,5 @@ Plug 'csscomb/vim-csscomb'
 Plug 'git://git.drupal.org/project/vimrc.git', {'branch': '7.x-1.x', 'rtp' : 'bundle/vim-plugin-for-drupal'}
 Plug 'majutsushi/tagbar'
 Plug 'luishdez/vim-less'
+Plug 'evidens/vim-twig'
+Plug 'genoma/vim-less'
