@@ -39,3 +39,10 @@ endif
 
 " Automaticaly change the current directory
 set autochdir
+
+set fileformats=unix        "Use Unix line endings
+
+" Enforce consistent line endings: if 'ff' is set to "unix" and there are any
+" stray '\r' characters at ends of lines, then automatically remove them. See
+" $VIMRUNTIME/indent/php.vim .
+let PHP_removeCRwhenUnix = 1

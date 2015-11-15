@@ -1,6 +1,9 @@
 " Make Vim more useful. This should always be your first configuration line.
 set nocompatible
 
+" Always edit in utf-8:
+set encoding=utf-8
+
 " Wraps paths to make them relative to this directory.
 function! Dot(path)
   return '~/.vim/' . a:path
