@@ -61,5 +61,6 @@ Plug 'csscomb/vim-csscomb'
 Plug 'evidens/vim-twig'
 Plug 'joonty/vdebug'
 Plug 'majutsushi/tagbar'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'luishdez/vim-less'
 Plug 'http://git.drupal.org/project/vimrc.git', { 'branch': '7.x-1.x', 'rtp' : '/bundle/vim-plugin-for-drupal'}

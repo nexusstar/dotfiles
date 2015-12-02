@@ -13,8 +13,12 @@ set splitbelow
 set splitright
 
 " Set a default indent, but vim-sleuth should adjust it.
+filetype plugin indent on
+" show existing tab with 4 spaces width
 set tabstop=4
+" when indenting with '>', use 4 spaces width
 set shiftwidth=4
+" On pressing tab, insert 4 spaces
 set expandtab
 
 " Enable mouse. Great for resizing windows and keeping co-workers sane.
