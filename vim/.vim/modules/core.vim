@@ -14,6 +14,7 @@ set splitright
 
 " Set a default indent, but vim-sleuth should adjust it.
 filetype plugin indent on
+
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -42,7 +43,7 @@ if $COLORTERM ==  'gnome-terminal'
 endif
 
 " Automaticaly change the current directory
-set autochdir
+autocmd BufEnter * silent! lcd %:p:h
 
 set fileformats=unix        "Use Unix line endings
 
