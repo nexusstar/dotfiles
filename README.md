@@ -140,7 +140,6 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
 
 [OliverCaldwell]: https://twitter.com/OliverCaldwell
 [the unlicence]: http://unlicense.org/
-[vim-plug]: https://github.com/junegunn/vim-plug
 [YouCompleteMe]:https://github.com/Valloric/YouCompleteMe
 [vim-syntax-expand]:https://github.com/Wolfy87/vim-syntax-expand
 [unlicense]:UNLICENSE
