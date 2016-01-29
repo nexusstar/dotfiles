@@ -110,9 +110,10 @@ Compiling YCM **with** semantic support for C-family languages:
       For example, to install with all language features, ensure npm, go, mono, rust, and typescript API are installed and in your PATH, then:
 
 ```
-          cd ~/.vim/bundle/YouCompleteMe
-              ./install.py --clang-completer --omnisharp-completer --gocode-completer \
-                      --tern-completer --racer-completer
+cd ~/.vim/plugged/YouCompleteMe
+git submodule update --init --recursive
+./install.py --clang-completer --omnisharp-completer --gocode-completer --tern-completer --racer-completer
+
 ```
 
 1. Install plugs by running :PlugInstall
