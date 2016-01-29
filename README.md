@@ -99,20 +99,22 @@ sudo ln -s ~/tools/dotfiles/vim/.vim ~/.vim
 
 Compiling YCM **with** semantic support for C-family languages:
 
-  > C# support: add `--omnisharp-completer` to `./install.py`
-  > Go support: ensure go is installed and add `--gocode-completer`
-  > TypeScript support: install [nodejs and npm][npm-install] then install the TypeScript SDK with `npm install -g typescript`.
-    * JavaScript support: install [nodejs and npm][npm-install] and add
-    `--tern-completer` to `./install.py`
-  > Rust support: install [rustc and cargo][rust-install] and add
-      `--racer-completer` to `./install.py`
+> C# support: add `--omnisharp-completer` to `./install.py`
+> Go support: ensure go is installed and add `--gocode-completer`
+> TypeScript support: install [nodejs and npm][npm-install] then install the TypeScript SDK with 
+`npm install -g typescript`.
+> JavaScript support: install [nodejs and npm][npm-install] and add
+   `--tern-completer` to `./install.py`
+> Rust support: install [rustc and cargo][rust-install] and add
+   `--racer-completer` to `./install.py`
 
-      For example, to install with all language features, ensure npm, go, mono, rust, and typescript API are installed and in your PATH, then:
+For example, to install with all language features, ensure npm, go, mono, rust, and typescript API are installed and in your PATH, then:
 
 ```
 cd ~/.vim/plugged/YouCompleteMe
 git submodule update --init --recursive
-./install.py --clang-completer --omnisharp-completer --gocode-completer --tern-completer --racer-completer
+./install.py --clang-completer --omnisharp-completer --gocode-completer /
+--tern-completer --racer-completer
 
 ```
 
