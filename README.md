@@ -117,7 +117,7 @@ For example, to install with all language features, ensure npm, go, mono, rust, 
 ```
 cd ~/.vim/plugged/YouCompleteMe
 git submodule update --init --recursive
-./install.py --clang-completer --omnisharp-completer --gocode-completer /
+./install.py --clang-completer --omnisharp-completer --gocode-completer \
 --tern-completer --racer-completer
 
 ```
