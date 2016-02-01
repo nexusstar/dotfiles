@@ -37,9 +37,9 @@ fi
 
 
 # Base16 Shell
-# if [ -z "$THEME" ]; then
+if [ -z "$THEME" ]; then
     export THEME="base16-chalk"
-# fi
+fi
 if [ -z "$BACKGROUND" ]; then
     export BACKGROUND="dark"
 fi

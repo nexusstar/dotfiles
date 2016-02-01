@@ -6,9 +6,10 @@ This repository consists of configuration for some tools I use within my Linux (
 
 1. Download or clone repository
 1. Add [vim-plug][]
+```
+curl -fLo __dotfiles-dir__/vim/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    curl -fLo __dotfiles-dir__/vim/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
+```
 1. Install plugs by running :PlugInstall
 1. Install [YouCompleteMe][]
 Compiling YCM **with** semantic support for C-family languages:
@@ -36,6 +37,10 @@ Execute `\\` to run `~/.vim/mappings.sh` which shows all current leader bindings
   __change conceal level__
   set conceallevel=
 
+## TODO:
+
+Add install script and zsh install instruction
+
 ## Unlicenced
 
 Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
@@ -44,11 +49,15 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
 >
 >Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
 
-##Based on dotfiles by [OliverCaldwell][]
+  Based on dotfiles by 
+  [OliverCaldwell][]
+  [Nick Nisi][]
 
 [OliverCaldwell]: https://twitter.com/OliverCaldwell
+[Nick Nisi]: https://github.com/nicknisi/dotfiles
 [the unlicence]: http://unlicense.org/
 [vim-plug]: https://github.com/junegunn/vim-plug
 [YouCompleteMe]:https://github.com/Valloric/YouCompleteMe
 [vim-syntax-expand]:https://github.com/Wolfy87/vim-syntax-expand
 [unlicense]:UNLICENSE
+[Ubuntu]: http://www.ubuntu.com/

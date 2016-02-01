@@ -37,11 +37,6 @@ set completeopt-=preview
 " Make session files minimal.
 set sessionoptions=blank,curdir,folds,help,tabpages,winsize
 
-" Make 256 color terminal
-if $COLORTERM ==  'gnome-terminal'
-  set t_Co=256
-endif
-
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h
 
@@ -51,3 +46,9 @@ set fileformats=unix        "Use Unix line endings
 " stray '\r' characters at ends of lines, then automatically remove them. See
 " $VIMRUNTIME/indent/php.vim .
 let PHP_removeCRwhenUnix = 1
+
+" Set 256 color terminal
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
+

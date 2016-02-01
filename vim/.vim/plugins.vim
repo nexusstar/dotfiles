@@ -2,9 +2,10 @@
 " Configuration goes in the appropriate modules/plugins/*.vim file.
 " So configuration for tmux.vim would go in modules/plugins/tmux.vim.vim
 
+
+Plug 'Lokaltog/vim-distinguished'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'Keithbsmiley/tmux.vim'
-Plug 'Lokaltog/vim-distinguished'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'Raimondi/delimitMate'
@@ -16,7 +17,8 @@ Plug 'Wolfy87/vim-syntax-expand'
 Plug 'adimit/prolog.vim'
 Plug 'aklt/plantuml-syntax'
 Plug 'andreimaxim/vim-io'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'csscomb/vim-csscomb'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'derekwyatt/vim-scala'
