@@ -10,9 +10,15 @@ if [ "$(uname)" == "Linux" ]; then
   echo "Running on Linux"
 
   echo "Installing/Updating nvm"
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
+  if hash curl 2>/dev/null; then
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
+  else
+    sudo apt-get update && sudo apt-get install curl
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
+  fi
 
   echo "Installing node with nvm"
+  exec bash
   nvm install stable
   nvm alias default stable
 
