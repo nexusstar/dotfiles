@@ -5,28 +5,18 @@ This repository consists of configuration for some tools I use within my Linux (
 ## Install
 
 1. Download or clone repository
-1. Add [vim-plug][]
-```
-curl -fLo __dotfiles-dir__/vim/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ```
-1. Install plugs by running :PlugInstall
-1. Install [YouCompleteMe][]
-Compiling YCM **with** semantic support for C-family languages:
 
-    cd __dotfiles-dir__/vim/.vim/plugged/YouCompleteMe
-    ./install.sh --clang-completer --omnisharp-completer
+ cd ~/tools/dotfiles
+ ./install.sh
 
-
-
-## Tooling
-
- * `vim`     The best text editor. *Highly* customised.
+```
 
 
 ## Author
 
-(@nexusstar)
+[ @nexusstar ][]
 
 
 ## Vim key bindings
@@ -53,6 +43,7 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
   [OliverCaldwell][]
   [Nick Nisi][]
 
+[@nexusstar]: https://github.com/nexusstar/dotfiles
 [OliverCaldwell]: https://twitter.com/OliverCaldwell
 [Nick Nisi]: https://github.com/nicknisi/dotfiles
 [the unlicence]: http://unlicense.org/

@@ -25,7 +25,7 @@ if [ "$(uname)" == "Linux" ]; then
 fi
 
 echo "Installing vim:plug"
-echo -e "\n\ninstalling to ~/tools/dotfiles/vim/.vim"
+echo -e "\n\nInstalling to ~/tools/dotfiles/vim/.vim"
 echo "=============================="
 if [ ! -d $DOTFILES/vim/.vim/autoload ]; then
   curl -fLo $DOTFILES/vim/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
