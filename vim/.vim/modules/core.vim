@@ -42,6 +42,9 @@ autocmd BufEnter * silent! lcd %:p:h
 
 set fileformats=unix        "Use Unix line endings
 
+" Prevent files from opening folded
+set nofoldenable
+
 " Enforce consistent line endings: if 'ff' is set to "unix" and there are any
 " stray '\r' characters at ends of lines, then automatically remove them. See
 " $VIMRUNTIME/indent/php.vim .
