@@ -16,7 +16,7 @@ This repository consists of configuration for some tools I use within my Linux (
 
 ## Author
 
-[ @nexusstar ][]
+[nexusstar][]
 
 
 ## Vim key bindings
@@ -43,7 +43,7 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
   [OliverCaldwell][]
   [Nick Nisi][]
 
-[@nexusstar]: https://github.com/nexusstar/dotfiles
+[nexusstar]: https://github.com/nexusstar/dotfiles
 [OliverCaldwell]: https://twitter.com/OliverCaldwell
 [Nick Nisi]: https://github.com/nicknisi/dotfiles
 [the unlicence]: http://unlicense.org/
