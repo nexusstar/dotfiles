@@ -31,7 +31,7 @@ Plug 'guns/vim-sexp'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'helino/vim-json'
-Plug 'http://git.drupal.org/project/vimrc.git', { 'branch': '7.x-1.x', 'rtp' : '/bundle/vim-plugin-for-drupal'}
+Plug 'http://git.drupal.org/project/vimrc.git', { 'branch': '7.x-1.x', 'as': 'vim-drupal', 'rtp': './bundle/vim-plugin-for-drupal'}
 Plug 'joonty/vdebug'
 Plug 'junegunn/vim-easy-align'
 Plug 'luishdez/vim-less'
