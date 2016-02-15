@@ -1,6 +1,11 @@
 export DOTFILES=$HOME/tools/dotfiles
 export ZSH=$DOTFILES/zsh
 
+#links for linuxbrew paths
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
 # display how long all tasks over 10 seconds take
 export REPORTTIME=10
 

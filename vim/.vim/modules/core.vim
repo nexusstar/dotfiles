@@ -2,8 +2,10 @@
 " plugins depend on it during start up.
 set backspace=indent,eol,start
 
-" Enable line numbers.
+" Enable line numbers in Insert mode and realtive in Normal.
 set number
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 
 " Enable invisible characters.
 set list
