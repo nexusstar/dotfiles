@@ -6,14 +6,17 @@ This repository consists of configuration for some tools I use within my Linux (
 
 Make sure that the system has at least git installed
 
-## Install
+## Install Arch Linux [arch install instruction][]
 
-1. Download or clone repository
+
+## Install dotfiles
+
+1. Download or clone repository in `tools` directory
 
 ```
 
  cd ~/tools/dotfiles
- ./install.sh
+ make
 
 ```
 
@@ -56,3 +59,4 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
 [vim-syntax-expand]:https://github.com/Wolfy87/vim-syntax-expand
 [unlicense]:UNLICENSE
 [Ubuntu]: http://www.ubuntu.com/
+[arch install instruction]: https://hackpad.com/Install-Arch-Linux-Cfu1IavJ6T3
