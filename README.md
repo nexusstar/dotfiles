@@ -6,7 +6,9 @@ This repository consists of configuration for some tools I use within my Linux (
 
 Make sure that the system has at least git installed
 
-## Install Arch Linux [arch install instruction][]
+## Install Arch Linux
+
+[arch install instruction][]
 
 
 ## Install dotfiles
