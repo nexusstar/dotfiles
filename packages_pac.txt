@@ -40,4 +40,7 @@ tmux
 ttf-dejavu
 xautolock
 xclip
+xorg
+xorg-xwd
+xorg-xinit
 yaourt
