@@ -1,0 +1,35 @@
+[user]
+    name = Petar Nikov
+    email = petar.nikov@gmail.com
+[core]
+    editor = nvim
+    excludesfile = ~/.gitexcludes
+[color]
+    ui = true
+[push]
+    default = simple
+[diff]
+    tool = vimdiff3
+[merge]
+    tool = vimdiff3
+    conflictstyle = diff3
+[mergetool]
+    keepbackup = false
+    path = nvim
+[include]
+    path = ~/.gitconfig_local
+[alias]
+    s = status -sb
+    b = branch
+    c = commit -v
+    a = add
+    co = checkout
+    l = pull
+    p = push
+    f = fetch
+    mt = mergetool
+    m = merge
+    r = remote
+    re = rebase
+    lg = log --stat
+    d = diff

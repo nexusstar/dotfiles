@@ -1,8 +1,0 @@
-snippet /im "jekyll image path completion"
-/${1:images}/`!p
-parts = snip.fn.split('-')
-rv = ''
-if len(parts) >= 3:
-    rv = '/'.join(parts[:3])
-snip.rv=rv`/${2:file.png}
-endsnippet
