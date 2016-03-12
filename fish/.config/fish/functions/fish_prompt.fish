@@ -1,7 +1,7 @@
-# A lambda (λ) prompt.
+# A fish (~>) prompt.
 # Green and red depending on exit status.
 # Underlined if git status is dirty.
-# Uppercase (Λ) if ahead of the remote.
+# Uppercase (↑ ~>) if ahead of the remote.
 
 function fish_prompt
   if is_status_okay
@@ -15,9 +15,9 @@ function fish_prompt
   end
 
   if is_git_ahead
-    echo -n  'Λ'
+    echo -n  '↑ ~>'
   else
-    echo -n  'λ'
+    echo -n  '~>'
   end
 
   set_color normal
