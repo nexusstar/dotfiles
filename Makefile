@@ -12,7 +12,7 @@ add-repositories:
 	cat repositories.txt | sudo tee -a /etc/pacman.conf
 
 link-config:
-	stow --restow `ls -d */`
+	stow --restow `ls -d */ | grep -v "documentation"`
 
 set-shell:
 	chsh -s `which fish`
