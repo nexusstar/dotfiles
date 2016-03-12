@@ -8,8 +8,7 @@ Make sure that the system has at least git installed
 
 ## Install Arch Linux
 
-[arch install instruction][]
-
++ [Initial Setup and Installation][]
 
 ## Install dotfiles
 
@@ -62,3 +61,4 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
 [unlicense]:UNLICENSE
 [Ubuntu]: http://www.ubuntu.com/
 [arch install instruction]: https://hackpad.com/Install-Arch-Linux-Cfu1IavJ6T3
+[Initial Setup and Installation]: documentation/InstallArchLinux.md
