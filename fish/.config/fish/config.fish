@@ -19,3 +19,10 @@ initialise_ssh_agent
 if [ -f ~/.local.fish ]
   . ~/.local.fish
 end
+
+#start X at login
+if status --is-login
+    if test -z "$DISPLAY" -a $XDG_VINR -eq 1
+	    exec start x -- -keeptty
+	end
+end
