@@ -1,10 +1,6 @@
 # dotfiles
 
-This repository consists of configuration for some tools I use within my Linux ([Ubuntu][]) and Vim environment.
-
-##Before Install
-
-Make sure that the system has at least git installed
+This repository consists of configuration for some tools I use within my Linux ([ArchLinux][]) and NeoVim environment.
 
 ## Install Arch Linux
 
@@ -12,11 +8,11 @@ Make sure that the system has at least git installed
 
 ## Install dotfiles
 
-1. Download or clone repository in `tools` directory
+1. Download or clone repository in `$HOME` directory
 
 ```
 
- cd ~/tools/dotfiles
+ cd ~/dotfiles
  make
 
 ```
@@ -31,13 +27,6 @@ Make sure that the system has at least git installed
 
 Execute `\\` to run `~/.vim/mappings.sh` which shows all current leader bindings. This acts as documentation for my mappings.
 
-## Vim notes
-  __change conceal level__
-  set conceallevel=
-
-## TODO:
-
-Add install script and zsh install instruction
 
 ## Unlicenced
 
@@ -59,6 +48,5 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
 [YouCompleteMe]:https://github.com/Valloric/YouCompleteMe
 [vim-syntax-expand]:https://github.com/Wolfy87/vim-syntax-expand
 [unlicense]:UNLICENSE
-[Ubuntu]: http://www.ubuntu.com/
-[arch install instruction]: https://hackpad.com/Install-Arch-Linux-Cfu1IavJ6T3
+[ArchLinux]: https://www.archlinux.org/
 [Initial Setup and Installation]: documentation/InstallArchLinux.md

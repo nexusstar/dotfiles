@@ -54,7 +54,7 @@ reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist
 
 Install base packages
 ```
-pacstrap -i /mnt base base-develecho
+pacstrap -i /mnt base base-devel
 ```
 
 Generate fstab
@@ -107,7 +107,7 @@ EDITOR=vi visudo
 >Uncomment %wheel ALL=(ALL) ALLcli
 
 
-Add booloader
+Add boot loader
 ```
 mkinitcpio -p linux
 pacman -S grub os-prober
