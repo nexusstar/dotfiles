@@ -1,3 +1,6 @@
 [submodule "documentation/fonts/YosemiteSanFranciscoFont"]
 	path = documentation/fonts/YosemiteSanFranciscoFont
 	url = https://github.com/supermarin/YosemiteSanFranciscoFont
+[submodule "documentation/fonts/FontAwesome"]
+	path = documentation/fonts/FontAwesome
+	url = https://github.com/FortAwesome/Font-Awesome
