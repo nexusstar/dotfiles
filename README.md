@@ -6,6 +6,26 @@ This repository consists of configuration for some tools I use within my Linux (
 
 + [Initial Setup and Installation][]
 
+
+
+## Pre install
+
+For using fonts first  clone subbomodules 
+
+```bash
+git submodule update --init --recursive
+
+```
+
+Copy fonts to ~/dotfiles/fonts/.fonts
+
+```bash
+cp ~/dotfiles/documentation/fonts/FontAwesome/fonts/*.ttf ~/dotfiles/fonts/.fonts
+cp ~/dotfiles/documentation/fonts/YosemiteSanFranciscoFont/*.ttf ~/dotfiles/fonts/.fonts
+```
+
+
+
 ## Install dotfiles
 
 1. Download or clone repository in `$HOME` directory
