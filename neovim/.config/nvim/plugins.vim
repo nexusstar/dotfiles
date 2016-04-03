@@ -49,7 +49,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'raymond-w-ko/vim-niji'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake' " neovim replacement for syntastic using neovim's job control functonality
 Plug 'sevko/vim-nand2tetris-syntax'
 Plug 'sjl/gundo.vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -74,3 +75,5 @@ Plug 'tpope/vim-vinegar'
 Plug 'walm/jshint.vim'
 Plug 'parkr/vim-jekyll'
 Plug 'joonty/vdebug'
+
+call plug#end()

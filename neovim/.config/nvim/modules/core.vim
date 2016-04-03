@@ -5,7 +5,7 @@ set backspace=indent,eol,start
 " Enable invisible characters.
 set list
 
-" Enable line numbers in Insert mode and realtive in Normal.
+" Enable line numbers in Insert mode and relative numbers in Normal.
 set number
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
