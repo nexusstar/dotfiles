@@ -30,12 +30,14 @@ git_dirty() {
 
 svn_dirty(){
     command svn info `pwd` &>/dev/null || return
+
     #check if it's dirty
-    command svn status -u &>/dev/null;
-    if [[ $? -eq 1 ]]; then
-        echo "%F{red}✗%f"
-    else
+    changes=`svn status -q`
+
+    if [[ -z "$changes" ]]; then
         echo "%F{green}✔%f"
+    else
+        echo "%F{red}✗%f"
     fi
 }
 
@@ -82,5 +84,4 @@ precmd() {
 }
 
 export PROMPT='%(?.%F{205}.%F{red})❯%f '
-export RPROMPT='`git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
-export RPROMPT='`svn_dirty`%F{241}$vcs_info_msg_0_%f '
+export RPROMPT='`svn_dirty``git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
