@@ -26,3 +26,5 @@ if status --is-login
 	    exec start x -- -keeptty
 	end
 end
+
+rvm default
