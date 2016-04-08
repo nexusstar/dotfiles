@@ -39,6 +39,7 @@ Plug 'joonty/vdebug'
 Plug 'joonty/vdebug'
 Plug 'junegunn/vim-easy-align'
 Plug 'luishdez/vim-less'
+Plug 'lilydjwg/colorizer'
 Plug 'majutsushi/tagbar'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'mattn/emmet-vim'
