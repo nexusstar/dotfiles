@@ -5,6 +5,8 @@ set backspace=indent,eol,start
 " Enable invisible characters.
 set list
 
+set encoding=utf-8
+
 " Enable line numbers in Insert mode and realtive in Normal.
 set number
 autocmd InsertEnter * :set number
@@ -16,6 +18,9 @@ set splitright
 
 " Set a default indent, but vim-sleuth should adjust it.
 filetype plugin indent on
+
+" let airline show status
+set noshowmode
 
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -33,8 +38,8 @@ set noswapfile
 " Write files as they are, don't mess with line endings etc.
 set binary
 
-" Disable the completion preview window.
-set completeopt-=preview
+" Force selection of match in menu
+set completeopt+=noselect
 
 " Make session files minimal.
 set sessionoptions=blank,curdir,folds,help,tabpages,winsize
