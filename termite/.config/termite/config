@@ -1,6 +1,6 @@
 [options]
 font = Monospace 12
-font = DejaVu Sans Mono 12
+font = Hack 14
 mouse_autohide = true
 clickable_url = true
 browser = chromium
