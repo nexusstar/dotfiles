@@ -44,5 +44,10 @@ set completeopt+=noselect
 " Make session files minimal.
 set sessionoptions=blank,curdir,folds,help,tabpages,winsize
 
+" No need for ex mode
+  nnoremap Q <nop>
+" no recording macros
+map q <Nop>
+
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h
