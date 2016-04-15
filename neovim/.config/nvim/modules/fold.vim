@@ -70,6 +70,7 @@ endfunction " }}}
 
   autocmd FileType vim setlocal fdc=1
   set foldlevel=99
+
   " jf to toggle folds.
   nnoremap jf za
   vnoremap jf za
@@ -79,8 +80,8 @@ endfunction " }}}
   autocmd FileType html setlocal fdl=99
 
   autocmd FileType javascript,html,css,scss,typescript setlocal foldlevel=99
-  autocmd FileType css,scss,json setlocal foldmethod=marker
-  autocmd FileType css,scss,json setlocal foldmarker={,}
+  autocmd FileType css,scss,less,json setlocal foldmethod=marker
+  autocmd FileType css,scss,less,json setlocal foldmarker={,}
 
   autocmd FileType html setl foldmethod=expr
   autocmd FileType html setl foldexpr=HTMLFolds()

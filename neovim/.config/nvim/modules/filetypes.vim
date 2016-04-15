@@ -41,3 +41,4 @@ if has('autocmd') && !exists('autocommands_loaded')
 
     autocmd! BufWritePost * Neomake
 endif
+
