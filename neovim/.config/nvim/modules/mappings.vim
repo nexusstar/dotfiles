@@ -55,8 +55,18 @@ endfunction
 
 nnoremap <silent> <leader><leader> :call <SID>show_mappings()<CR>
 
-" Easy escape.
-inoremap <M-Space> <esc>
+" Easy escape using just Alt.
+inoremap <M-g> <esc>
+
+" Move lines up and down with Alt+j Alt+k
+nnoremap <M-j> :m .+1<CR>==
+nnoremap <M-k> :m .-2<CR>==
+
+inoremap <M-j> <esc>:m .+1<CR>==gi
+inoremap <M-k> <esc>:m .-2<CR>==gi
+
+vnoremap <M-j> :m '>+1<CR>gv=gv
+vnoremap <M-k> <esc>:m '<-2<CR>gv=gv
 
 " Quick session bindings.
 nnoremap <silent> <leader>sw :mksession! .quicksave.vim<CR>:echo "Session saved."<CR>
