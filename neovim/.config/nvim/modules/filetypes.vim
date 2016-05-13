@@ -33,7 +33,7 @@ if has('autocmd') && !exists('autocommands_loaded')
     autocmd FileType qf wincmd J
 
     autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-    let g:markdown_fenced_languages = ['css', 'javascript', 'js=javascript', 'json=javascript', 'stylus', 'html']
+    let g:markdown_fenced_languages = ['css', 'javascript', 'js=javascript', 'json=javascript', 'html']
 
     " autocmd! BufEnter * call ApplyLocalSettings(expand('<afile>:p:h'))
 

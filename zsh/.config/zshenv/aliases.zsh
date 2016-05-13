@@ -67,6 +67,6 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 # Docker
 # Delete all docker images and containers.
-alias dockernuke="docker rm $(docker ps -a -q); docker rmi -f $(docker images -q)"
+alias dockernuke="docker rm $(docker ps -a -q) && docker rmi -f $(docker images -q)"
 # Kill all running containers.
-alias dockerkill="docker kill $(docker ps -q)"
+alias dockerkill="docker stop $(docker ps -a -q)"

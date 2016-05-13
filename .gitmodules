@@ -4,3 +4,6 @@
 [submodule "documentation/fonts/FontAwesome"]
 	path = documentation/fonts/FontAwesome
 	url = https://github.com/FortAwesome/Font-Awesome
+[submodule "gtd"]
+	path = gtd
+	url = https://github.com/connermcd/gtd.git

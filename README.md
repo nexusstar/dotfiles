@@ -10,7 +10,7 @@ This repository consists of configuration for some tools I use within my Linux (
 
 ## Pre install
 
-For using fonts first  clone subbomodules 
+For using fonts first  clone __subbomodules__
 
 ```bash
 git submodule update --init --recursive
@@ -23,8 +23,6 @@ Copy fonts to ~/dotfiles/fonts/.fonts
 cp ~/dotfiles/documentation/fonts/FontAwesome/fonts/*.ttf ~/dotfiles/fonts/.fonts
 cp ~/dotfiles/documentation/fonts/YosemiteSanFranciscoFont/*.ttf ~/dotfiles/fonts/.fonts
 ```
-
-
 
 ## Install dotfiles
 

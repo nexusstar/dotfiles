@@ -1,7 +1,7 @@
 " Themes, Commands, etc  ----------------------------------------------------{{{
 " Theme
   syntax on
-  "colorscheme OceanicNext
+  colorscheme OceanicNext
   set background=dark
   " set background=light
 
