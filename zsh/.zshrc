@@ -43,29 +43,26 @@ fi
 
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
-# install rbenv
-if hash rbenv 2>/dev/null; then
-    eval "$(rbenv init -)"
-fi
-
-if [[ -d ~/.rvm ]]; then
-    PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
-    source ~/.rvm/scripts/rvm
-fi
 
 # alias git to g
 if hash g 2>/dev/null; then
     eval "$(g alias -s)"
 fi
 
-# source nvm
-export NVM_DIR=~/.nvm
-
 # source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# source nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # add Composer directory
-export PATH="$HOME/.composer/vendor/bin:$PATH"
+if [[ -d ~/.composer ]]; then
+    export PATH="$HOME/.composer/vendor/bin:$PATH"
+fi
+# add rbenv for Ruby and autocompletion
+
+if [[ -d ~/.rbenv ]]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
