@@ -5,7 +5,6 @@ set backspace=indent,eol,start
 " Enable invisible characters.
 set list
 
-set encoding=utf-8
 
 " Enable line numbers in Insert mode and realtive in Normal.
 set number
@@ -30,7 +29,9 @@ set shiftwidth=4
 set expandtab
 
 " Enable mouse. Great for resizing windows and keeping co-workers sane.
-set mouse=a
+if has('mouse')
+  set mouse=a
+endif
 
 " Disable swap files.
 set noswapfile
