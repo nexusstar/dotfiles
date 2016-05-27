@@ -47,6 +47,20 @@ nnoremap <silent> <leader>wf :tab sp<CR>
 nnoremap <silent> <leader>gl :diffget LOCAL<CR>
 nnoremap <silent> <leader>gr :diffget REMOTE<CR>
 
+"Start terminal mode with \t
+function! s:start_terminal_mode()
+  autocmd BufEnter term://* startinsert
+endfunction
+
+nnoremap <silent> <leader>t :call <SID>start_terminal_mode()<CR>
+
+"Start gtd timer with 25 minute session and 5 min break
+function! s:start_terminal_timer()
+  :te ~/dotfiles/gtd/gtd -n 20
+endfunction
+
+nnoremap <silent> <leader>tm :call <SID>start_terminal_timer()<CR>
+
 " Print out the current mappings.
 function! s:show_mappings()
   let path = Dot('mappings.sh')
@@ -54,19 +68,6 @@ function! s:show_mappings()
 endfunction
 
 nnoremap <silent> <leader><leader> :call <SID>show_mappings()<CR>
-
-" Easy escape using just Alt.
-inoremap <M-g> <esc>
-
-" Move lines up and down with Alt+j Alt+k
-nnoremap <M-j> :m .+1<CR>==
-nnoremap <M-k> :m .-2<CR>==
-
-inoremap <M-j> <esc>:m .+1<CR>==gi
-inoremap <M-k> <esc>:m .-2<CR>==gi
-
-vnoremap <M-j> :m '>+1<CR>gv=gv
-vnoremap <M-k> <esc>:m '<-2<CR>gv=gv
 
 " Quick session bindings.
 nnoremap <silent> <leader>sw :mksession! .quicksave.vim<CR>:echo "Session saved."<CR>
