@@ -9,6 +9,7 @@ function! BuildYCM(info)
 endfunction
 
 Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'fntlnz/atags.vim'
 Plug 'Keithbsmiley/tmux.vim'
 Plug 'Lokaltog/vim-distinguished'
 Plug 'Lokaltog/vim-easymotion'
