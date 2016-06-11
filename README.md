@@ -40,6 +40,10 @@ cp ~/dotfiles/documentation/fonts/YosemiteSanFranciscoFont/*.ttf ~/dotfiles/font
 
 [nexusstar][]
 
+## ToDo
+
+- [ ] Documentation
+- [ ] Comment out modules in neovim plugin file
 
 ## Vim key bindings
 
