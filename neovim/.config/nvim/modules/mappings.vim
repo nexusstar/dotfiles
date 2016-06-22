@@ -55,7 +55,7 @@ endfunction
 nnoremap <silent> <leader>t :call <SID>start_terminal_mode()<CR>
 
 "Generate tags
-nnoremap <leader>ta :call atags#generate()<CR>
+nnoremap <silent> <leader>ta :call atags#generate()<CR>
 
 "Start gtd timer with 25 minute session and 5 min break
 function! s:start_terminal_timer()
