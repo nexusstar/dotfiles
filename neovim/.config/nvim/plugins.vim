@@ -50,6 +50,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/yajs.vim', {'for': 'javascript'}
+Plug 'octol/vim-cpp-enhanced-highlight' " c++ extra code hightlighter
 Plug 'pangloss/vim-javascript'
 Plug 'parkr/vim-jekyll'
 Plug 'raymond-w-ko/vim-niji'
