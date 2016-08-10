@@ -1,4 +1,3 @@
-
 i3session-git
 pa-applet-git
 playerctl
