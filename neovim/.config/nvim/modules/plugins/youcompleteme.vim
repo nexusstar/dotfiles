@@ -9,3 +9,5 @@ let g:ycm_global_ycm_extra_conf = fnamemodify($MYVIMRC, ':h').'/ycm_extra_conf.p
 let g:ycm_extra_conf_vim_data   = ['&filetype']
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_filetype_blacklist = { 'help': 1 }
+
+autocmd FileType javascript setlocal omnifunc=tern#Complete
