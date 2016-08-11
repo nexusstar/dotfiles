@@ -1,6 +1,6 @@
 " This is the main plugin list, sourced by modules/plugins.vim
 " Configuration goes in the appropriate modules/plugins/*.vim file.
-" So configuration for tmux.vim would go in modules/plugins/tmux.vim.vim
+" So configuration for tmux.vim would go in modules/plugins/tmux.vim
 
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.force
@@ -15,8 +15,8 @@ Plug 'mhartington/oceanic-next'       " Neovim theme inspired by Oceanic Next fo
 Plug 'scrooloose/nerdtree'            " A file system explorer
 Plug 'majutsushi/tagbar'              " Display file tags in sidebar
 
-Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'fntlnz/atags.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'Lokaltog/vim-distinguished'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'PeterRincker/vim-argumentative'
@@ -29,18 +29,21 @@ Plug 'Wolfy87/vim-syntax-expand'
 Plug 'aklt/plantuml-syntax'
 Plug 'andreimaxim/vim-io'
 Plug 'csscomb/vim-csscomb'
-Plug 'critiqjo/lldb.nvim'
+Plug 'critiqjo/lldb.nvim'                         " LLDB debugger integration for Neovim
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'embear/vim-localvimrc'
-Plug 'evidens/vim-twig'
+Plug 'evidens/vim-twig'                           " PHP twig template highlighing
+Plug 'helino/vim-json'                            " JSON highlighting
+Plug 'luishdez/vim-less'                          " Less highlighting
+Plug 'tpope/vim-markdown'                         " Markdown highlighting
+Plug 'parkr/vim-jekyll'                           " Jekyll blog automation
+Plug 'pangloss/vim-javascript'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
-Plug 'helino/vim-json'
 Plug 'http://git.drupal.org/project/vimrc.git', { 'branch': '7.x-1.x', 'as': 'vim-drupal', 'rtp': './bundle/vim-plugin-for-drupal'}
 Plug 'joonty/vdebug'
 Plug 'junegunn/vim-easy-align'
-Plug 'luishdez/vim-less'
 Plug 'lilydjwg/colorizer'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'mattn/emmet-vim'
@@ -48,13 +51,11 @@ Plug 'mhinz/vim-signify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/yajs.vim', {'for': 'javascript'}
-Plug 'octol/vim-cpp-enhanced-highlight' " c++ extra code hightlighter
-Plug 'pangloss/vim-javascript'
-Plug 'parkr/vim-jekyll'
+Plug 'octol/vim-cpp-enhanced-highlight'           " c++ extra code hightlighter
 Plug 'raymond-w-ko/vim-niji'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'benekastah/neomake' " neovim replacement for syntastic using neovim's job control functionality
+Plug 'benekastah/neomake'                         " neovim replacement for syntastic using neovim's job control functionality
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'ujihisa/unite-colorscheme'
@@ -74,15 +75,15 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-leiningen'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-repeat' " Smarter repeats through '.'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-repeat'                           " Smarter repeats through '.'
+Plug 'tpope/vim-sensible'                         " Universal set of defaults
+Plug 'guns/vim-sexp'                              " Precision editing of S expression (nested parenthetical expressions)
+Plug 'tpope/vim-sexp-mappings-for-regular-people' " mapping for sexp
 Plug 'tpope/vim-surround'
+Plug 'Valloric/MatchTagAlways'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'Valloric/MatchTagAlways'
 Plug 'walm/jshint.vim'
