@@ -55,3 +55,13 @@ inoremap <M-k> <esc>:m .-2<CR>==gi
 
 vnoremap <M-j> :m '>+1<CR>gv=gv
 vnoremap <M-k> <esc>:m '<-2<CR>gv=gv
+
+" Increase height of preview window
+" Adapted from http://stackoverflow.com/a/3787326/588561
+set previewheight=6
+au WinEnter * call PreviewHeightWorkAround()
+func PreviewHeightWorkAround()
+        if &previewwindow
+                exec 'setlocal winheight='.&previewheight
+        endif
+endfunc
