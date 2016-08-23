@@ -14,9 +14,12 @@ Plug 'vim-airline/vim-airline-themes' " Footer UI themes
 Plug 'mhartington/oceanic-next'       " Neovim theme inspired by Oceanic Next for Sublime
 Plug 'scrooloose/nerdtree'            " A file system explorer
 Plug 'majutsushi/tagbar'              " Display file tags in sidebar
+Plug 'lilydjwg/colorizer'             " colorize all text in form #rgb #rgba #rrggbb
 
-Plug 'fntlnz/atags.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'critiqjo/lldb.nvim'                         " LLDB debugger integration for Neovim
+Plug 'joonty/vdebug' "DBJB debugger client for Vim
+Plug 'fntlnz/atags.vim' " Simplified tag generation for Neovim
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy finder
 Plug 'Lokaltog/vim-distinguished'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'PeterRincker/vim-argumentative'
@@ -29,8 +32,6 @@ Plug 'Wolfy87/vim-syntax-expand'
 Plug 'aklt/plantuml-syntax'
 Plug 'andreimaxim/vim-io'
 Plug 'csscomb/vim-csscomb'
-Plug 'critiqjo/lldb.nvim'                         " LLDB debugger integration for Neovim
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'embear/vim-localvimrc'
 Plug 'evidens/vim-twig'                           " PHP twig template highlighing
@@ -42,9 +43,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'http://git.drupal.org/project/vimrc.git', { 'branch': '7.x-1.x', 'as': 'vim-drupal', 'rtp': './bundle/vim-plugin-for-drupal'}
-Plug 'joonty/vdebug'
 Plug 'junegunn/vim-easy-align'
-Plug 'lilydjwg/colorizer'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-signify'
