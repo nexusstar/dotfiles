@@ -16,14 +16,13 @@ Plug 'scrooloose/nerdtree'            " A file system explorer
 Plug 'majutsushi/tagbar'              " Display file tags in sidebar
 Plug 'lilydjwg/colorizer'             " colorize all text in form #rgb #rgba #rrggbb
 
-Plug 'critiqjo/lldb.nvim'                         " LLDB debugger integration for Neovim
-Plug 'joonty/vdebug' "DBJB debugger client for Vim
-Plug 'fntlnz/atags.vim' " Simplified tag generation for Neovim
-Plug 'ctrlpvim/ctrlp.vim' " Fuzzy finder
-Plug 'Lokaltog/vim-distinguished'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'PeterRincker/vim-argumentative'
-Plug 'Raimondi/delimitMate'
+Plug 'critiqjo/lldb.nvim'             " LLDB debugger integration for Neovim
+Plug 'joonty/vdebug'                  " DBJB debugger client for Vim
+Plug 'fntlnz/atags.vim'               " Simplified tag generation for Neovim
+Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy finder
+Plug 'easymotion/vim-easymotion'      " Vim motion on speed mapped to <space>
+Plug 'PeterRincker/vim-argumentative' " Manipulating and moving between function arguments.
+Plug 'Raimondi/delimitMate'           " automatic closing of quotes, parenthesis, brackets etc.
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'Wolfy87/vim-enmasse'
