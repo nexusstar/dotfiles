@@ -25,9 +25,9 @@ Plug 'PeterRincker/vim-argumentative' " Manipulating and moving between function
 Plug 'Raimondi/delimitMate'           " automatic closing of quotes, parenthesis, brackets etc.
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-Plug 'Wolfy87/vim-enmasse'
-Plug 'Wolfy87/vim-expand'
-Plug 'Wolfy87/vim-syntax-expand'
+Plug 'Olical/vim-enmasse'
+Plug 'Olical/vim-expand' " Allows of expand of funcion {add,remove}(){}
+Plug 'Olical/vim-syntax-expand'
 Plug 'aklt/plantuml-syntax'
 Plug 'andreimaxim/vim-io'
 Plug 'csscomb/vim-csscomb'

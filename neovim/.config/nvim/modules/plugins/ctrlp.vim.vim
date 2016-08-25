@@ -1,3 +1,4 @@
+" CtrlP configuration
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' " Add cash directory to ctrlp
 let g:ctrlp_max_files = 0
 
