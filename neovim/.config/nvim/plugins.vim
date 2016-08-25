@@ -25,9 +25,9 @@ Plug 'PeterRincker/vim-argumentative' " Manipulating and moving between function
 Plug 'Raimondi/delimitMate'           " automatic closing of quotes, parenthesis, brackets etc.
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-Plug 'Olical/vim-enmasse'
-Plug 'Olical/vim-expand' " Allows of expand of funcion {add,remove}(){}
-Plug 'Olical/vim-syntax-expand'
+Plug 'Olical/vim-enmasse'             " Edit every file in a quickfix list at the same time run :EnMasse
+Plug 'Olical/vim-expand'              " Allows of expand of function {add,remove}(){}
+Plug 'Olical/vim-syntax-expand'       " Expand characters to code if not in a comment or string
 Plug 'aklt/plantuml-syntax'
 Plug 'andreimaxim/vim-io'
 Plug 'csscomb/vim-csscomb'
