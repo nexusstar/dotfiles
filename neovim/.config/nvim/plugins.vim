@@ -8,6 +8,12 @@ function! BuildYCM(info)
   endif
 endfunction
 
+function! InstallCssComb(info)
+  if a:info.status == 'installed' || a:info.force
+    !npm install -g csscomb
+  endif
+endfunction
+
 " UI & Navigation
 Plug 'vim-airline/vim-airline'        " Footer UI
 Plug 'vim-airline/vim-airline-themes' " Footer UI themes
@@ -30,7 +36,7 @@ Plug 'Olical/vim-expand'              " Allows of expand of function {add,remove
 Plug 'Olical/vim-syntax-expand'       " Expand characters to code if not in a comment or string
 Plug 'aklt/plantuml-syntax'
 Plug 'andreimaxim/vim-io'
-Plug 'csscomb/vim-csscomb'
+Plug 'csscomb/vim-csscomb' ,{ 'do' : function('InstallCssComb') }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'embear/vim-localvimrc'
 Plug 'evidens/vim-twig'                              " PHP twig template highlighing
