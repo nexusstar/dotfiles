@@ -53,20 +53,18 @@ Plug 'mhinz/vim-signify'                             " version support markings
 Plug 'nathanaelkane/vim-indent-guides'               " Visually displaying indent levels
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/yajs.vim', {'for': 'javascript'}
-Plug 'octol/vim-cpp-enhanced-highlight'              " c++ extra code hightlighter
-Plug 'raymond-w-ko/vim-niji'
-Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'benekastah/neomake'                            " neovim replacement for syntastic using neovim's job control functionality
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/unite-outline'
-Plug 'ujihisa/unite-colorscheme'
-Plug 'junkblocker/unite-codesearch'
-Plug 'Shougo/deoplete.nvim'
-Plug 'carlitux/deoplete-ternjs'
-Plug  'Shougo/neco-vim', {'for': 'vim'}
-Plug 'Shougo/neoinclude.vim'
-Plug 'sevko/vim-nand2tetris-syntax'
+Plug 'octol/vim-cpp-enhanced-highlight'           " c++ extra code hightlighter
+Plug 'rking/ag.vim'                               " silever_searcher plugin
+Plug 'scrooloose/nerdcommenter'                   " comments plugin
+Plug 'benekastah/neomake'                         " neovim replacement for syntastic (syntax checking) using neovim's job control functionality
+Plug 'Shougo/unite.vim'                           " User interfaces from several sources
+Plug 'Shougo/unite-outline'                       " outline view for unite
+Plug 'ujihisa/unite-colorscheme'                  " Unite plugin for changing colorsheeme
+Plug 'junkblocker/unite-codesearch'               " codesearch for unite plugin
+Plug 'Shougo/deoplete.nvim'                       " asynchronous completion framework for neovim
+Plug 'Shougo/neoinclude.vim'                      " completion for neocomplete/deoplete
+Plug 'carlitux/deoplete-ternjs'                   " deoplete sources for tern
+Plug 'Shougo/neco-vim', {'for': 'neovim'}
 Plug 'sjl/gundo.vim'                              " visualize your Vim undo tree
 Plug 'terryma/vim-multiple-cursors'               " multiple selection into Vim
 Plug 'tpope/vim-abolish'                          " Abbreviation, Substitution, Coercion
