@@ -1,21 +1,58 @@
 [user]
     name = Petar Nikov
     email = petar.nikov@gmail.com
+[github]
+    user = nexusstar
 [core]
     editor = nvim
     excludesfile = ~/.gitexcludes
 [color]
     ui = true
+
+[color "branch"]
+    current = green bold
+    local = green
+    remote = yellow
+
+[color "diff"]
+    frag = magenta
+    meta = yellow
+    new = green
+    old = red
+
+[color "status"]
+    added = green reverse
+    changed = yellow reverse
+    untracked = red reverse
+
 [push]
     default = simple
+
 [diff]
-    tool = vimdiff3
+    tool = vimdiff
+
 [merge]
-    tool = vimdiff3
-    conflictstyle = diff3
+    tool = vimdiff
+    conflictstyle = diff
+
 [mergetool]
-    keepbackup = false
     path = nvim
+    prompt = true
+    keepBackup = false
+
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[pretty]
+
+    custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+    #                     │        │            │            │             └─ author name
+    #                     │        │            │            └─ message
+    #                     │        │            └─ date (relative)
+    #                     │        └─ decorations (branch, heads or tags)
+    #                     └─ hash (abbreviated)
+    #
+
 [include]
     path = ~/.gitconfig_local
 [alias]
