@@ -33,7 +33,6 @@
 
 [merge]
     tool = vimdiff
-    conflictstyle = diff
 
 [mergetool]
     path = nvim
