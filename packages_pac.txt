@@ -5,7 +5,6 @@ cowsay
 dmenu
 dunst
 feh
-fish
 git
 gnome-keyring
 gnome-themes-standard
@@ -35,7 +34,6 @@ stow
 termite
 the_silver_searcher
 thunar
-tmux
 ttf-dejavu
 xautolock
 xclip
