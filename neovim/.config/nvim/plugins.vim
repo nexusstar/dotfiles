@@ -14,6 +14,12 @@ function! InstallCssComb(info)
   endif
 endfunction
 
+function! InstallStandard(info)
+  if a:info.status == 'installed' || a:info.force
+    !npm install -g standard
+  endif
+endfunction
+
 " UI & Navigation
 Plug 'vim-airline/vim-airline'        " Footer UI
 Plug 'vim-airline/vim-airline-themes' " Footer UI themes
@@ -57,7 +63,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'              " c++ extra code hightlight
 Plug 'raymond-w-ko/vim-niji'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'benekastah/neomake'                            " neovim replacement for syntastic using neovim's job control functionality
+Plug 'benekastah/neomake',{ 'do' : function('InstallStandard')}        " neovim replacement for syntastic using neovim's job control functionality
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'ujihisa/unite-colorscheme'

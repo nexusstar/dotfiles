@@ -10,7 +10,6 @@ nmap <silent><Leader>p  :lprev<CR>      " previous error/warning
 function! EchoPWD()
   echom getcwd()
 endfunction
-let g:neomake_javascript_enabled_makers = ['eslint']
 function! neomake#makers#ft#javascript#eslint()
   return {
         \ 'args': ['-f', 'compact'],
@@ -18,6 +17,7 @@ function! neomake#makers#ft#javascript#eslint()
         \ '%W%f: line %l\, col %c\, Warning - %m'
         \ }
 endfunction
+let g:neomake_javascript_enabled_makers = ['standard']
 
 function! neomake#makers#ft#typescript#tsc()
   return {
