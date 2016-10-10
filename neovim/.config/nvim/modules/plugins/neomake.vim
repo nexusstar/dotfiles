@@ -10,11 +10,13 @@ nmap <silent><Leader>p  :lprev<CR>      " previous error/warning
 function! EchoPWD()
   echom getcwd()
 endfunction
-function! neomake#makers#ft#javascript#eslint()
-  return {
-        \ 'args': ['-f', 'compact'],
-        \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
-        \ '%W%f: line %l\, col %c\, Warning - %m'
+function! neomake#makers#ft#javascript#standard()
+    return {
+        \ 'errorformat':
+        \ '%E%f %#(%l\,%c): error %m,' .
+        \ '%E%f %#(%l\,%c): %m,' .
+        \ '%Eerror %m,' .
+        \ '%C%\s%\+%m'
         \ }
 endfunction
 let g:neomake_javascript_enabled_makers = ['standard']
@@ -31,6 +33,7 @@ function! neomake#makers#ft#typescript#tsc()
         \ '%C%\s%\+%m'
         \ }
 endfunction
+
 
 let g:neomake_cpp_enabled_makers = ['gcc']
 function! neomake#makers#ft#cpp#gcc()

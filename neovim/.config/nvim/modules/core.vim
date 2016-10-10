@@ -46,16 +46,6 @@ map q <Nop>
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h
 
-" Move lines up and down with Alt+j Alt+k
-nnoremap <M-j> :m .+1<CR>==
-nnoremap <M-k> :m .-2<CR>==
-
-inoremap <M-j> <esc>:m .+1<CR>==gi
-inoremap <M-k> <esc>:m .-2<CR>==gi
-
-vnoremap <M-j> :m '>+1<CR>gv=gv
-vnoremap <M-k> <esc>:m '<-2<CR>gv=gv
-
 " Increase height of preview window
 " Adapted from http://stackoverflow.com/a/3787326/588561
 set previewheight=6
