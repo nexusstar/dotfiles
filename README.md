@@ -43,7 +43,7 @@ cp ~/dotfiles/documentation/fonts/YosemiteSanFranciscoFont/*.ttf ~/dotfiles/font
 ## ToDo
 
 - [x] [ Documentation ][]
-- [ ] Comment out modules in neovim plugin file
+- [x] Comment out modules in neovim plugin file
 - [ ] Remove fish configuration *don't use it anymore*
 
 ## Vim key bindings
