@@ -60,7 +60,6 @@ Plug 'nathanaelkane/vim-indent-guides'               " Visually displaying inden
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/yajs.vim', {'for': 'javascript'}
 Plug 'octol/vim-cpp-enhanced-highlight'              " c++ extra code hightlighter
-Plug 'raymond-w-ko/vim-niji'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'benekastah/neomake',{ 'do' : function('InstallStandard')}        " neovim replacement for syntastic using neovim's job control functionality
@@ -72,7 +71,6 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs'
 Plug  'Shougo/neco-vim', {'for': 'vim'}
 Plug 'Shougo/neoinclude.vim'
-Plug 'sevko/vim-nand2tetris-syntax'
 Plug 'sjl/gundo.vim'                              " visualize your Vim undo tree
 Plug 'terryma/vim-multiple-cursors'               " multiple selection into Vim
 Plug 'tpope/vim-abolish'                          " Abbreviation, Substitution, Coercion
