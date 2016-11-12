@@ -32,6 +32,7 @@ Plug 'critiqjo/lldb.nvim'             " LLDB debugger integration for Neovim
 Plug 'joonty/vdebug'                  " DBJB debugger client for Vim
 Plug 'fntlnz/atags.vim'               " Simplified tag generation for Neovim
 Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy finder
+Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'easymotion/vim-easymotion'      " Vim motion on speed mapped to <space>
 Plug 'PeterRincker/vim-argumentative' " Manipulating and moving between function arguments.
 Plug 'Raimondi/delimitMate'           " automatic closing of quotes, parenthesis, brackets etc.
@@ -67,8 +68,9 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'ujihisa/unite-colorscheme'
 Plug 'junkblocker/unite-codesearch'
-Plug 'Shougo/deoplete.nvim'
-Plug 'carlitux/deoplete-ternjs'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug  'Shougo/neco-vim', {'for': 'vim'}
 Plug 'Shougo/neoinclude.vim'
 Plug 'sjl/gundo.vim'                              " visualize your Vim undo tree

@@ -1,11 +1,8 @@
-" vim-airline ---------------------------------------------------------------{{{
   let g:airline#extensions#tabline#enabled = 1
   set hidden
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#show_tab_nr = 1
   let g:airline_powerline_fonts = 1
-  let g:airline_theme='oceanicnext'
-  " let g:airline_theme='base16_solarized'
   cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
   tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
   nmap <leader>t :term<cr>
@@ -32,4 +29,3 @@
   nmap <leader>7 <Plug>AirlineSelectTab7
   nmap <leader>8 <Plug>AirlineSelectTab8
   nmap <leader>9 <Plug>AirlineSelectTab9
-"}}}
