@@ -24,6 +24,7 @@ endfunction
 Plug 'vim-airline/vim-airline'        " Footer UI
 Plug 'vim-airline/vim-airline-themes' " Footer UI themes
 Plug 'mhartington/oceanic-next'       " Neovim theme inspired by Oceanic Next for Sublime
+Plug 'junegunn/seoul256.vim'          " Low contrast theme
 Plug 'scrooloose/nerdtree'            " A file system explorer
 Plug 'majutsushi/tagbar'              " Display file tags in sidebar
 Plug 'lilydjwg/colorizer'             " colorize all text in form #rgb #rgba #rrggbb
