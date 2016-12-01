@@ -39,6 +39,7 @@ Plug 'PeterRincker/vim-argumentative' " Manipulating and moving between function
 Plug 'Raimondi/delimitMate'           " automatic closing of quotes, parenthesis, brackets etc.
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Olical/vim-enmasse'             " Edit every file in a quickfix list at the same time run :EnMasse
 Plug 'Olical/vim-expand'              " Allows of expand of function {add,remove}(){}
 Plug 'Olical/vim-syntax-expand'       " Expand characters to code if not in a comment or string
@@ -69,11 +70,12 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'ujihisa/unite-colorscheme'
 Plug 'junkblocker/unite-codesearch'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'} "
+Plug 'Shougo/neoinclude.vim'
+Plug 'zchee/deoplete-clang'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug  'Shougo/neco-vim', {'for': 'vim'}
-Plug 'Shougo/neoinclude.vim'
 Plug 'sjl/gundo.vim'                              " visualize your Vim undo tree
 Plug 'terryma/vim-multiple-cursors'               " multiple selection into Vim
 Plug 'tpope/vim-abolish'                          " Abbreviation, Substitution, Coercion
@@ -84,7 +86,6 @@ Plug 'tpope/vim-eunuch'                           " Vim sugar for the UNIX shell
 Plug 'tpope/vim-fugitive'                         " Git wrapper
 Plug 'tpope/vim-ragtag'                           " mappings for HTML, XML, PHP, JSP
 Plug 'tpope/vim-repeat'                           " Smarter repeats through '.'
-Plug 'tpope/vim-sensible'                         " Universal set of defaults
 Plug 'guns/vim-sexp'                              " Precision editing of S expression (nested parenthetical expressions)
 Plug 'tpope/vim-sexp-mappings-for-regular-people' " mapping for sexp
 Plug 'tpope/vim-surround'                         " surround parentheses, brackets, quotes, XML tags
