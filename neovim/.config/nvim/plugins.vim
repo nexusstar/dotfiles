@@ -26,6 +26,10 @@ Plug 'vim-airline/vim-airline-themes' " Footer UI themes
 Plug 'mhartington/oceanic-next'       " Neovim theme inspired by Oceanic Next for Sublime
 Plug 'junegunn/seoul256.vim'          " Low contrast theme
 Plug 'scrooloose/nerdtree'            " A file system explorer
+Plug 'scrooloose/nerdcommenter'
+
+Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status in nerdtree
+
 Plug 'majutsushi/tagbar'              " Display file tags in sidebar
 Plug 'lilydjwg/colorizer'             " colorize all text in form #rgb #rgba #rrggbb
 
@@ -64,7 +68,6 @@ Plug 'othree/es.next.syntax.vim'
 Plug 'othree/yajs.vim', {'for': 'javascript'}
 Plug 'octol/vim-cpp-enhanced-highlight'              " c++ extra code hightlighter
 Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'benekastah/neomake',{ 'do' : function('InstallStandard')}        " neovim replacement for syntastic using neovim's job control functionality
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
