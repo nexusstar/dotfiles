@@ -27,8 +27,7 @@ Plug 'mhartington/oceanic-next'       " Neovim theme inspired by Oceanic Next fo
 Plug 'junegunn/seoul256.vim'          " Low contrast theme
 Plug 'scrooloose/nerdtree'            " A file system explorer
 Plug 'scrooloose/nerdcommenter'
-
-Plug 'Xuyuanp/nerdtree-git-plugin'  " show git status in nerdtree
+Plug 'Xuyuanp/nerdtree-git-plugin'    " show git status in nerdtree
 
 Plug 'majutsushi/tagbar'              " Display file tags in sidebar
 Plug 'lilydjwg/colorizer'             " colorize all text in form #rgb #rgba #rrggbb

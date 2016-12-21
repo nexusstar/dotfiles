@@ -41,3 +41,5 @@ xorg
 xorg-xwd
 xorg-xinit
 yaourt
+zsh
+zsh-completion

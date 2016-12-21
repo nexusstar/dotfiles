@@ -15,4 +15,4 @@ link-config:
 	stow --restow `ls -d */ | grep -v "documentation"`
 
 set-shell:
-	chsh -s `which fish`
+	chsh -s `which zsh`
