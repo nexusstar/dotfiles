@@ -61,8 +61,20 @@ if [[ -d ~/.composer ]]; then
     export PATH="$HOME/.composer/vendor/bin:$PATH"
 fi
 # add rbenv for Ruby and autocompletion
-
 if [[ -d ~/.rbenv ]]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 fi
+# add go path if installed
+if [[ -d /usr/local/go ]]; then
+  export PATH="$PATH:/usr/local/go/bin"
+fi
+
+# source local .zsh_config file instead of .zshrc
+function chpwd() {
+  if [ -r $PWD/.zsh_config ]; then
+    source $PWD/.zsh_config
+  else
+    source $HOME/.zshrc
+  fi
+}
