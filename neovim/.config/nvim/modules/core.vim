@@ -39,7 +39,7 @@ set completeopt+=noselect
 set sessionoptions=blank,curdir,folds,help,tabpages,winsize
 
 " No need for ex mode
-  nnoremap Q <nop>
+nnoremap Q <Nop>
 " no recording macros
 map q <Nop>
 
@@ -55,3 +55,7 @@ func PreviewHeightWorkAround()
                 exec 'setlocal winheight='.&previewheight
         endif
 endfunc
+
+" Map ; to : so instead to use 
+" shift+: just type ;
+nnoremap ; :

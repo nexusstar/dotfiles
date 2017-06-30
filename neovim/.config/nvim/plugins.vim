@@ -51,7 +51,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'                               " emmet support abbreviations expanding
 Plug 'embear/vim-localvimrc'
 Plug 'evidens/vim-twig'                              " PHP twig template highlighing
-Plug 'helino/vim-json'                               " JSON highlighting
 Plug 'luishdez/vim-less'                             " Less highlighting
 Plug 'tpope/vim-markdown'                            " Markdown highlighting
 Plug 'parkr/vim-jekyll'                              " Jekyll blog automation

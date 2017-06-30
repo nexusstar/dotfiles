@@ -4,7 +4,7 @@ if (has("termguicolors"))
 endif
 syntax enable
 colorscheme OceanicNext
-let g:airline_theme="oceanicnext"
+let g:OceanicNext_italic = 1
 set background=dark
 " set background=light
 

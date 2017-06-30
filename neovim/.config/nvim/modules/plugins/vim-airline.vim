@@ -3,7 +3,12 @@ let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#show_tab_nr = 1
   let g:airline_powerline_fonts = 1
-  cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
+  let g:airline#extensions#neomake#error_symbol='• '
+  let g:airline#extensions#neomake#warning_symbol='•  '
+  let g:airline_symbols = {}
+  let g:airline_symbols.branch = ''
+  let g:airline_theme='oceanicnext'
+  cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
   tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
   nmap <leader>t :term<cr>
   nmap <leader>, :bnext<CR>
