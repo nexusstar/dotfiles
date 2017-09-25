@@ -46,7 +46,7 @@ fi
 
 # alias git to g
 if hash g 2>/dev/null; then
-    eval "$(g alias -s)"
+    eval "$(g alias -s)"HOME
 fi
 
 # source fzf
@@ -65,10 +65,6 @@ if [[ -d ~/.rbenv ]]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 fi
-# add go path if installed
-if [[ -d /usr/local/go ]]; then
-  export PATH="$PATH:/usr/local/go/bin"
-fi
 
 # source local .zsh_config file instead of .zshrc
 function chpwd() {
@@ -78,3 +74,9 @@ function chpwd() {
     source $HOME/.zshrc
   fi
 }
+
+# Add gvm if installed
+if [[ -d $HOME/.gvm ]]; then
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+export GOROOT_BOOTSTRAP=$GOROOT
+fi
