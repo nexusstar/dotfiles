@@ -88,6 +88,9 @@ Plug 'zchee/deoplete-clang'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'zchee/deoplete-jedi'
 Plug 'alexlafroscia/deoplete-flow'
+Plug 'mhartington/nvim-typescript' " deoplete typescript
+
+Plug 'HerringtonDarkholme/yats.vim' " TypeScript syntax
 
 Plug 'tpope/vim-abolish'                          " Abbreviation, Substitution, Coercion
 Plug 'tpope/vim-commentary'                       " Comment stuff out.
