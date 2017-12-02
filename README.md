@@ -40,7 +40,8 @@ cp ~/dotfiles/documentation/fonts/YosemiteSanFranciscoFont/*.ttf ~/dotfiles/font
 - [x] [ Documentation ][]
 - [x] Comment out modules in neovim plugin file
 - [x] Remove fish configuration *don't use it anymore*
-- [ ] Remove YouCompleteMe and replace with Deoplete
+- [x] Remove YouCompleteMe and replace with Deoplete
+- [ ] Add Shogu denite for neovim
 
 ## Vim key bindings
 
