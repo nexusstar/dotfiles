@@ -1,5 +1,0 @@
-i3session-git
-pa-applet-git
-playerctl
-xcwd-git
-otf-hack
