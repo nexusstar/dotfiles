@@ -1,11 +1,6 @@
 # dotfiles
 
-This repository consists of configuration for some tools I use within my Linux ([ArchLinux][]) and NeoVim environment.
-
-## Install Arch Linux
-
-+ [Initial Setup and Installation][]
-
+This repository consists of configuration for some tools I use within my Linux ([Ubuntu][]) and NeoVim environment.
 
 
 ## Pre install
@@ -44,7 +39,8 @@ cp ~/dotfiles/documentation/fonts/YosemiteSanFranciscoFont/*.ttf ~/dotfiles/font
 
 - [x] [ Documentation ][]
 - [x] Comment out modules in neovim plugin file
-- [ ] Remove fish configuration *don't use it anymore*
+- [x] Remove fish configuration *don't use it anymore*
+- [ ] Remove YouCompleteMe and replace with Deoplete
 
 ## Vim key bindings
 
@@ -76,5 +72,5 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
 [YouCompleteMe]:https://github.com/Valloric/YouCompleteMe
 [vim-syntax-expand]:https://github.com/Wolfy87/vim-syntax-expand
 [unlicense]:UNLICENSE
-[ArchLinux]: https://www.archlinux.org/
+[Ubuntu]: https://www.ubuntu.com/
 [Initial Setup and Installation]: documentation/InstallArchLinux.md
