@@ -33,10 +33,14 @@ Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels
 Plug 'sjl/gundo.vim'                   " visualize your undo tree
 Plug 'terryma/vim-multiple-cursors'    " multiple selection into Vim
 Plug 'tpope/vim-sleuth'                " automatically adjusts 'shiftwidth' and 'expandtab'
+Plug 'junegunn/vim-easy-align'         " alignment plugin use <ENTER> to specify align pattern
+Plug 'haya14busa/vim-asterisk'         " improved * motion
+Plug 'tpope/vim-abolish'               " Abbreviation, Substitution, Coercion
+Plug 'tpope/vim-repeat'                " Smarter repeats through '.'
+Plug 'Shougo/neco-vim'                 " spell helper
+Plug 'tpope/vim-eunuch'                " run shell commands as [:Delete, :Unlink, :Move, :Rename]
 Plug 'guns/vim-sexp'                   " Precision editing of S expression (nested parenthetical expressions)
 Plug 'tpope/vim-sexp-mappings-for-regular-people' " mapping for sexp
-Plug 'junegunn/vim-easy-align'        " alignment plugin use <ENTER> to specify align pattern
-Plug 'haya14busa/vim-asterisk'        " improved * motion
 
 " -- Coding helppers
 Plug 'PeterRincker/vim-argumentative' " Manipulating and moving between function arguments.
@@ -47,10 +51,12 @@ Plug 'Olical/vim-syntax-expand'       " Expand characters to code if not in a co
 Plug 'Olical/vim-enmasse'             " Edit every file in a quickfix list at the same time run :EnMasse
 Plug 'mattn/emmet-vim'                " emmet support abbreviations expanding
 Plug 'fntlnz/atags.vim'               " Simplified tag generation for Neovim
+Plug 'tpope/vim-surround'             " surround parentheses, brackets, quotes, XML tags
+Plug 'tpope/vim-endwise'              " automatic ending some structure if, do etc.
 Plug 'tpope/vim-commentary'           " Comment stuff out.
-Plug 'SirVer/ultisnips'
 Plug 'haya14busa/incsearch.vim'
-Plug 'Shougo/neco-vim' " spell helper
+Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-dispatch'          " Kick off builds and test suites and load automatic
 
 " -- Debuggers
 Plug 'critiqjo/lldb.nvim'             " LLDB debugger integration for Neovim
@@ -91,12 +97,4 @@ Plug 'zchee/deoplete-jedi'
 Plug 'alexlafroscia/deoplete-flow'
 
 Plug 'leafgarland/typescript-vim'
-Plug 'mhartington/nvim-typescript'  " deoplete typescript
-
-Plug 'tpope/vim-abolish'                          " Abbreviation, Substitution, Coercion
-Plug 'tpope/vim-repeat'                           " Smarter repeats through '.'
-Plug 'tpope/vim-dispatch'                         " Kick off builds and test suites and load automatic
-Plug 'tpope/vim-endwise'                          " automatic ending some structure if, do etc.
-Plug 'tpope/vim-eunuch'                           " Vim sugar for the UNIX shell commands
-Plug 'tpope/vim-surround'                         " surround parentheses, brackets, quotes, XML tags
-Plug 'tpope/vim-unimpaired'                       " extra mappings
+Plug 'mhartington/nvim-typescript' " deoplete typescript
