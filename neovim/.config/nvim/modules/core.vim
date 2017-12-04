@@ -32,14 +32,14 @@ set noswapfile
 " Write files as they are, don't mess with line endings etc.
 set binary
 
+" Set default indent
+set tabstop=2 shiftwidth=2 expandtab
+
 " Force selection of match in menu
 set completeopt+=noselect
 
 " Make session files minimal.
 set sessionoptions=blank,curdir,folds,help,tabpages,winsize
-
-" No need for ex mode
-nnoremap Q <Nop>
 
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h

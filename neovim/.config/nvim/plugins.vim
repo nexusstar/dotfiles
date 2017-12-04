@@ -29,7 +29,6 @@ Plug 'editorconfig/editorconfig-vim'   " Support of .editorconfig
 Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy finder
 Plug 'FelikZ/ctrlp-py-matcher'         " python ctrlp matcher
 Plug 'mileszs/ack.vim'                 " ask search tool
-Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels
 Plug 'sjl/gundo.vim'                   " visualize your undo tree
 Plug 'terryma/vim-multiple-cursors'    " multiple selection into Vim
 Plug 'tpope/vim-sleuth'                " automatically adjusts 'shiftwidth' and 'expandtab'
