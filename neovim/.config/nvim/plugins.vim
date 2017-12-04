@@ -50,6 +50,7 @@ Plug 'fntlnz/atags.vim'               " Simplified tag generation for Neovim
 Plug 'tpope/vim-commentary'           " Comment stuff out.
 Plug 'SirVer/ultisnips'
 Plug 'haya14busa/incsearch.vim'
+Plug 'Shougo/neco-vim' " spell helper
 
 " -- Debuggers
 Plug 'critiqjo/lldb.nvim'             " LLDB debugger integration for Neovim
@@ -81,7 +82,6 @@ Plug 'octol/vim-cpp-enhanced-highlight'              " c++ extra code hightlight
 Plug 'benekastah/neomake',{ 'do' : function('InstallStandard')}        " neovim replacement for syntastic using neovim's job control functionality
 Plug 'Shougo/neoinclude.vim'
 Plug 'walm/jshint.vim'                            " Run jshint from vim, and show the result
-Plug 'Shougo/neco-vim', {'for': 'vim'}
 
 " -- Deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'} "
@@ -89,9 +89,9 @@ Plug 'zchee/deoplete-clang'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'zchee/deoplete-jedi'
 Plug 'alexlafroscia/deoplete-flow'
-Plug 'mhartington/nvim-typescript' " deoplete typescript
 
-Plug 'HerringtonDarkholme/yats.vim' " TypeScript syntax
+Plug 'leafgarland/typescript-vim'
+Plug 'mhartington/nvim-typescript'  " deoplete typescript
 
 Plug 'tpope/vim-abolish'                          " Abbreviation, Substitution, Coercion
 Plug 'tpope/vim-repeat'                           " Smarter repeats through '.'
