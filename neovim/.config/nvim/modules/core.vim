@@ -33,7 +33,9 @@ set noswapfile
 set binary
 
 " Set default indent
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=2 
+set shiftwidth=2
+set expandtab
 
 " Force selection of match in menu
 set completeopt+=noselect
@@ -43,16 +45,6 @@ set sessionoptions=blank,curdir,folds,help,tabpages,winsize
 
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h
-
-" Increase height of preview window
-" Adapted from http://stackoverflow.com/a/3787326/588561
-set previewheight=6
-au WinEnter * call PreviewHeightWorkAround()
-func PreviewHeightWorkAround()
-        if &previewwindow
-                exec 'setlocal winheight='.&previewheight
-        endif
-endfunc
 
 " Map ; to : so instead to use 
 " shift+: just type ;

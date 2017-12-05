@@ -3,8 +3,8 @@ let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#show_tab_nr = 1
   let g:airline_powerline_fonts = 1
-  let g:airline#extensions#neomake#error_symbol='• '
-  let g:airline#extensions#neomake#warning_symbol='•  '
+  let g:airline#extensions#ale#error_symbol='‽ '
+  let g:airline#extensions#ale#warning_symbol='⚠  '
   let g:airline_symbols = {}
   let g:airline_symbols.branch = ''
   cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'

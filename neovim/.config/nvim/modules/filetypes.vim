@@ -32,6 +32,5 @@ if has('autocmd') && !exists('autocommands_loaded')
 
     autocmd BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
 
-    autocmd! BufWritePost * Neomake
 endif
 

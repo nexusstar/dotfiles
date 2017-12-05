@@ -8,37 +8,32 @@ function! InstallCssComb(info)
   endif
 endfunction
 
-function! InstallStandard(info)
-  if a:info.status == 'installed' || a:info.force
-    !npm install -g standard
-  endif
-endfunction
-
 " --  UI & Navigation
-Plug 'vim-airline/vim-airline'         " Footer UI
-Plug 'vim-airline/vim-airline-themes'  " Footer UI themes
-Plug 'mhartington/oceanic-next'        " Neovim theme inspired by Oceanic Next for Sublime
-Plug 'junegunn/seoul256.vim'           " Low contrast theme
-Plug 'scrooloose/nerdtree'             " A file system explorer
-Plug 'tpope/vim-vinegar'               " netrw project drawer press `-` to hop in directory
-Plug 'Xuyuanp/nerdtree-git-plugin'     " show git status in nerdtree
-Plug 'majutsushi/tagbar'               " Display file tags in sidebar
-Plug 'lilydjwg/colorizer'              " colorize all text in form #rgb #rgba #rrggbb
-Plug 'easymotion/vim-easymotion'       " Vim motion on speed mapped to <space>
-Plug 'editorconfig/editorconfig-vim'   " Support of .editorconfig
-Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy finder
-Plug 'FelikZ/ctrlp-py-matcher'         " python ctrlp matcher
-Plug 'mileszs/ack.vim'                 " ask search tool
-Plug 'sjl/gundo.vim'                   " visualize your undo tree
-Plug 'terryma/vim-multiple-cursors'    " multiple selection into Vim
-Plug 'tpope/vim-sleuth'                " automatically adjusts 'shiftwidth' and 'expandtab'
-Plug 'junegunn/vim-easy-align'         " alignment plugin use <ENTER> to specify align pattern
-Plug 'haya14busa/vim-asterisk'         " improved * motion
-Plug 'tpope/vim-abolish'               " Abbreviation, Substitution, Coercion
-Plug 'tpope/vim-repeat'                " Smarter repeats through '.'
-Plug 'Shougo/neco-vim'                 " spell helper
-Plug 'tpope/vim-eunuch'                " run shell commands as [:Delete, :Unlink, :Move, :Rename]
-Plug 'guns/vim-sexp'                   " Precision editing of S expression (nested parenthetical expressions)
+Plug 'vim-airline/vim-airline'        " Footer UI
+Plug 'vim-airline/vim-airline-themes' " Footer UI themes
+Plug 'mhartington/oceanic-next'       " Neovim theme inspired by Oceanic Next for Sublime
+Plug 'junegunn/seoul256.vim'          " Low contrast theme
+Plug 'scrooloose/nerdtree'            " A file system explorer
+Plug 'tpope/vim-vinegar'              " netrw project drawer press `-` to hop in directory
+Plug 'Xuyuanp/nerdtree-git-plugin'    " show git status in nerdtree
+Plug 'majutsushi/tagbar'              " Display file tags in sidebar
+Plug 'lilydjwg/colorizer'             " colorize all text in form #rgb #rgba #rrggbb
+Plug 'easymotion/vim-easymotion'      " Vim motion on speed mapped to <space>
+Plug 'editorconfig/editorconfig-vim'  " Support of .editorconfig
+Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy finder
+Plug 'FelikZ/ctrlp-py-matcher'        " python ctrlp matcher
+Plug 'mileszs/ack.vim'                " ask search tool
+Plug 'sjl/gundo.vim'                  " visualize your undo tree
+Plug 'terryma/vim-multiple-cursors'   " multiple selection into Vim
+Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab'
+Plug 'junegunn/vim-easy-align'        " alignment plugin use <ENTER> to specify align pattern
+Plug 'haya14busa/vim-asterisk'        " improved * motion
+Plug 'tpope/vim-abolish'              " Abbreviation, Substitution, Coercion
+Plug 'tpope/vim-repeat'               " Smarter repeats through '.'
+Plug 'Shougo/neco-vim'                " spell helper
+Plug 'tpope/vim-eunuch'               " run shell commands as [:Delete, :Unlink, :Move, :Rename]
+Plug 'guns/vim-sexp'                  " Precision editing of S expression (nested parenthetical expressions)
+Plug 'w0rp/ale'                       " Asynchronus lint engine
 Plug 'tpope/vim-sexp-mappings-for-regular-people' " mapping for sexp
 
 " -- Coding helppers
@@ -84,7 +79,6 @@ Plug 'othree/es.next.syntax.vim'
 Plug 'othree/yajs.vim', {'for': 'javascript'}
 
 Plug 'octol/vim-cpp-enhanced-highlight'              " c++ extra code hightlighter
-Plug 'benekastah/neomake',{ 'do' : function('InstallStandard')}        " neovim replacement for syntastic using neovim's job control functionality
 Plug 'Shougo/neoinclude.vim'
 Plug 'walm/jshint.vim'                            " Run jshint from vim, and show the result
 
