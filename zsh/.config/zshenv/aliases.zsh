@@ -66,7 +66,9 @@ alias pumpitup="osascript -e 'set volume 10'"
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 # Docker
-# Delete all docker images and containers.
-alias dockernuke="docker rm $(docker ps -a -q) && docker rmi -f $(docker images -q)"
-# Kill all running containers.
-alias dockerkill="docker stop $(docker ps -a -q)"
+if docker > /dev/null 2>&1;  then
+    # Delete all docker images and containers.
+    alias dockernuke="docker rm $(docker ps -a -q) && docker rmi -f $(docker images -q)"
+    # Kill all running containers.
+    alias dockerkill="docker stop $(docker ps -a -q)"
+fi
