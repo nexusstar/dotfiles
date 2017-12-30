@@ -36,5 +36,3 @@ autocmd WinEnter * call Preview_func()
 let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources._ = ['around']
 
-inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<Up>"

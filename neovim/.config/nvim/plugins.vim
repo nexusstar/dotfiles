@@ -33,8 +33,9 @@ Plug 'tpope/vim-repeat'               " Smarter repeats through '.'
 Plug 'Shougo/neco-vim'                " spell helper
 Plug 'tpope/vim-eunuch'               " run shell commands as [:Delete, :Unlink, :Move, :Rename]
 Plug 'guns/vim-sexp'                  " Precision editing of S expression (nested parenthetical expressions)
-Plug 'w0rp/ale'                       " Asynchronus lint engine
+Plug 'w0rp/ale'                                   " Asynchronus lint engine
 Plug 'tpope/vim-sexp-mappings-for-regular-people' " mapping for sexp
+Plug 'eugen0329/vim-esearch'                      " Project wide async search and replace
 
 " -- Coding helppers
 Plug 'PeterRincker/vim-argumentative' " Manipulating and moving between function arguments.
