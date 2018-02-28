@@ -44,8 +44,8 @@ nnoremap <silent> <leader>cw :call <SID>trim_trailing_whitespace()<CR>
 nnoremap <silent> <leader>wf :tab sp<CR>
 
 " Pull from either side of a git conflict.
-nnoremap <silent> <leader>gl :diffget LOCAL<CR>
-nnoremap <silent> <leader>gr :diffget REMOTE<CR>
+nnoremap <silent> <leader>gl :<C-U>diffget LOCAL<CR>
+nnoremap <silent> <leader>gr :<C-U>diffget REMOTE<CR>
 
 "Start terminal mode with \t
 function! s:start_terminal_mode()

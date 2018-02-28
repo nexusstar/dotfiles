@@ -13,13 +13,14 @@ On first run nvim shows error for missing dictionary this is solved by running:
 <leader> is mapped to < \ > double <leader> shows mappings.
 
 ### Edit
-*<leader>bd* delete hidden buffers
-*<leader>/c* counts search results
-*<leader>cw* trim trailing whitespaces
-*<leader>/d* clear search results (*<C-L>*- remove highlight)
-### Git
-*<leader>gb* git blame
-*<leader>gc* git commit
+`<leader>bd` delete hidden buffers
+`<leader>/c` counts search results
+`<leader>cw` trim trailing whitespaces
+`<leader>/d` clear search results (`<C-L>`- remove highlight)
+
+### Git (using vim-fugitive)
+`<leader>gb` git blame
+`<leader>gc` git commit
 
 
 
