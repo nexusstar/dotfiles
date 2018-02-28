@@ -57,7 +57,7 @@ nnoremap <silent> <leader>t :call <SID>start_terminal_mode()<CR>
 "Generate tags
 nnoremap <silent> <leader>ta :call atags#generate()<CR>
 
-"Start gtd timer with 25 minute session and 5 min break
+"Start gtd timer with 20 minute session and 4 min break
 function! s:start_terminal_timer()
   :te ~/dotfiles/gtd/gtd -n 20
 endfunction
@@ -68,8 +68,8 @@ nnoremap <silent> <leader>tm :call <SID>start_terminal_timer()<CR>
 nnoremap <M-j> :m .+1<CR>==
 nnoremap <M-k> :m .-2<CR>==
 
-inoremap <M-j> <esc>:m .+1<CR>==gi
 inoremap <M-k> <esc>:m .-2<CR>==gi
+inoremap <M-j> <esc>:m .+1<CR>==gi
 
 vnoremap <M-j> :m '>+1<CR>gv=gv
 vnoremap <M-k> <esc>:m '<-2<CR>gv=gv
