@@ -56,7 +56,7 @@ Plug 'tpope/vim-dispatch'          " Kick off builds and test suites and load au
 
 " -- Debuggers
 Plug 'critiqjo/lldb.nvim'             " LLDB debugger integration for Neovim
-Plug 'joonty/vdebug'                  " DBJB debugger client for Vim
+Plug 'vim-vdebug/vdebug'                  " DBJB debugger client for Vim
 
 
 " -- Git
