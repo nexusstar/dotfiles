@@ -45,6 +45,8 @@ set sessionoptions=blank,curdir,folds,help,tabpages,winsize
 
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " Map ; to : so instead to use 
 " shift+: just type ;
