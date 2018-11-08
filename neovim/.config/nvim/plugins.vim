@@ -31,12 +31,18 @@ Plug 'tpope/vim-abolish'              " Abbreviation, Substitution, Coercion
 Plug 'tpope/vim-repeat'               " Smarter repeats through '.'
 Plug 'Shougo/neco-vim'                " spell helper
 Plug 'tpope/vim-eunuch'               " run shell commands as [:Delete, :Unlink, :Move, :Rename]
-Plug 'guns/vim-sexp'                  " Precision editing of S expression (nested parenthetical expressions)
+Plug 'guns/vim-sexp'                  " Precision editing of S expression (nested parenthetical xpressions)
 Plug 'w0rp/ale'                                   " Asynchronus lint engine
 Plug 'tpope/vim-sexp-mappings-for-regular-people' " mapping for sexp
 Plug 'eugen0329/vim-esearch'                      " Project wide async search and replace
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder installed system wide
 Plug 'junegunn/fzf.vim'
+" denite
+Plug 'Shougo/denite.nvim'
+Plug 'nixprime/cpsm', {'build': 'PY3=ON ./install.sh'}
+Plug 'Shougo/neomru.vim'
+Plug 'chemzqm/denite-extra'
+Plug 'pocari/vim-denite-gists'
 
 " -- Coding helppers
 Plug 'PeterRincker/vim-argumentative' " Manipulating and moving between function arguments.
@@ -56,7 +62,6 @@ Plug 'tpope/vim-dispatch'          " Kick off builds and test suites and load au
 
 " -- Debuggers
 Plug 'critiqjo/lldb.nvim'             " LLDB debugger integration for Neovim
-Plug 'vim-vdebug/vdebug'                  " DBJB debugger client for Vim
 
 
 " -- Git

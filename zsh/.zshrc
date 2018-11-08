@@ -28,7 +28,6 @@ for config ($ZSH/**/*.zsh) source $config
 
     export EDITOR='nvim'
 
-    export PATH=/usr/local/bin:$PATH
 
     # add /usr/local/sbin
     if [[ -d /usr/local/sbin ]]; then
@@ -83,3 +82,4 @@ for config ($ZSH/**/*.zsh) source $config
       [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
       export GOROOT_BOOTSTRAP=$GOROOT
     fi
+    export PATH=/usr/local/bin:$PATH
