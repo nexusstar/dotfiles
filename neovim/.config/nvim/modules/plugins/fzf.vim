@@ -18,3 +18,7 @@ command! -bang -nargs=* Ag
   \                 <bang>0)
 
 command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+" Find files inside Git project
+command! -bang -nargs=* Find
+      \ call fzf#run ({'source': 'git ls-files', 'sink': 'vsp', 'down' : '30%'})
