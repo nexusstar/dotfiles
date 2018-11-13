@@ -45,4 +45,3 @@ let s:menus = {}
     \ [ '.git/', '.ropeproject/', '__pycache__/',
     \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
   call denite#custom#var('menu', 'menus', s:menus)
-  let g:ctrlp_user_command = 'ag --hidden --ignore .git -l -g ""'

@@ -33,8 +33,8 @@ Plug 'Shougo/neco-vim'                " spell helper
 Plug 'tpope/vim-eunuch'               " run shell commands as [:Delete, :Unlink, :Move, :Rename]
 Plug 'tpope/vim-unimpaired' " Lots of useful pairs of mappings
 Plug 'guns/vim-sexp'                  " Precision editing of S expression (nested parenthetical xpressions)
-Plug 'w0rp/ale'                                   " Asynchronus lint engine
 Plug 'tpope/vim-sexp-mappings-for-regular-people' " mapping for sexp
+Plug 'w0rp/ale'                                   " Asynchronus lint engine
 Plug 'eugen0329/vim-esearch'                      " Project wide async search and replace
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzy finder installed system wide
 Plug 'junegunn/fzf.vim'
