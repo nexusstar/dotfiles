@@ -20,8 +20,8 @@ Plug 'majutsushi/tagbar'              " Display file tags in sidebar
 Plug 'lilydjwg/colorizer'             " colorize all text in form #rgb #rgba #rrggbb
 Plug 'easymotion/vim-easymotion'      " Vim motion on speed mapped to <space>
 Plug 'editorconfig/editorconfig-vim'  " Support of .editorconfig
-Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy finder
-Plug 'FelikZ/ctrlp-py-matcher'        " python ctrlp matcher
+"Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy finder
+"Plug 'FelikZ/ctrlp-py-matcher'        " python ctrlp matcher
 Plug 'sjl/gundo.vim'                  " visualize your undo tree
 Plug 'terryma/vim-multiple-cursors'   " multiple selection into Vim
 Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab'
@@ -31,6 +31,7 @@ Plug 'tpope/vim-abolish'              " Abbreviation, Substitution, Coercion
 Plug 'tpope/vim-repeat'               " Smarter repeats through '.'
 Plug 'Shougo/neco-vim'                " spell helper
 Plug 'tpope/vim-eunuch'               " run shell commands as [:Delete, :Unlink, :Move, :Rename]
+Plug 'tpope/vim-unimpaired' " Lots of useful pairs of mappings
 Plug 'guns/vim-sexp'                  " Precision editing of S expression (nested parenthetical xpressions)
 Plug 'w0rp/ale'                                   " Asynchronus lint engine
 Plug 'tpope/vim-sexp-mappings-for-regular-people' " mapping for sexp
