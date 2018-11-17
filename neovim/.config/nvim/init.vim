@@ -1,19 +1,63 @@
-" Make Vim more useful. This should always be your first configuration line.
-set nocompatible
+" Most config is stored in an individual file in the `config` folder.
 
-" Always edit in utf-8:
-set encoding=utf-8
+" Clear all
+augroup initvim
+    autocmd!
+augroup END
 
-" Wraps paths to make them relative to this directory.
-function! Dot(path)
-  return '~/.config/nvim/' . a:path
+" Function to load multiple config files.
+function! LoadPluginConfig() abort
+    let l:plugin_folder = g:config_folder . 'plugins'
+    let s:plugins = split(globpath(l:plugin_folder, '*.vim'), '\n')
+    let l:loaded = 0
+    for plugin in s:plugins
+        let s:inactive = match(plugin ,"inactive")
+        if s:inactive == -1
+            try
+                exe 'source ' . plugin
+                let l:loaded += 1
+            catch
+                echohl WarningMsg
+                echom 'Error: ----->' . v:exception
+                echom 'Could not load ' . plugin
+                echohl none
+            endtry
+        endif
+    endfor
 endfunction
 
-" Load all configuration modules.
-for file in split(glob(Dot('modules/*.vim')), '\n')
-  execute 'source' file
-endfor
+" Function to source a vim file.
+function! Source(file) abort
+    try
+        exe 'source ' . g:config_folder . a:file
+    catch
+        echohl WarningMsg
+        echom 'Error: ----->' . v:exception
+        echom 'Could not load ' . a:file
+        echohl none
+    endtry
+endfunction
 
-if filereadable("~/.nvim.local.vim")
-    source ~/.nvim.local.vim
+" Source all the other config.
+
+if has('win32')
+    let g:config_folder = fnamemodify(expand($MYVIMRC), ':p:h') . '/modules/'
+else
+    if has('nvim')
+        let g:config_folder = expand('~/.config/nvim/modules/')
+    endif
 endif
+
+call Source('core.vim')
+call Source('filetypes.vim')
+call Source('fold.vim')
+call Source('highlighting.vim')
+call Source('mappings.vim')
+call Source('performance.vim')
+call Source('search.vim')
+call Source('spelling.vim')
+call Source('terminal.vim')
+call Source('themes.vim')
+call Source('undo.vim')
+call Source('plugins.vim')
+call LoadPluginConfig()
