@@ -1,4 +1,4 @@
-" Most config is stored in an individual file in the `config` folder.
+" Most config is stored in an individual file in the `modules` folder.
 
 " Clear all
 augroup initvim

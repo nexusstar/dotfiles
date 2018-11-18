@@ -39,7 +39,7 @@ try
   nnoremap <silent> <leader>b :Denite buffer<CR>
   nnoremap <silent> <leader>a :Denite grep:::!<CR>
   nnoremap <silent> <leader>u :call dein#update()<CR>
-  nnoremap <silent> <Leader>i :Denite menu:ionic <CR>
+  nnoremap <silent> <leader>i :Denite menu:ionic <CR>
   call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
   call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
   call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',

@@ -7,6 +7,7 @@ function! InstallCssComb(info)
     !npm install -g csscomb
   endif
 endfunction
+
 " Auto install vim-plug
 
 if has('win32')
