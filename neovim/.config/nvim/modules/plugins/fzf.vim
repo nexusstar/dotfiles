@@ -13,6 +13,6 @@ nnoremap <silent> <leader>F :call fzf#vim#files('.', {'options':'--query '.expan
 " Ag search only content not filenames
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'},'up:40%')
+  \                 <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'},'down:40%')
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
 \ <bang>0)

@@ -50,6 +50,7 @@ Plug 'vim-airline/vim-airline'        " Footer UI
 Plug 'vim-airline/vim-airline-themes' " Footer UI themes
 Plug 'mhartington/oceanic-next'       " Neovim theme inspired by Oceanic Next for Sublime
 Plug 'junegunn/seoul256.vim'          " Low contrast theme
+Plug 'lifepillar/vim-solarized8'
 Plug 'scrooloose/nerdtree'            " A file system explorer
 Plug 'tpope/vim-vinegar'              " netrw project drawer press `-` to hop in directory
 Plug 'Xuyuanp/nerdtree-git-plugin'    " show git status in nerdtree
@@ -99,7 +100,7 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-dispatch'          " Kick off builds and test suites and load automatic
 
 " -- Debuggers
-Plug 'critiqjo/lldb.nvim'             " LLDB debugger integration for Neovim
+"Plug 'critiqjo/lldb.nvim'             " LLDB debugger integration for Neovim
 
 
 " -- Git
