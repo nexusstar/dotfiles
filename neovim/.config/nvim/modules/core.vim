@@ -45,9 +45,13 @@ set sessionoptions=blank,curdir,folds,help,tabpages,winsize
 
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h
-let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/usr/bin/python3'
 
+" set python_prog
+if has('win32')
+let g:python_host_prog = substitute(system('where.exe python2'), '\n$', '', '')
+let g:python3_host_prog = substitute(system('where.exe python3'), '\n$', '', '')
+set shell=powershell shellquote=\" shellpipe=\| shellredir=>
+endif
 " Map ; to : so instead to use 
 " shift+: just type ;
 nnoremap ; :

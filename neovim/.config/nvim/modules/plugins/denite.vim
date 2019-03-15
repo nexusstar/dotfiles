@@ -1,4 +1,5 @@
-let s:menus = {}
+﻿let s:menus = {}
+try
   call denite#custom#option('_', {
         \ 'prompt': '❯',
         \ 'winheight': 10,
@@ -14,23 +15,23 @@ let s:menus = {}
   call denite#custom#option('TSWorkspaceSymbol', {
         \ 'prompt': ' #' ,
         \})
-
-	call denite#custom#source('file_rec', 'vars', {
+  
+  call denite#custom#source('file_rec', 'vars', {
         \'command': ['rg', '--files', '--glob', '!.git'],
         \'sorters':['sorter_sublime'],
         \'matchers': ['matches_cpsm']
         \})
   "     \ 'command': ['ag', '--follow','--nogroup','--hidden', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules'
-
-	call denite#custom#source('grep', 'vars', {
+  
+  call denite#custom#source('grep', 'vars', {
         \'command': ['rg'],
-	      \'default_opts': ['-i', '--vimgrep'],
-	      \'recursive_opts': [],
-	      \'pattern_opt': [],
-	      \'separator': ['--'],
-	      \'final_opts': [],
+        \'default_opts': ['-i', '--vimgrep'],
+        \'recursive_opts': [],
+        \'pattern_opt': [],
+        \'separator': ['--'],
+        \'final_opts': [],
         \})
-
+  
   nnoremap <silent> <c-p> :Denite file_rec<CR>
   nnoremap <silent> <leader>h :Denite help<CR>
   nnoremap <silent> <leader>v :Denite vison<CR>
@@ -38,10 +39,12 @@ let s:menus = {}
   nnoremap <silent> <leader>b :Denite buffer<CR>
   nnoremap <silent> <leader>a :Denite grep:::!<CR>
   nnoremap <silent> <leader>u :call dein#update()<CR>
-  nnoremap <silent> <Leader>i :Denite menu:ionic <CR>
+  nnoremap <silent> <leader>i :Denite menu:ionic <CR>
   call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
-	call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
+  call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
   call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-    \ [ '.git/', '.ropeproject/', '__pycache__/',
-    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+        \ [ '.git/', '.ropeproject/', '__pycache__/',
+        \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
   call denite#custom#var('menu', 'menus', s:menus)
+catch
+endtry

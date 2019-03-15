@@ -1,4 +1,5 @@
-" enable deoplete
+﻿" enable deoplete
+try
 let g:deoplete#enable_at_startup = 1
 let g:echodoc_enable_at_startup=1
 set splitbelow
@@ -35,4 +36,5 @@ endfunction
 autocmd WinEnter * call Preview_func()
 let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources._ = ['around']
-
+catch
+endtry
