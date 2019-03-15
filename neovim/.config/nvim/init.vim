@@ -1,13 +1,30 @@
 " Plugins  ------------------------------------------------------------------{{{
 
-" Setup dein {{{
-  if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
-    call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
-    call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
-  endif
 
-  set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
-  call dein#begin(expand('~/.config/nvim'))
+" Setup dein {{{
+  " Auto install dein
+  if has('win32')
+      if !isdirectory(expand('~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim'))
+          echo "Installing dein.vim..."
+          silent !powershell -Command "New-Item -ItemType Directory -Path $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo -Force"
+          silent !powershell -Command "git clone https://github.com/Shougo/dein.vim $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim"
+      endif
+      set runtimepath+=~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim
+  endif
+  if !has('win32')
+    echo "Installing udner .config/nvim dein.vim..."
+    if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
+      call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
+      call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
+    endif
+     set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
+  endif
+  if has('win32')
+    call dein#begin(expand('~/dotfiles/neovim/.config/nvim'))
+  endif
+  if !has('win32')
+    call dein#begin(expand('~/.config/nvim'))
+  endif
 
   call dein#add('Shougo/dein.vim')
   call dein#add('haya14busa/dein-command.vim')
@@ -17,7 +34,6 @@
   call dein#add('itmammoth/doorboy.vim')
   call dein#add('eugen0329/vim-esearch')
   call dein#add('tpope/vim-repeat')
-  call dein#add('tpope/vim-unimpaired')
   call dein#add('AndrewRadev/switch.vim')
   call dein#add('christoomey/vim-tmux-navigator')
   call dein#add('tpope/vim-surround')
@@ -50,9 +66,9 @@
   call dein#add('lambdalisue/fila.vim')
 " }}}
 " code style {{{
-  " call dein#add('neomake/neomake')
   call dein#add('sbdchd/neoformat')
   call dein#add('editorconfig/editorconfig-vim')
+  call dein#add('w0rp/ale')
 " }}}
 " completion {{{
   call dein#add('Shougo/deoplete.nvim')
@@ -75,7 +91,6 @@
   call dein#add('sgeb/vim-diff-fold')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('junegunn/gv.vim')
-  "call dein#add('AGhost-7/critiq.vim')
   call dein#add('lambdalisue/gina.vim')
 " }}}}
 " snippets {{{
@@ -110,7 +125,14 @@
   call dein#add('elzr/vim-json')
   call dein#add('HerringtonDarkholme/yats.vim')
   call dein#add('Quramy/vison')
-  " call dein#add('yardnsm/vim-import-cost', {'build': 'npm install'})
+  " REQUIRED: Add a syntax file. YATS is the best
+  call dein#add('HerringtonDarkholme/yats.vim')
+  call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
+  " For async completion
+  call dein#add('Shougo/deoplete.nvim')
+  " For Denite features
+  call dein#add('Shougo/denite.nvim')
+  call dein#local('neomake/neomake')
 " }}}
 " html {{{
   call dein#add('othree/html5.vim')
@@ -127,19 +149,6 @@
 " }}}
 " reason {{{
   call dein#add('reasonml-editor/vim-reason-plus')
-" }}}
-" java {{{
-" }}}
-" local {{{
-  " REQUIRED: Add a syntax file. YATS is the best
-  call dein#add('HerringtonDarkholme/yats.vim')
-  call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
-  " For async completion
-  call dein#add('Shougo/deoplete.nvim')
-  " For Denite features
-  call dein#add('Shougo/denite.nvim')
-  call dein#local('mhartington/vim-folds')
-  call dein#local('neomake/neomake')
 " }}}
 " Has to be last according to docs
   call dein#add('ryanoasis/vim-devicons')
@@ -184,11 +193,20 @@
   set autoread
   set updatetime=500
   set fillchars+=vert:│
+  " More natural splitting.
+  set splitbelow
+  set splitright
+  " Make session files minimal.
+  set sessionoptions=blank,curdir,folds,help,tabpages,winsize
+  " Automaticaly change the current directory
+  autocmd BufEnter * silent! lcd %:p:h
   " set numberwidth=5
-" leader is ,
-  let mapleader = ','
+" leader is \
+  let mapleader = '\'
   set undofile
   set undodir="$HOME/.VIM_UNDO_FILES"
+  set undolevels=1000
+  set undoreload=10000
 " Remember cursor position between vim sessions
  autocmd BufReadPost *
              \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -205,20 +223,21 @@
   set isfname-==
   set spell
   let g:indentLine_color_gui = '#343d46'
+  " Automaticaly change the current directory
+  autocmd BufEnter * silent! lcd %:p:h
+  " Highlight searches.
+  set hlsearch
+  " Highlight the current line.
+  set cursorline
+  " Send more characters to the terminal at once.
+  " Makes things smoother, will probably be enabled by my terminal anyway.
+  set ttyfast
 
-    " Automaticaly change the current directory
-    autocmd BufEnter * silent! lcd %:p:h
+  " Stops macros rendering every step.
+  set lazyredraw
 " }}}
 
 " System mappings  ----------------------------------------------------------{{{
-
-" No need for ex mode
-  nnoremap Q <nop>
-  vnoremap // y/<C-R>"<CR>
-" recording macros is not my thing
-  map q <Nop>
-" exit insert, dd line, enter insert
-  inoremap <c-d> <esc>ddi
 " Navigate between display lines
   nnoremap <silent><expr> k      v:count == 0 ? 'gk' : 'k'
   nnoremap <silent><expr> j      v:count == 0 ? 'gj' : 'j'
@@ -243,16 +262,11 @@
   noremap J 5j
   noremap K 5k
   " nnoremap K 5k
-" this is the best, let me tell you why
-" how annoying is that everytime you want to do something in vim
-" you have to do shift-; to get :, can't we just do ;?
-" Plus what does ; do anyways??
-" if you do have a plugin that needs ;, you can just swap the mapping
-" nnoremap : ;
-" give it a try and you will like it
+  " Map ; to : so instead to use 
+  " shift+: just type ;
   nnoremap ; :
   inoremap <c-f> <c-x><c-f>
-" Copy to osx clipboard
+" Copy to clipboard
   vnoremap <C-c> "*y<CR>
   vnoremap y "*y<CR>
   noremap Y y$
@@ -285,9 +299,70 @@
     endfunction
   command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
   vnoremap <leader>ga <Plug>(EasyAlign)
+  " Use <CR> to clear the highlighting of :set hlsearch.
+  nnoremap <CR> :nohlsearch<CR>/<BS>
 
 "}}}"
+" Custom mappings  ----------------------------------------------------------{{{
+  nnoremap <silent> <leader>/d :call <SID>clear_search_results()<CR>
 
+" Shows the amount of matches for the previous search.
+function! s:count_search_results()
+  %s///gn
+endfunction
+
+nnoremap <silent> <leader>/c :call <SID>count_search_results()<CR>
+
+" Deletes the hidden buffers.
+function! s:delete_hidden_buffers()
+  let tpbl=[]
+  call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+  for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+    silent execute 'bwipeout' buf
+  endfor
+endfunction
+
+nnoremap <silent> <leader>bd :call <SID>delete_hidden_buffers()<CR>
+
+" Corrects the spelling under the cursor with the first suggestion.
+function! s:correct_to_first_spelling_suggestion()
+  normal 1z=
+endfunction
+
+nnoremap <silent> <leader>z :call <SID>correct_to_first_spelling_suggestion()<CR>
+
+" Trim the trailing white space from the file.
+function! s:trim_trailing_whitespace()
+  %s/\s\+$//e
+endfunction
+
+nnoremap <silent> <leader>cw :call <SID>trim_trailing_whitespace()<CR>
+
+" Opens the split in a new tab. Kind like "distraction free" mode.
+nnoremap <silent> <leader>wf :tab sp<CR>
+
+" Pull from either side of a git conflict.
+nnoremap <silent> <leader>gl :<C-U>diffget LOCAL<CR>
+nnoremap <silent> <leader>gr :<C-U>diffget REMOTE<CR>
+
+"Start terminal mode with \t
+function! s:start_terminal_mode()
+  autocmd BufEnter term://* startinsert
+endfunction
+
+nnoremap <silent> <leader>t :call <SID>start_terminal_mode()<CR>
+
+"Generate tags
+nnoremap <silent> <leader>ta :call atags#generate()<CR>
+
+"Start gtd timer with 20 minute session and 4 min break
+function! s:start_terminal_timer()
+  :te ~/dotfiles/gtd/gtd -n 20
+endfunction
+
+nnoremap <silent> <leader>tm :call <SID>start_terminal_timer()<CR>
+
+"}}}"
 " Themes, Commands, etc  ----------------------------------------------------{{{
   syntax on
   let g:one_allow_italics = 1
@@ -800,15 +875,14 @@
     let g:airline_symbols = {}
   endif
 
-  let g:airline_powerline_fonts = 0
+  let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#mike#enabled = 0
   let g:airline#extensions#tabline#fnamemod = ':t'
   let g:airline#extensions#tabline#buffer_idx_mode = 1
-  let g:airline_symbols.branch = ''
-  " cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'x' : 'bd'
-  cnoreabbrev x Sayonara
-  " cnoreabbrev x bd
+  let g:airline_symbols.branch = 'b'
+  let g:airline_detect_iminsert=0 
+  cnoreabbrev <silent> <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
   tmap <leader>x <c-\><c-n>:bp! <BAR> bd! #<CR>
   nmap <silent><leader>, :bnext<CR>
   tmap <leader>, <C-\><C-n>:bnext<cr>
@@ -839,33 +913,8 @@
   let g:airline#extensions#wordcount#enabled = 0
   let g:airline#extensions#whitespace#enabled = 0
   let g:airline_section_c = '%f%m'
-  let g:airline_section_x = ''
-  " let g:airline_section_y = '%{WebDevIconsGetFileFormatSymbol()}'
-  let g:airline_section_y = ''
-  " let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
   let g:airline_section_z = '%l:%c'
-  " let g:airline_section_z = '%{LineNoIndicator()} :%2c'
   let g:airline#parts#ffenc#skip_expected_string=''
-  let g:airline_mode_map = {
-      \ '__' : '',
-      \ 'c'  : '',
-      \ 'i'  : '',
-      \ 'ic' : '',
-      \ 'ix' : '',
-      \ 'n'  : '',
-      \ 'ni' : '',
-      \ 'no' : '',
-      \ 'R'  : '',
-      \ 'Rv' : '',
-      \ 's'  : '',
-      \ 'S'  : '',
-      \ '' : '',
-      \ 't'  : '',
-      \ 'v'  : '',
-      \ 'V'  : '',
-      \ '' : '',
-      \ }
-
   let g:airline#extensions#tabline#buffer_idx_format = {
         \ '0': '0 ',
         \ '1': '1 ',
@@ -893,8 +942,10 @@
   " \ 'BufWritePost': {},
   " \ }, 0)
 
-  let g:ale_sign_error = '•'
-  let g:ale_sign_warning = '•'
+  let g:ale_sign_error = '»'
+  hi ALEErrorSign guifg=#DF8C8C
+  let g:ale_sign_warning = '⚠'
+  hi ALEWarningSign guifg=#F2C38F
   let g:airline#extensions#ale#error_symbol='• '
   let g:airline#extensions#ale#warning_symbol='•  '
   let g:airline#extensions#neomake#error_symbol='• '
@@ -1035,13 +1086,6 @@
 
 " }}}
 
-" Java ----------------------------------------------------------------------{{{
-
-  autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  " let g:deoplete#sources#clang#libclang_path="/usr/local/Cellar/llvm/HEAD-74479e8/lib/libclang.dylib"
-  " let g:deoplete#sources#clang#clang_header="/usr/bin/clang"
-"}}}
-
 " HTML ----------------------------------------------------------------------{{{
 
   let g:neoformat_enabled_vue = ['prettier']
@@ -1068,4 +1112,3 @@
   let g:jedi#completions_enabled = 0
   let g:jedi#force_py_version=3
 " }}}
-

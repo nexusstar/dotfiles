@@ -41,12 +41,11 @@ cp ~/dotfiles/documentation/fonts/YosemiteSanFranciscoFont/*.ttf ~/dotfiles/font
 - [x] Comment out modules in neovim plugin file
 - [x] Remove fish configuration *don't use it anymore*
 - [x] Remove YouCompleteMe and replace with Deoplete
-- [ ] Add Shogu denite for neovim
+- [x] Add Shogu denite for neovim
 
 ## Vim key bindings
 
-Execute `\\` to run `~/.vim/mappings.sh` which shows all current leader bindings. This acts as documentation for my mappings.
-
+Can use :Maps to use fzf searching for mappings
 
 ## Unlicenced
 
@@ -60,7 +59,7 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
 
   - [OliverCaldwell][]
   - [Mike Hartington][]
-  - [Nick Nisi][] 
+  - [Nick Nisi][]
   - [Cătălin Mariș][]
 
 [nexusstar]: https://github.com/nexusstar/dotfiles
