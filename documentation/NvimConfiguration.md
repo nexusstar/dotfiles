@@ -10,7 +10,10 @@ On first run nvim shows error for missing dictionary this is solved by running:
 
 ## Mappings
 
-<leader> is mapped to < \ > double <leader> shows mappings.
+<leader> is mapped to < \ >.
+
+use `:Map` to search mapping with fzf.
+for usage of fzf read [fzfUsage](fzfUsage.md)
 
 ### Edit
 `<leader>bd` delete hidden buffers
@@ -26,4 +29,3 @@ On first run nvim shows error for missing dictionary this is solved by running:
 
 ## Problems
 
-* Vdebug clashes with lldb.nvim module and use too similar mappings
