@@ -1,29 +1,27 @@
 " Plugins  ------------------------------------------------------------------{{{
-
-
 " Setup dein {{{
 " Auto install dein
 if has('win32')
-  if !isdirectory(expand('~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim'))
-    echo "Installing dein.vim..."
-    silent !powershell -Command "New-Item -ItemType Directory -Path $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo -Force"
-    silent !powershell -Command "git clone https://github.com/Shougo/dein.vim $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim"
-  endif
-  set runtimepath+=~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim
+	if !isdirectory(expand('~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim'))
+		echo "Installing dein.vim..."
+		silent !powershell -Command "New-Item -ItemType Directory -Path $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo -Force"
+		silent !powershell -Command "git clone https://github.com/Shougo/dein.vim $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim"
+	endif
+	set runtimepath+=~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim
 endif
 if !has('win32')
-  if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
-    echo "Installing udner .config/nvim dein.vim..."
-    call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
-    call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
-  endif
-  set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
+	if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
+		echo "Installing udner .config/nvim dein.vim..."
+		call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
+		call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
+	endif
+	set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
 endif
 if has('win32')
-  call dein#begin(expand('~/dotfiles/neovim/.config/nvim'))
+	call dein#begin(expand('~/dotfiles/neovim/.config/nvim'))
 endif
 if !has('win32')
-  call dein#begin(expand('~/.config/nvim'))
+	call dein#begin(expand('~/.config/nvim'))
 endif
 
 call dein#add('Shougo/dein.vim')
@@ -31,124 +29,124 @@ call dein#add('haya14busa/dein-command.vim')
 call dein#add('wsdjeg/dein-ui.vim')
 "}}}
 " system {{{
-call dein#add('itmammoth/doorboy.vim')
-call dein#add('eugen0329/vim-esearch')
-call dein#add('tpope/vim-repeat')
-call dein#add('AndrewRadev/switch.vim')
-call dein#add('christoomey/vim-tmux-navigator')
-call dein#add('tpope/vim-surround')
-call dein#add('tyru/caw.vim')
-call dein#add('junegunn/vim-easy-align')
-call dein#add('tmux-plugins/vim-tmux')
-call dein#add('Shougo/context_filetype.vim')
-call dein#add('mhinz/vim-sayonara')
-call dein#add('mattn/webapi-vim')
-call dein#add('mattn/gist-vim')
-call dein#add('terryma/vim-multiple-cursors')
-call dein#add('MartinLafreniere/vim-PairTools')
-call dein#add('sjl/vitality.vim')
-call dein#add('simnalamburt/vim-mundo')
-call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
-call dein#add('junegunn/fzf.vim')
+"call dein#add('itmammoth/doorboy.vim')
+"call dein#add('eugen0329/vim-esearch')
+"call dein#add('tpope/vim-repeat')
+"call dein#add('AndrewRadev/switch.vim')
+"call dein#add('christoomey/vim-tmux-navigator')
+"call dein#add('tpope/vim-surround')
+"call dein#add('tyru/caw.vim')
+"call dein#add('junegunn/vim-easy-align')
+"call dein#add('tmux-plugins/vim-tmux')
+"call dein#add('Shougo/context_filetype.vim')
+"call dein#add('mhinz/vim-sayonara')
+"call dein#add('mattn/webapi-vim')
+"call dein#add('mattn/gist-vim')
+"call dein#add('terryma/vim-multiple-cursors')
+"call dein#add('MartinLafreniere/vim-PairTools')
+"call dein#add('sjl/vitality.vim')
+"call dein#add('simnalamburt/vim-mundo')
+"call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
+"call dein#add('junegunn/fzf.vim')
 " }}}
 " UI {{{
 " call dein#add('scrooloose/nerdtree')
 call dein#add('mhartington/oceanic-next')
-call dein#add('Shougo/defx.nvim')
-call dein#add('kristijanhusak/defx-git')
-call dein#add('kristijanhusak/defx-icons')
-call dein#add('Yggdroot/indentLine')
+"call dein#add('Shougo/defx.nvim')
+"call dein#add('kristijanhusak/defx-git')
+"call dein#add('kristijanhusak/defx-icons')
+"call dein#add('Yggdroot/indentLine')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
-call dein#add('rakr/vim-one')
-call dein#add('morhetz/gruvbox')
-call dein#add('patstockwell/vim-monokai-tasty')
-call dein#add('lambdalisue/fila.vim')
+"call dein#add('rakr/vim-one')
+"call dein#add('morhetz/gruvbox')
+"call dein#add('patstockwell/vim-monokai-tasty')
+"call dein#add('lambdalisue/fila.vim')
 " }}}
 " code style {{{
-call dein#add('sbdchd/neoformat')
-call dein#add('editorconfig/editorconfig-vim')
-call dein#add('w0rp/ale')
+"call dein#add('sbdchd/neoformat')
+"call dein#add('editorconfig/editorconfig-vim')
+"call dein#add('w0rp/ale')
 " }}}
 " completion {{{
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('tweekmonster/deoplete-clang2')
-call dein#add('artur-shaik/vim-javacomplete2')
-call dein#add('Shougo/neco-vim')
-call dein#add('Shougo/neoinclude.vim')
-call dein#add('Shougo/echodoc.vim')
+"call dein#add('Shougo/deoplete.nvim')
+"call dein#add('tweekmonster/deoplete-clang2')
+"call dein#add('artur-shaik/vim-javacomplete2')
+"call dein#add('Shougo/neco-vim')
+"call dein#add('Shougo/neoinclude.vim')
+"call dein#add('Shougo/echodoc.vim')
 " }}}
 " denite {{{
 call dein#add('Shougo/denite.nvim')
-call dein#add('Shougo/neomru.vim')
 call dein#add('neoclide/denite-git')
 call dein#add('chemzqm/denite-extra')
 call dein#add('pocari/vim-denite-gists')
 " }}}
 " git {{{{
-call dein#add('tpope/vim-fugitive')
-call dein#add('tpope/vim-rhubarb')
-call dein#add('sgeb/vim-diff-fold')
-call dein#add('airblade/vim-gitgutter')
-call dein#add('junegunn/gv.vim')
-call dein#add('lambdalisue/gina.vim')
+"call dein#add('tpope/vim-fugitive')
+"call dein#add('tpope/vim-rhubarb')
+"call dein#add('sgeb/vim-diff-fold')
+"call dein#add('airblade/vim-gitgutter')
+"call dein#add('junegunn/gv.vim')
+"call dein#add('lambdalisue/gina.vim')
 " }}}}
 " snippets {{{
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('honza/vim-snippets')
-call dein#add('gfontenot/vim-xcode')
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+"call dein#add('honza/vim-snippets')
+"call dein#add('gfontenot/vim-xcode')
 " }}}
 " markdown {{{
-call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
-call dein#add('dhruvasagar/vim-table-mode')
-call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
-call dein#add('rhysd/vim-grammarous')
-call dein#add('junegunn/goyo.vim')
-call dein#add('iamcco/markdown-preview.nvim', {'build': 'cd app & npm install', 'on_ft': 'markdown'})
-call dein#add('kurocode25/mdforvim')
-call dein#add('ujihisa/neco-look')
+"call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
+"call dein#add('dhruvasagar/vim-table-mode')
+"call dein#add('nelstrom/vim-markdown-folding', {'on_ft': 'markdown'})
+"call dein#add('rhysd/vim-grammarous')
+"call dein#add('junegunn/goyo.vim')
+"call dein#add('iamcco/markdown-preview.nvim', {'build': 'cd app & npm install', 'on_ft': 'markdown'})
+"call dein#add('kurocode25/mdforvim')
+"call dein#add('ujihisa/neco-look')
 " }}}
 " python{{{
-call dein#add('zchee/deoplete-jedi')
-call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
-call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
+"call dein#add('zchee/deoplete-jedi')
+"call dein#add('davidhalter/jedi-vim', {'on_ft': 'python'})
+"call dein#add('tmhedberg/SimpylFold', {'on_ft': 'python'})
 " }}}
 " javascript {{{
-call dein#add('othree/yajs.vim')
-call dein#add('mxw/vim-jsx')
-call dein#add('heavenshell/vim-jsdoc')
-call dein#add('elzr/vim-json')
-call dein#add('HerringtonDarkholme/yats.vim')
-call dein#add('Quramy/vison')
+call dein#add('neoclide/coc.nvim', {'merge':0, 'rev': 'release'})
+"call dein#add('othree/yajs.vim')
+"call dein#add('mxw/vim-jsx')
+"call dein#add('heavenshell/vim-jsdoc')
+"call dein#add('elzr/vim-json')
+"call dein#add('HerringtonDarkholme/yats.vim')
+"call dein#add('Quramy/vison')
 " REQUIRED: Add a syntax file. YATS is the best
-call dein#add('HerringtonDarkholme/yats.vim')
-call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
+"call dein#add('HerringtonDarkholme/yats.vim')
+"call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
 " For async completion
-call dein#add('Shougo/deoplete.nvim')
+"call dein#add('Shougo/deoplete.nvim')
 " For Denite features
-call dein#add('Shougo/denite.nvim')
-call dein#local('neomake/neomake')
+"call dein#add('Shougo/denite.nvim')
+"call dein#local('neomake/neomake')
 " }}}
 " html {{{
-call dein#add('othree/html5.vim')
-call dein#add('mattn/emmet-vim')
-call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
-call dein#add('posva/vim-vue')
-call dein#add('skwp/vim-html-escape')
-call dein#add('pedrohdz/vim-yaml-folds')
+"call dein#add('othree/html5.vim')
+"call dein#add('mattn/emmet-vim')
+"call dein#add('valloric/MatchTagAlways', {'on_ft': 'html'})
+"call dein#add('posva/vim-vue')
+"call dein#add('skwp/vim-html-escape')
+"call dein#add('pedrohdz/vim-yaml-folds')
 " }}}
 " css {{{
-call dein#add('hail2u/vim-css3-syntax')
-call dein#add('ap/vim-css-color')
-call dein#add('ncm2/ncm2-cssomni')
+"call dein#add('hail2u/vim-css3-syntax')
+"call dein#add('ap/vim-css-color')
+"call dein#add('ncm2/ncm2-cssomni')
 " }}}
 " Has to be last according to docs
-call dein#add('ryanoasis/vim-devicons')
+"call dein#add('ryanoasis/vim-devicons')
 
 if dein#check_install()
-  call dein#install()
-  let pluginsExist=1
+	call dein#install()
+	let pluginsExist=1
 endif
 
 call dein#end()
@@ -157,14 +155,18 @@ filetype plugin indent on
 
 " System Settings  ----------------------------------------------------------{{{
 
-source ~/.local.vim
-if exists('g:GuiLoaded')
-  Guifont Hasklig:h15
+if (isdirectory(expand("$HOME/.local.vim")))
+	source ~/.local.vim
 endif
+
+if exists('g:GuiLoaded')
+	Guifont Hasklig:h15
+endif
+
 " Neovim Settings
 set termguicolors
 set mouse=a
-" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 set clipboard+=unnamedplus
 set pastetoggle=<f6>
@@ -194,6 +196,8 @@ set sessionoptions=blank,curdir,folds,help,tabpages,winsize
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h
 " set numberwidth=5
+"
+" Set leadear
 " leader is \
 let mapleader = '\'
 set undofile
@@ -202,9 +206,9 @@ set undolevels=1000
 set undoreload=10000
 " Remember cursor position between vim sessions
 autocmd BufReadPost *
-      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \   exe "normal! g'\"" |
-      \ endif
+			\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+			\   exe "normal! g'\"" |
+			\ endif
 " center buffer around cursor when opening files
 autocmd BufRead * normal zz
 set complete=.,w,b,u,t,k
@@ -216,8 +220,6 @@ set shortmess=atIc
 set isfname-==
 set spell
 let g:indentLine_color_gui = '#343d46'
-" Automaticaly change the current directory
-autocmd BufEnter * silent! lcd %:p:h
 " Highlight searches.
 set hlsearch
 " Highlight the current line.
@@ -279,54 +281,55 @@ vnoremap <c-/> :TComment<cr>
 nnoremap <silent> <esc> :noh<cr>
 nnoremap <leader>e :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
 function! s:PlaceholderImgTag(size)
-  let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
-  let [width,height] = split(a:size, 'x')
-  execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
+	let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
+	let [width,height] = split(a:size, 'x')
+	execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
 endfunction
 command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
-vnoremap <leader>ga <Plug>(EasyAlign)
+
 " Use <CR> to clear the highlighting of :set hlsearch.
 nnoremap <CR> :nohlsearch<CR>/<BS>
 
+"vnoremap <leader>ga <Plug>(EasyAlign)
 "}}}"
 " Custom mappings  ----------------------------------------------------------{{{
 nnoremap <silent> <leader>/d :call <SID>clear_search_results()<CR>
 
 " Shows the amount of matches for the previous search.
 function! s:count_search_results()
-  %s///gn
+	%s///gn
 endfunction
 
 nnoremap <silent> <leader>/c :call <SID>count_search_results()<CR>
 
 " Deletes the hidden buffers.
 function! s:delete_hidden_buffers()
-  let tpbl=[]
-  call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-  for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-    silent execute 'bwipeout' buf
-  endfor
+	let tpbl=[]
+	call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+	for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+		silent execute 'bwipeout' buf
+	endfor
 endfunction
 
 nnoremap <silent> <leader>bd :call <SID>delete_hidden_buffers()<CR>
 
 " Corrects the spelling under the cursor with the first suggestion.
 function! s:correct_to_first_spelling_suggestion()
-  normal 1z=
+	normal 1z=
 endfunction
 
 nnoremap <silent> <leader>z :call <SID>correct_to_first_spelling_suggestion()<CR>
 
 " Trim the trailing white space from the file.
 function! s:trim_trailing_whitespace()
-  %s/\s\+$//e
+	%s/\s\+$//e
 endfunction
 
 nnoremap <silent> <leader>cw :call <SID>trim_trailing_whitespace()<CR>
@@ -335,22 +338,22 @@ nnoremap <silent> <leader>cw :call <SID>trim_trailing_whitespace()<CR>
 nnoremap <silent> <leader>wf :tab sp<CR>
 
 " Pull from either side of a git conflict.
-nnoremap <silent> <leader>gl :<C-U>diffget LOCAL<CR>
-nnoremap <silent> <leader>gr :<C-U>diffget REMOTE<CR>
+"nnoremap <silent> <leader>gl :<C-U>diffget LOCAL<CR>
+"nnoremap <silent> <leader>gr :<C-U>diffget REMOTE<CR>
 
 "Start terminal mode with \t
 function! s:start_terminal_mode()
-  autocmd BufEnter term://* startinsert
+	autocmd BufEnter term://* startinsert
 endfunction
 
 nnoremap <silent> <leader>t :call <SID>start_terminal_mode()<CR>
 
 "Generate tags
-nnoremap <silent> <leader>ta :call atags#generate()<CR>
+"nnoremap <silent> <leader>ta :call atags#generate()<CR>
 
 "Start gtd timer with 20 minute session and 4 min break
 function! s:start_terminal_timer()
-  :te ~/dotfiles/gtd/gtd -n 20
+	:te ~/dotfiles/gtd/gtd -n 20
 endfunction
 
 nnoremap <silent> <leader>tm :call <SID>start_terminal_timer()<CR>
@@ -358,70 +361,46 @@ nnoremap <silent> <leader>tm :call <SID>start_terminal_timer()<CR>
 "}}}"
 " Themes, Commands, etc  ----------------------------------------------------{{{
 syntax on
-let g:one_allow_italics = 1
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-let g:vim_monokai_tasty_italic = 1
-" set pumblend=50
-" if strftime('%H') >= 7 && strftime('%H') < 14
-"   colorscheme OceanicNextLight
-"   let g:airline_theme='oceanicnextlight'
-" else
+"let g:one_allow_italics = 1
+"let g:oceanic_next_terminal_bold = 1
+"let g:oceanic_next_terminal_italic = 1
+"let g:vim_monokai_tasty_italic = 1
+"" set pumblend=50
+"" if strftime('%H') >= 7 && strftime('%H') < 14
+""   colorscheme OceanicNextLight
+""   let g:airline_theme='oceanicnextlight'
+"" else
 colorscheme OceanicNext
 let g:airline_theme='oceanicnext'
-" endif
-" colorscheme vim-monokai-tasty
-let g:Illuminate_ftblacklist = ['nerdtree', 'gitconfig','gina-blame', 'defx', 'fugitive', 'git']
-
-set list
-set listchars=tab:‣\ ,trail:·
+"" endif
+"" colorscheme vim-monokai-tasty
+"let g:Illuminate_ftblacklist = ['nerdtree', 'gitconfig','gina-blame', 'defx', 'fugitive', 'git']
+"
+"set list
+"set listchars=tab:‣\ ,trail:·
 " colorscheme one
 " set background=dark
 
 "}}}
 
-" Code formatting -----------------------------------------------------------{{{
-
-" ,f to format code, requires formatters: read the docs
-"
-noremap <silent> <leader>f :Neoformat<CR>
-let g:standard_prettier_settings = {
-      \ 'exe': 'prettier',
-      \ 'args': ['--stdin', '--stdin-filepath', '%:p', '--single-quote'],
-      \ 'stdin': 1,
-      \ }
-let g:neoformat_vue_prettier = {
-      \ 'exe': 'vue-formatter',
-      \ 'stdin': 1,
-      \}
-" \ 'args': ['--stdin', '--stdin-filepath', '%:p', '--single-quote'],
-let g:neoformat_zsh_shfmt = {
-      \ 'exe': 'shfmt',
-      \ 'args': ['-i ' . shiftwidth()],
-      \ 'stdin': 1,
-      \ }
-let g:neoformat_enabled_zsh = ['shfmt']
-
-" }}}
-
 " Fold, gets it's own section  ----------------------------------------------{{{
 
 function! MyFoldText() " {{{
-  let line = getline(v:foldstart)
-  let nucolwidth = &fdc + &number * &numberwidth
-  let windowwidth = winwidth(0) - nucolwidth - 3
-  let foldedlinecount = v:foldend - v:foldstart
+	let line = getline(v:foldstart)
+	let nucolwidth = &fdc + &number * &numberwidth
+	let windowwidth = winwidth(0) - nucolwidth - 3
+	let foldedlinecount = v:foldend - v:foldstart
 
-  " expand tabs into spaces
-  let onetab = strpart('          ', 0, &tabstop)
-  let line = substitute(line, '\t', onetab, 'g')
+	" expand tabs into spaces
+	let onetab = strpart('          ', 0, &tabstop)
+	let line = substitute(line, '\t', onetab, 'g')
 
-  let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-  " let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - len('lines')
-  " let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - len('lines   ')
-  let fillcharcount = windowwidth - len(line)
-  " return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . ' Lines'
-  return line . '…'. repeat(" ",fillcharcount)
+	let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+	" let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - len('lines')
+	" let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - len('lines   ')
+	let fillcharcount = windowwidth - len(line)
+	" return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . ' Lines'
+	return line . '…'. repeat(" ",fillcharcount)
 endfunction " }}}
 
 set foldtext=MyFoldText()
@@ -443,7 +422,6 @@ autocmd FileType javascript,html,css,scss,typescript setlocal foldlevel=99
 autocmd FileType css,scss,json setlocal foldmethod=marker
 autocmd FileType css,scss,json setlocal foldmarker={,}
 
-autocmd FileType coffee setl foldmethod=indent
 let g:xml_syntax_folding = 1
 autocmd FileType xml setl foldmethod=syntax
 
@@ -457,163 +435,77 @@ autocmd FileType javascript,typescript,typescript.tsx,json setl foldmethod=synta
 
 " Git -----------------------------------------------------------------------{{{
 
-set signcolumn=yes
-let g:conflict_marker_enable_mappings = 0
-let g:gitgutter_sign_added = '│'
-let g:gitgutter_sign_modified = '│'
-let g:gitgutter_sign_removed = '│'
-let g:gitgutter_sign_removed_first_line = '│'
-let g:gitgutter_sign_modified_removed = '│'
-let g:gina#command#blame#formatter#format="%in (%au) %ti"
-autocmd FileType fugitive call s:fugitive_settings()
-function! s:fugitive_settings() abort
-  setlocal nonumber
-endfunction
+"set signcolumn=yes
+"let g:conflict_marker_enable_mappings = 0
+"let g:gitgutter_sign_added = '│'
+"let g:gitgutter_sign_modified = '│'
+"let g:gitgutter_sign_removed = '│'
+"let g:gitgutter_sign_removed_first_line = '│'
+"let g:gitgutter_sign_modified_removed = '│'
+"let g:gina#command#blame#formatter#format="%in (%au) %ti"
+"autocmd FileType fugitive call s:fugitive_settings()
+"function! s:fugitive_settings() abort
+"	setlocal nonumber
+"endfunction
 " }}}
 
 " NERDTree ------------------------------------------------------------------{{{
 
 " map <silent> - :NERDTreeToggle<CR>
-augroup ntinit
-  autocmd FileType nerdtree call s:nerdtreeinit()
-augroup END
-function! s:nerdtreeinit() abort
-  set nolist
-  if !has("gui_running")
-    nunmap <buffer> K
-    nunmap <buffer> J
-    map <silent> <Tab> :call nerdtree#ui_glue#invokeKeyMap("A")<CR>
-  endif
-endf
-let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=45
-let NERDTreeMinimalUI=1
-let NERDTreeHijackNetrw=0
-
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = -28
-let g:netrw_banner = 0
-
-let NERDTreeCascadeSingleChildDir=0
-let NERDTreeCascadeOpenSingleChildDir=0
-let g:NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeShowIgnoredStatus = 1
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
-" esearch settings {{{
-
-let g:esearch#cmdline#help_prompt = 1
-let g:esearch#cmdline#dir_icon = ''
-let g:esearch = {
-      \ 'adapter':    'ag',
-      \ 'backend':    'nvim',
-      \ 'use':        ['visual', 'hlsearch', 'last'],
-      \}
-
+"augroup ntinit
+"	autocmd FileType nerdtree call s:nerdtreeinit()
+"augroup END
+"function! s:nerdtreeinit() abort
+"	set nolist
+"	if !has("gui_running")
+"		nunmap <buffer> K
+"		nunmap <buffer> J
+"		map <silent> <Tab> :call nerdtree#ui_glue#invokeKeyMap("A")<CR>
+"	endif
+"endf
+"let NERDTreeShowHidden=1
+"let g:NERDTreeWinSize=45
+"let NERDTreeMinimalUI=1
+"let NERDTreeHijackNetrw=0
+"
+"let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"let g:netrw_winsize = -28
+"let g:netrw_banner = 0
+"
+"let NERDTreeCascadeSingleChildDir=0
+"let NERDTreeCascadeOpenSingleChildDir=0
+"let g:NERDTreeAutoDeleteBuffer=1
+"let g:NERDTreeShowIgnoredStatus = 1
+"let g:NERDTreeDirArrowExpandable = ''
+"let g:NERDTreeDirArrowCollapsible = ''
+"" esearch settings {{{
+"
+"let g:esearch#cmdline#help_prompt = 1
+"let g:esearch#cmdline#dir_icon = ''
+"let g:esearch = {
+"			\ 'adapter':    'ag',
+"			\ 'backend':    'nvim',
+"			\ 'use':        ['visual', 'hlsearch', 'last'],
+"			\}
+"
 " }}}
 
-let g:NERDTreeGitStatusIndicatorMap = {
-      \ 'Modified'  : '✹',
-      \ 'Staged'    : '✚',
-      \ 'Untracked' : '✭',
-      \ 'Renamed'   : '➜',
-      \ 'Unmerged'  : '═',
-      \ 'Deleted'   : '✖',
-      \ 'Dirty'     : '✗',
-      \ 'Clean'     : '✔︎',
-      \ 'Ignored'   : '',
-      \ 'Unknown'   : '?'
-      \ }
-
+"let g:NERDTreeGitStatusIndicatorMap = {
+"			\ 'Modified'  : '✹',
+"			\ 'Staged'    : '✚',
+"			\ 'Untracked' : '✭',
+"			\ 'Renamed'   : '➜',
+"			\ 'Unmerged'  : '═',
+"			\ 'Deleted'   : '✖',
+"			\ 'Dirty'     : '✗',
+"			\ 'Clean'     : '✔︎',
+"			\ 'Ignored'   : '',
+"			\ 'Unknown'   : '?'
+"			\ }
+"
 "}}}
-
-" Defx ----------------------------------------------------------------------{{{
-
-map <silent> - :call OpenDefx()<cr>
-let g:defx_open_path = getcwd()
-function! OpenDefx() abort
-  if isdirectory(expand('%:p:h'))
-    let g:defx_open_path = expand('%:p:h')
-  endif
-  execute('Defx
-        \ -columns=git:icons:filename:type
-        \ -buffer-name=""
-        \ -show_ignored_files
-        \ -split=vertical
-        \ -winwidth=45
-        \ -direction=topleft
-        \ -toggle
-        \ -resume
-        \ `g:defx_open_path`')
-endfunction
-
-" \ if isdirectory(expand('%:p:h')) | `expand('%:p:h')` | endif
-"`expand('%:p:h')` -search=`expand('%:p')`
-autocmd FileType defx call s:defx_my_settings()
-function! s:defx_my_settings() abort
-  IndentLinesDisable
-  setl nospell
-  setl signcolumn=no
-  setl nonumber
-  nnoremap <silent><buffer><expr> <CR> defx#do_action('drop')
-  nnoremap <silent><buffer><expr> C defx#do_action('copy')
-  nnoremap <silent><buffer><expr> P defx#do_action('paste')
-  nnoremap <silent><buffer><expr> M defx#do_action('rename')
-  nnoremap <silent><buffer><expr> D defx#do_action('remove_trash')
-  nnoremap <silent><buffer><expr> A defx#do_action('new_multiple_files')
-  nnoremap <silent><buffer><expr> U defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
-  nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select')
-  nnoremap <silent><buffer><expr> R defx#do_action('redraw')
-
-endfunction
-
-let g:defx_git#show_ignored = 0
-let g:defx_git#raw_mode = 1
-let g:defx_git#column_length =2
-
-hi def link Defx_filename_directory NERDTreeDirSlash
-hi def link Defx_git_Modified Special
-hi def link Defx_git_Staged Function
-hi def link Defx_git_Renamed Title
-hi def link Defx_git_Unmerged Label
-hi def link Defx_git_Untracked Tag
-hi def link Defx_git_Ignored Comment
-let g:defx_icons_parent_icon = ""
-
-
-" let g:fila#renderer#default#expanded_symbol= "+ "
-" let g:fila#renderer#default#root_symbol = " "
-" let g:fila#renderer#default#leaf_symbol = " "
-
-" map <silent> - :FilaDrawer<cr>
-let g:fila#viewer#skip_default_mappings = 1
-autocmd FileType fila call s:fila_settings()
-function! s:fila_settings() abort
-  IndentLinesDisable
-  setl nospell
-  setl signcolumn=no
-  setl nonumber
-  nmap <buffer><nowait> <Backspace> <Plug>(fila-action-leave)
-  nmap <buffer><nowait> <C-h>       <Plug>(fila-action-leave)
-  nmap <buffer><nowait> <Return>    <Plug>(fila-action-expand-or-open)
-  " nmap <buffer><nowait> <C-m>       <Plug>(fila-action-enter-or-open)
-  nmap <buffer><nowait> R        <Plug>(fila-action-reload)
-  nmap <buffer><nowait> l           <Plug>(fila-action-expand-or-open)
-  nmap <buffer><nowait> h           <Plug>(fila-action-collapse)
-  nmap <buffer><nowait> <space>           <Plug>(fila-action-mark-toggle)
-endfunction
-let g:fila#renderer#default#leading = " "
-let g:fila#renderer#default#root_symbol = "   "
-let g:fila#renderer#default#leaf_symbol = "  "
-let g:fila#renderer#default#expanded_symbol = " ▾ "
-let g:fila#renderer#default#collapsed_symbol = " ▸ "
-let g:fila#renderer#default#marked_symbol = " "
-let g:fila#renderer#default#unmarked_symbol = " "
-
-"  }}}
 
 " Nvim terminal -------------------------------------------------------------{{{
 
@@ -623,117 +515,26 @@ autocmd TermOpen * set bufhidden=hide
 
 " }}}
 
-" Vim-Devicons --------------------------------------------------------------{{{
-
-let g:NERDTreeGitStatusNodeColorization = 1
-" 
-let g:webdevicons_enable_denite = 0
-let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
-let g:DevIconsEnableFoldersOpenClose = 1
-let g:WebDevIconsOS = 'Darwin'
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vim'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tsx'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sql'] = ''
-
-" }}}
-
-" Snipppets -----------------------------------------------------------------{{{
-
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_completed_snippet=0
-let g:neosnippet#enable_snipmate_compatibility=0
-" let g:neosnippet#enable_conceal_markers=0
-" let g:neosnippet#snippets_directory='~/GitHub/ionic-snippets'
-" let g:neosnippet#expand_word_boundary = 1
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" " SuperTab like snippets behavior.
-"   imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"   \ "\<Plug>(neosnippet_expand_or_jump)"
-"   \: pumvisible() ? "\<C-n>" : "\<TAB>"
-"   smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"   \ "\<Plug>(neosnippet_expand_or_jump)"
-"   \: "\<TAB>"
-
-"}}}
-
-" Deoplete ------------------------------------------------------------------{{{
-
-" enable deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 0
-let g:echodoc_enable_at_startup=1
-let g:echodoc#type="virtual"
-set splitbelow
-set completeopt+=menuone,noinsert,noselect
-set completeopt-=preview
-autocmd CompleteDone * pclose
-
-function! Multiple_cursors_before()
-  let b:deoplete_disable_auto_complete=2
-endfunction
-function! Multiple_cursors_after()
-  let b:deoplete_disable_auto_complete=0
-endfunction
-let g:deoplete#file#enable_buffer_path=1
-" call deoplete#custom#source('buffer', 'mark', 'ℬ')
-" call deoplete#custom#source('tern', 'mark', '')
-" call deoplete#custom#source('omni', 'mark', '⌾')
-" call deoplete#custom#source('file', 'mark', '')
-" call deoplete#custom#source('jedi', 'mark', '')
-" call deoplete#custom#source('neosnippet', 'mark', '')
-" call deoplete#custom#source('LanguageClient', 'mark', '')
-" call deoplete#custom#source('typescript',  'rank', 630)
-" call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
-" call deoplete#custom#source('_', 'sorters', [])
-let g:deoplete#omni_patterns = {
-      \ 'html': '',
-      \ 'css': '',
-      \ 'scss': ''
-      \}
-function! Preview_func()
-  if &pvw
-    setlocal nonumber norelativenumber
-  endif
-endfunction
-autocmd WinEnter * call Preview_func()
-let g:deoplete#ignore_sources = {'_': ['around', 'buffer', 'member' ]}
-
-" let g:deoplete#enable_debug = 1
-" call deoplete#enable_logging('WARN', 'deoplete.log')
-" call deoplete#custom#source('typescript', 'is_debug_enabled', 1)
-"}}}
-
 " Emmet customization -------------------------------------------------------{{{
 
 " Remapping <C-y>, just doesn't cut it.
 function! s:expand_html_tab()
-  " try to determine if we're within quotes or tags.
-  " if so, assume we're in an emmet fill area.
-  let line = getline('.')
-  if col('.') < len(line)
-    let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
-    if len(line) >= 2
-      return "\<C-n>"
-    endif
-  endif
-  " expand anything emmet thinks is expandable.
-  if emmet#isExpandable()
-    return emmet#expandAbbrIntelligent("\<tab>")
-    " return "\<C-y>,"
-  endif
-  " return a regular tab character
-  return "\<tab>"
+	" try to determine if we're within quotes or tags.
+	" if so, assume we're in an emmet fill area.
+	let line = getline('.')
+	if col('.') < len(line)
+		let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
+		if len(line) >= 2
+			return "\<C-n>"
+		endif
+	endif
+	" expand anything emmet thinks is expandable.
+	if emmet#isExpandable()
+		return emmet#expandAbbrIntelligent("\<tab>")
+		" return "\<C-y>,"
+	endif
+	" return a regular tab character
+	return "\<tab>"
 endfunction
 " let g:user_emmet_expandabbr_key='<Tab>'
 " imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
@@ -745,127 +546,46 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css,scss,typescript.tsx EmmetInstall
 "}}}
 
-" Language Client -----------------------------------------------------------{{{
-
-" let g:LanguageClient_diagnosticsEnable = 1
-" let g:LanguageClient_serverCommands = {
-"  \ 'reason': ['ocaml-language-server', '--stdio'],
-"  \ 'ocaml': ['ocaml-language-server', '--stdio'],
-"  \ 'typescript': ['typescript-language-server', '--stdio'],
-"  \ }
-" \ 'scss': ['css-languageserver', '--stdio'],
-" \ 'css': ['css-languageserver', '--stdio'],
-" \ 'html': ['html-languageserver','--stdio'],
-" \ 'typescript': ['typescript-language-server', '--stdio']
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
-
-" map <silent> <leader>gd :TSDoc <cr>
-" map <silent> <leader>gt :TSType <cr>
-" map <silent> <leader>gtd :call CocActionAsync('jumpTypeDefinition')<cr>
-" map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
-" map <silent> <leader># :Denite -buffer-name=TSWorkspaceSymbol TSWorkspaceSymbol <cr>
-" nnoremap <m-Enter> :call CocActionAsync('codeAction',     '')<CR>
-hi default CocUnderline   cterm=undercurl gui=undercurl
-
-"}}}
-
 " Denite --------------------------------------------------------------------{{{
 
-let s:menus = {}
-call denite#custom#option('_', {
-      \ 'prompt': '❯',
-      \ 'winheight': 10,
-      \ 'updatetime': 1,
-      \ 'auto_resize': 0,
-      \ 'highlight_matched_char': 'Underlined',
-      \ 'highlight_mode_normal': 'CursorLine',
-      \ 'reversed': 1,
-      \ 'auto-accel': 1,
-      \})
-call denite#custom#option('TSDocumentSymbol', {
-      \ 'prompt': ' @' ,
-      \})
-call denite#custom#option('TSWorkspaceSymbol', {
-      \ 'prompt': ' #' ,
-      \})
-
-call denite#custom#source('file_rec', 'vars', {
-      \'command': ['rg', '--files', '--glob', '!.git'],
+call denite#custom#source('file/rec', 'vars', {
+      \'command': ['rg', '--files', '--glob', '!.git', '-g', '!node_modules'],
       \'matchers': ['matcher/fruzzy'],
       \'sorters':['sorter_sublime'],
       \})
-" \'matchers': ['matcher/cpsm']
-let fruzzy#usenative = 1
-"     \ 'command': ['ag', '--follow','--nogroup','--hidden', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules'
 
-call denite#custom#source('grep', 'vars', {
-      \'command': ['rg'],
-      \'default_opts': ['-i', '--vimgrep'],
-      \'recursive_opts': [],
-      \'pattern_opt': [],
-      \'separator': ['--'],
-      \'final_opts': [],
-      \'matchers': ['matcher/ignore_globs', 'matcher/regexp', 'matcher/pyfuzzy']
-      \})
-
-nnoremap <silent> <c-p> :Denite file_rec<CR>
-nnoremap <silent> <leader>h :Denite help<CR>
-nnoremap <silent> <leader>v :Denite vison<CR>
-nnoremap <silent> <leader>c :Denite -auto-preview colorscheme<CR>
+nnoremap <silent> <c-p> :Denite file/rec<CR>
 nnoremap <silent> <leader>b :Denite buffer<CR>
-nnoremap <silent> <leader>l :Denite line<CR>
 nnoremap <silent> <leader>a :Denite grep:::!<CR>
-nnoremap <silent> <leader>u :DeinUpdate<CR>
-nnoremap <silent> <Leader>i :Denite menu:ionic <CR>
-call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
-call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-      \ [ '.git/', '.ropeproject/', '__pycache__/',
-      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-call denite#custom#var('menu', 'menus', s:menus)
-"}}}
 
-" Ionic denite source -------------------------------------------------------{{{
-
-function! Ionic(job) abort
-  if a:job ==# "serve"
-    enew!
-    let filename = 'Ionic:\ '. a:job
-    call termopen('ionic '. a:job)
-    exe 'file 'filename
-    startinsert
-  else
-    let platform = input('platform: ')
-    enew!
-    let filename = 'Ionic:\ '. a:job
-    call termopen('ionic cordova'. a:job . ' ' . platform)
-    exe 'file 'filename
-    startinsert
-  endif
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+        \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+        \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+        \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+        \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+        \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+        \ denite#do_map('toggle_select').'j'
 endfunction
 
-function ExitHandle()
-  echom self
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+function! s:denite_filter_my_settings() abort
+  imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
 endfunction
 
-let s:menus.ionic = {
-      \ 'description' : 'some rando ionic stuff',
-      \}
-let s:menus.ionic.command_candidates = [
-      \[' serve', 'call Ionic("serve")' ],
-      \[' run device', 'call Ionic("run")'],
-      \[' emulate device', 'call Ionic("emulate")'],
-      \]
 "}}}
 
 " vim-airline ---------------------------------------------------------------{{{
 
 let g:webdevicons_enable_airline_statusline = 1
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 
 let g:airline_powerline_fonts = 1
@@ -909,199 +629,152 @@ let g:airline_section_c = '%f%m'
 let g:airline_section_z = '%l:%c'
 let g:airline#parts#ffenc#skip_expected_string=''
 let g:airline#extensions#tabline#buffer_idx_format = {
-      \ '0': '0 ',
-      \ '1': '1 ',
-      \ '2': '2 ',
-      \ '3': '3 ',
-      \ '4': '4 ',
-      \ '5': '5 ',
-      \ '6': '6 ',
-      \ '7': '7 ',
-      \ '8': '8 ',
-      \ '9': '9 ',
-      \}
+			\ '0': '0 ',
+			\ '1': '1 ',
+			\ '2': '2 ',
+			\ '3': '3 ',
+			\ '4': '4 ',
+			\ '5': '5 ',
+			\ '6': '6 ',
+			\ '7': '7 ',
+			\ '8': '8 ',
+			\ '9': '9 ',
+			\}
 
 "}}}
+" coc -----------------------------------------------------------------------{{{
+" if hidden is not set, TextEdit might fail.
+set hidden
 
-" Linting -------------------------------------------------------------------{{{
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
 
-" call neomake#configure#automake({
-"\ 'BufWritePost': {'delay': 0},
-"\ 'BufWinEnter': {},
-"\ 'TextChanged': {},
-"\ 'InsertLeave': { },
-"\ }, 1000)
-" call neomake#configure#automake({
-" \ 'BufWritePost': {},
-" \ }, 0)
+" Better display for messages
+set cmdheight=2
 
-let g:ale_sign_error = '»'
-hi ALEErrorSign guifg=#DF8C8C
-let g:ale_sign_warning = '⚠'
-hi ALEWarningSign guifg=#F2C38F
-let g:airline#extensions#ale#error_symbol='• '
-let g:airline#extensions#ale#warning_symbol='•  '
-let g:airline#extensions#neomake#error_symbol='• '
-let g:airline#extensions#neomake#warning_symbol='•  '
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
 
-" let g:neomake_typescript_tsc_tempfile_enabled = 0
-" let g:neomake_typescript_tslint_tempfile_enabled = 0
-let g:neomake_warning_sign = {'text': '•'}
-let g:neomake_error_sign = {'text': '•'}
-let g:neomake_info_sign = {'text': '•'}
-let g:neomake_message_sign = {'text': '•'}
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
 
-hi link ALEError SpellBad
-hi link ALEWarning SpellBad
-" Write this in your vimrc file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-" let g:neomake_verbose = 3
-"}}}
+" always show signcolumns
+set signcolumn=yes
 
-" MarkDown ------------------------------------------------------------------{{{
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-noremap <leader>TM :TableModeToggle<CR>
-let g:table_mode_corner="|"
-let g:markdown_fold_override_foldtext = 0
-let g:neomake_markdown_proselint_maker = {
-      \ 'errorformat': '%W%f:%l:%c: %m',
-      \ 'postprocess': function('neomake#postprocess#generic_length'),
-      \}
-let g:neomake_markdown_enabled_makers = ['alex', 'proselint']
-let g:markdown_syntax_conceal = 0
-let g:mkdp_auto_start = 0
-let g:neoformat_markdown_prettier = g:standard_prettier_settings
-let g:neoformat_enabled_markdown = ['prettier']
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-"}}}
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+    " }}}
+" }}}
 " MultiCursor ---------------------------------------------------------------{{{
 
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 "}}}
-
-" Javascript ----------------------------------------------------------------{{{
-" set nobinary
-" let $NVIM_NODE_LOG_FILE='nvim-node.log'
-" let $NVIM_NODE_LOG_LEVEL='warn'
-" let $NVIM_NODE_HOST_DEBUG=1
-
-" autocmd FileType typescript.tsx setlocal commentstring=
-" call tcomment#type#Define('typescript.tsx', '{/* %s */}')
-" call tcomment#type#Define('typescript.tsx_block',       '{/* %s */}')
-" call tcomment#type#Define('typescript.tsx_inline',      '{/* %s */}')
-let g:neoformat_javascript_prettier = g:standard_prettier_settings
-let g:neoformat_enabled_javascript = ['prettier']
-autocmd FileType vue syntax sync fromstart
-
-let g:jsx_ext_required = 0
-let g:neomake_javascript_enabled_makers = []
-let g:jsx_ext_required = 1
-let g:jsdoc_allow_input_prompt = 1
-let g:jsdoc_input_description = 1
-let g:jsdoc_return=0
-let g:jsdoc_return_type=0
-
-
-" autocmd FileType typescript,typescript.tsx setl omnifunc=TSOmnicFunc
-" let g:neomake_typescript_enabled_makers = ['tslint']
-let  g:typescript_use_builtin_tagbar_defs = 1
-let g:neomake_typescript_enabled_makers = []
-let g:nvim_typescript#max_completion_detail=50
-let g:nvim_typescript#completion_mark=''
-let g:nvim_typescript#javascript_support=1
-let g:nvim_typescript#expand_snippet=0
-" let g:nvim_typescript#vue_support=1
-let g:nvim_typescript#diagnosticsEnable=1
-map <silent> <leader>gd :TSDoc <cr>
-map <silent> <leader>gt :TSType <cr>
-map <silent> <leader>gtd :TSTypeDef <cr>
-map <silent> <leader>@ :Denite -buffer-name=TSDocumentSymbol TSDocumentSymbol <cr>
-map <silent> <leader># :Denite -buffer-name=TSWorkspaceSymbol TSWorkspaceSymbol <cr>
-map <silent> <leader>ti :TSImport <cr>
-nnoremap <m-Enter> :TSGetCodeFix<CR>
-
-let g:neomake_vue_enabled_makers = []
-let g:neoformat_typescript_prettier = g:standard_prettier_settings
-let g:neoformat_enabled_typescript = ['prettier']
-let g:neoformat_typescript_prettier = g:standard_prettier_settings
-let g:neoformat_enabled_typescript = ['prettier']
-" let g:neomake_typescript_enabled_makers = ['nvim_ts']
-let g:nvim_typescript#kind_symbols = {
-      \ 'keyword': 'keyword',
-      \ 'class': '',
-      \ 'interface': '',
-      \ 'script': 'script',
-      \ 'module': '',
-      \ 'local class': 'local class',
-      \ 'type': '',
-      \ 'enum': '',
-      \ 'enum member': '',
-      \ 'alias': '',
-      \ 'type parameter': 'type param',
-      \ 'primitive type': 'primitive type',
-      \ 'var': '',
-      \ 'local var': '',
-      \ 'property': '',
-      \ 'let': '',
-      \ 'const': '',
-      \ 'label': 'label',
-      \ 'parameter': 'param',
-      \ 'index': 'index',
-      \ 'function': '',
-      \ 'local function': 'local function',
-      \ 'method': '',
-      \ 'getter': '',
-      \ 'setter': '',
-      \ 'call': 'call',
-      \ 'constructor': '',
-      \}
-
-
-let s:menus.typescript = {
-      \ 'description' : 'typescript commands',
-      \}
-let s:menus.typescript.command_candidates = [
-      \['Get Type', 'TSType' ],
-      \['Get Doc', 'TSDoc'],
-      \['Edit Project Config', 'TSEditConfig'],
-      \['Restart Server', 'TSRestart'],
-      \['Start Server', 'TSStart'],
-      \['Stop Server', 'TSStop'],
-      \]
-
-
-let g:neoformat_json_prettier = g:standard_prettier_settings
-let g:neoformat_enabled_json = ['prettier']
-let g:vim_json_syntax_conceal = 0
-
-" }}}
-
-" HTML ----------------------------------------------------------------------{{{
-
-let g:neoformat_enabled_vue = ['prettier']
-let g:neomake_html_enabled_makers = []
-let g:neoformat_enabled_html = ['htmlbeautify']
-
-" let g:neoformat_html_prettier = g:standard_prettier_settings
-" let g:neoformat_enabled_html = ['prettier']
-" }}}
-
-" CSS -----------------------------------------------------------------------{{{
-
-let g:neoformat_scss_prettier = g:standard_prettier_settings
-let g:neoformat_enabled_scss = ['prettier']
-let g:neomake_scss_enabled_makers = ['stylelint']
-
-"}}}
-
-" Python --------------------------------------------------------------------{{{
-
-" let $NVIM_PYTHON_LOG_FILE='~/nvim-python.log'
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#documentation_command = "<leader>k"
-let g:jedi#completions_enabled = 0
-let g:jedi#force_py_version=3
-" }}}
