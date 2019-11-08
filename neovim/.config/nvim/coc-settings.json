@@ -1,6 +1,8 @@
 {
+  "suggest.labelMaxLength": 80,
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "html", "json", "css"],
-  "prettier.printWidth": 160,
   "coc.preferences.extensionUpdateCheck": "daily"
+
+
 }

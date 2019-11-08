@@ -44,6 +44,15 @@ call dein#add('vim-airline/vim-airline-themes')
 " }}}
 " completion {{{
 call dein#add('neoclide/coc.nvim', {'merge':0, 'rev': 'release'})
+" coc-extensions
+call dein#add('neoclide/coc-tsserver', {'build':'yarn install --frozen-lockfile'})
+call dein#add('neoclide/coc-tslint', {'build':'yarn install --frozen-lockfile'})
+call dein#add('neoclide/coc-css', {'build':'yarn install --frozen-lockfile'})
+call dein#add('neoclide/coc-html', {'build':'yarn install --frozen-lockfile'})
+call dein#add('neoclide/coc-prettier', {'build':'yarn install --frozen-lockfile'})
+call dein#add('neoclide/coc-emmet', {'build':'yarn install --frozen-lockfile'})
+call dein#add('neoclide/coc-json', {'build':'yarn install --frozen-lockfile'})
+call dein#add('neoclide/coc-jsonc', {'build':'yarn install --frozen-lockfile'})
 " }}}
 " denite {{{
 call dein#add('Shougo/denite.nvim')
@@ -297,13 +306,13 @@ nnoremap zh mzzt10<c-u>`z
 " Diffoff
 nnoremap <leader>D :diffoff!<cr>
 
-" Formatting, and keep the cursor in place
+" Default formatting, and keep the cursor in place
 nnoremap Q mzgg=G`z
 vnoremap Q mz=`z
 
 " Window Resizing {{{
-" right/up : bigger
-" left/down : smaller
+"Alt right/up : bigger
+"Alt left/down : smaller
 nnoremap <m-right> :vertical resize +3<cr>
 nnoremap <m-left> :vertical resize -3<cr>
 nnoremap <m-up> :resize +3<cr>
@@ -518,6 +527,22 @@ let g:airline#extensions#tabline#buffer_idx_format = {
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+"
+" Set config path
+if has('win32')
+  if !isdirectory(expand('~/dotfiles/neovim/.config/nvim/coc-settings.json'))
+    let g:coc_user_config='~/dotfiles/neovim/.config/nvim/coc-settings.json'
+  endif
+endif
+
+if !has('win32')
+  if (!isdirectory(expand("$HOME/dotfiles/neovim/.config/nvim/coc-settings.json")))
+    let g:coc_user_config='$HOME/dotfiles/neovim/.config/nvim/coc-settings.json'
+  endif
+endif
+
+let g:coc_config_home = expand('~/dotfiles/neovim/.config/nvim/repos/github.com/neoclide')
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
