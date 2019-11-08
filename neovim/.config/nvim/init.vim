@@ -2,26 +2,26 @@
 " Setup dein {{{
 " Auto install dein
 if has('win32')
-	if !isdirectory(expand('~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim'))
-		echo "Installing dein.vim..."
-		silent !powershell -Command "New-Item -ItemType Directory -Path $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo -Force"
-		silent !powershell -Command "git clone https://github.com/Shougo/dein.vim $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim"
-	endif
-	set runtimepath+=~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim
+  if !isdirectory(expand('~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim'))
+    echo "Installing dein.vim..."
+    silent !powershell -Command "New-Item -ItemType Directory -Path $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo -Force"
+    silent !powershell -Command "git clone https://github.com/Shougo/dein.vim $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim"
+  endif
+  set runtimepath+=~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim
 endif
 if !has('win32')
-	if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
-		echo "Installing udner .config/nvim dein.vim..."
-		call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
-		call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
-	endif
-	set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
+  if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
+    echo "Installing udner .config/nvim dein.vim..."
+    call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
+    call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
+  endif
+  set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
 endif
 if has('win32')
-	call dein#begin(expand('~/dotfiles/neovim/.config/nvim'))
+  call dein#begin(expand('~/dotfiles/neovim/.config/nvim'))
 endif
 if !has('win32')
-	call dein#begin(expand('~/.config/nvim'))
+  call dein#begin(expand('~/.config/nvim'))
 endif
 
 call dein#add('Shougo/dein.vim')
@@ -64,8 +64,8 @@ call dein#add('HerringtonDarkholme/yats.vim')
 call dein#add('ryanoasis/vim-devicons')
 
 if dein#check_install()
-	call dein#install()
-	let pluginsExist=1
+  call dein#install()
+  let pluginsExist=1
 endif
 
 call dein#end()
@@ -75,11 +75,11 @@ filetype plugin indent on
 "
 " Check for local configuration
 if (isdirectory(expand("$HOME/.local.vim")))
-	source ~/.local.vim
+  source ~/.local.vim
 endif
 
 if exists('g:GuiLoaded')
-	Guifont Hasklig:h15
+  Guifont Hasklig:h15
 endif
 
 " Neovim Settings
@@ -107,6 +107,7 @@ set wildmode=full
 set autoread
 set updatetime=300
 set fillchars+=vert:│
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 
 " More natural splitting.
 set splitbelow
@@ -127,9 +128,9 @@ set undolevels=1000
 set undoreload=10000
 " Remember cursor position between vim sessions
 autocmd BufReadPost *
-			\ if line("'\"") > 0 && line ("'\"") <= line("$") |
-			\   exe "normal! g'\"" |
-			\ endif
+      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \   exe "normal! g'\"" |
+      \ endif
 " center buffer around cursor when opening files
 autocmd BufRead * normal zz
 set complete=.,w,b,u,t,k
@@ -215,16 +216,16 @@ vnoremap <c-/> :TComment<cr>
 nnoremap <silent> <esc> :noh<cr>
 nnoremap <leader>e :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-	if !exists("*synstack")
-		return
-	endif
-	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
 function! s:PlaceholderImgTag(size)
-	let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
-	let [width,height] = split(a:size, 'x')
-	execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
+  let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
+  let [width,height] = split(a:size, 'x')
+  execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
 endfunction
 command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
 
@@ -237,32 +238,32 @@ nnoremap <silent> <leader>/d :call <SID>clear_search_results()<CR>
 
 " Shows the amount of matches for the previous search.
 function! s:count_search_results()
-	%s///gn
+  %s///gn
 endfunction
 
 nnoremap <silent> <leader>/c :call <SID>count_search_results()<CR>
 
 " Deletes the hidden buffers.
 function! s:delete_hidden_buffers()
-	let tpbl=[]
-	call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-	for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-		silent execute 'bwipeout' buf
-	endfor
+  let tpbl=[]
+  call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+  for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+    silent execute 'bwipeout' buf
+  endfor
 endfunction
 
 nnoremap <silent> <leader>bd :call <SID>delete_hidden_buffers()<CR>
 
 " Corrects the spelling under the cursor with the first suggestion.
 function! s:correct_to_first_spelling_suggestion()
-	normal 1z=
+  normal 1z=
 endfunction
 
 nnoremap <silent> <leader>z :call <SID>correct_to_first_spelling_suggestion()<CR>
 
 " Trim the trailing white space from the file.
 function! s:trim_trailing_whitespace()
-	%s/\s\+$//e
+  %s/\s\+$//e
 endfunction
 
 nnoremap <silent> <leader>cw :call <SID>trim_trailing_whitespace()<CR>
@@ -270,23 +271,44 @@ nnoremap <silent> <leader>cw :call <SID>trim_trailing_whitespace()<CR>
 " Opens the split in a new tab. Kind like "distraction free" mode.
 nnoremap <silent> <leader>wf :tab sp<CR>
 
-" Pull from either side of a git conflict.
-"nnoremap <silent> <leader>gl :<C-U>diffget LOCAL<CR>
-"nnoremap <silent> <leader>gr :<C-U>diffget REMOTE<CR>
-
 "Start terminal mode with \t
 function! s:start_terminal_mode()
-	autocmd BufEnter term://* startinsert
+  autocmd BufEnter term://* startinsert
 endfunction
 
 nnoremap <silent> <leader>t :call <SID>start_terminal_mode()<CR>
 
 "Start gtd timer with 20 minute session and 4 min break
 function! s:start_terminal_timer()
-	:te ~/dotfiles/gtd/gtd -n 20
+  :te ~/dotfiles/gtd/gtd -n 20
 endfunction
 
 nnoremap <silent> <leader>tm :call <SID>start_terminal_timer()<CR>
+
+" Thank you Steve Losh http://bitbucket.org/sjl/dotfiles/src/tip/vim/
+" make word uppercase use <c-u> just after the word
+inoremap <C-u> <esc>mzgUiw`za
+
+" zt is okay for putting something at the top of the screen, but when I'm
+" writing prose I often want to put something at not-quite-the-top of the
+" screen.  zh is "zoom to head level"
+nnoremap zh mzzt10<c-u>`z
+
+" Diffoff
+nnoremap <leader>D :diffoff!<cr>
+
+" Formatting, and keep the cursor in place
+nnoremap Q mzgg=G`z
+vnoremap Q mz=`z
+
+" Window Resizing {{{
+" right/up : bigger
+" left/down : smaller
+nnoremap <m-right> :vertical resize +3<cr>
+nnoremap <m-left> :vertical resize -3<cr>
+nnoremap <m-up> :resize +3<cr>
+nnoremap <m-down> :resize -3<cr>
+" }}}
 
 "}}}"
 " Themes, Commands, etc  ----------------------------------------------------{{{
@@ -301,23 +323,20 @@ let g:airline_theme='oceanicnext'
 " Fold, gets it's own section  ----------------------------------------------{{{
 
 function! MyFoldText() " {{{
-	let line = getline(v:foldstart)
-	let nucolwidth = &fdc + &number * &numberwidth
-	let windowwidth = winwidth(0) - nucolwidth - 3
-	let foldedlinecount = v:foldend - v:foldstart
+  let line = getline(v:foldstart)
 
-	" expand tabs into spaces
-	let onetab = strpart('          ', 0, &tabstop)
-	let line = substitute(line, '\t', onetab, 'g')
+  let nucolwidth = &fdc + &number * &numberwidth
+  let windowwidth = winwidth(0) - nucolwidth - 3
+  let foldedlinecount = v:foldend - v:foldstart
 
-	let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-	" let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - len('lines')
-	" let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - len('lines   ')
-	let fillcharcount = windowwidth - len(line)
-	" return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . ' Lines'
-	return line . '…'. repeat(" ",fillcharcount)
+  " expand tabs into spaces
+  let onetab = strpart('          ', 0, &tabstop)
+  let line = substitute(line, '\t', onetab, 'g')
+
+  let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+  let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+  return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
 endfunction " }}}
-
 set foldtext=MyFoldText()
 
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
@@ -351,15 +370,15 @@ autocmd FileType javascript,typescript,typescript.tsx,json setl foldmethod=synta
 
 map <silent> - :NERDTreeToggle<CR>
 augroup ntinit
-	autocmd FileType nerdtree call s:nerdtreeinit()
+  autocmd FileType nerdtree call s:nerdtreeinit()
 augroup END
 function! s:nerdtreeinit() abort
-	set nolist
-	if !has("gui_running")
-		nunmap <buffer> K
-		nunmap <buffer> J
-		map <silent> <Tab> :call nerdtree#ui_glue#invokeKeyMap("A")<CR>
-	endif
+  set nolist
+  if !has("gui_running")
+    nunmap <buffer> K
+    nunmap <buffer> J
+    map <silent> <Tab> :call nerdtree#ui_glue#invokeKeyMap("A")<CR>
+  endif
 endf
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=45
@@ -380,17 +399,17 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
 let g:NERDTreeGitStatusIndicatorMap = {
-			\ 'Modified'  : '✹',
-			\ 'Staged'    : '✚',
-			\ 'Untracked' : '✭',
-			\ 'Renamed'   : '➜',
-			\ 'Unmerged'  : '═',
-			\ 'Deleted'   : '✖',
-			\ 'Dirty'     : '✗',
-			\ 'Clean'     : '✔︎',
-			\ 'Ignored'   : 'i',
-			\ 'Unknown'   : '?'
-			\ }
+      \ 'Modified'  : '✹',
+      \ 'Staged'    : '✚',
+      \ 'Untracked' : '✭',
+      \ 'Renamed'   : '➜',
+      \ 'Unmerged'  : '═',
+      \ 'Deleted'   : '✖',
+      \ 'Dirty'     : '✗',
+      \ 'Clean'     : '✔︎',
+      \ 'Ignored'   : 'i',
+      \ 'Unknown'   : '?'
+      \ }
 
 "}}}
 " Nvim terminal -------------------------------------------------------------{{{
@@ -438,7 +457,7 @@ endfunction
 
 let g:webdevicons_enable_airline_statusline = 1
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 
 let g:airline_powerline_fonts = 1
@@ -482,17 +501,17 @@ let g:airline_section_c = '%f%m'
 let g:airline_section_z = '%l:%c'
 let g:airline#parts#ffenc#skip_expected_string=''
 let g:airline#extensions#tabline#buffer_idx_format = {
-			\ '0': '0 ',
-			\ '1': '1 ',
-			\ '2': '2 ',
-			\ '3': '3 ',
-			\ '4': '4 ',
-			\ '5': '5 ',
-			\ '6': '6 ',
-			\ '7': '7 ',
-			\ '8': '8 ',
-			\ '9': '9 ',
-			\}
+      \ '0': '0 ',
+      \ '1': '1 ',
+      \ '2': '2 ',
+      \ '3': '3 ',
+      \ '4': '4 ',
+      \ '5': '5 ',
+      \ '6': '6 ',
+      \ '7': '7 ',
+      \ '8': '8 ',
+      \ '9': '9 ',
+      \}
 
 "}}}
 " coc -----------------------------------------------------------------------{{{
@@ -607,7 +626,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 autocmd FileType json syntax match Comment +\/\/.\+$+
-    " }}}
 " }}}
 " MultiCursor ---------------------------------------------------------------{{{
 
