@@ -1,8 +1,21 @@
 {
-  "suggest.labelMaxLength": 80,
+  "suggest.labelMaxLength": 200,
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "html", "json", "css"],
-  "coc.preferences.extensionUpdateCheck": "daily"
-
-
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "prettier.singleQuote":true,
+  "prettier.tabWidth":2,
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "cubec": "html",
+    "template": "html",
+    "handlebars": "html",
+    "mustache": "html",
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact",
+    "javascript.jsx": "javascriptreact",
+    "typescript.tsx": "typescriptreact",
+    "scss":"css",
+    "sass": "css"
+  }
 }

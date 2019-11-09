@@ -44,15 +44,6 @@ call dein#add('vim-airline/vim-airline-themes')
 " }}}
 " completion {{{
 call dein#add('neoclide/coc.nvim', {'merge':0, 'rev': 'release'})
-" coc-extensions
-call dein#add('neoclide/coc-tsserver', {'build':'yarn install --frozen-lockfile'})
-call dein#add('neoclide/coc-tslint', {'build':'yarn install --frozen-lockfile'})
-call dein#add('neoclide/coc-css', {'build':'yarn install --frozen-lockfile'})
-call dein#add('neoclide/coc-html', {'build':'yarn install --frozen-lockfile'})
-call dein#add('neoclide/coc-prettier', {'build':'yarn install --frozen-lockfile'})
-call dein#add('neoclide/coc-emmet', {'build':'yarn install --frozen-lockfile'})
-call dein#add('neoclide/coc-json', {'build':'yarn install --frozen-lockfile'})
-call dein#add('neoclide/coc-jsonc', {'build':'yarn install --frozen-lockfile'})
 " }}}
 " denite {{{
 call dein#add('Shougo/denite.nvim')
@@ -541,8 +532,6 @@ if !has('win32')
   endif
 endif
 
-let g:coc_config_home = expand('~/dotfiles/neovim/.config/nvim/repos/github.com/neoclide')
-
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -651,6 +640,33 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 autocmd FileType json syntax match Comment +\/\/.\+$+
+let g:coc_global_extensions = [
+    \'coc-css',
+    \'coc-emmet',
+    \'coc-eslint',
+    \'coc-html',
+    \'coc-json',
+    \'coc-prettier',
+    \'coc-tsserver',
+    \'coc-tslint'
+    \]
+" emmet {{{
+" use <TAB> for expansion
+" go to next/previous edit point <c-j> <c-k>
+let g:user_emmet_leader_key = '<C-e>'
+let g:user_emmet_expandabbr_key = '<C-x><C-e>'
+imap <silent><expr> <Tab> <SID>expand()
+" }}}
+function! s:expand()
+  if pumvisible()
+    return "\<C-y>"
+  endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1]  =~# '\s'
+    return "\<Tab>"
+  endif
+  return "\<C-x>\<C-e>"
+endfunction
 " }}}
 " MultiCursor ---------------------------------------------------------------{{{
 
