@@ -17,6 +17,8 @@ if !has('win32')
   endif
   set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
 endif
+
+" Set plugin path
 if has('win32')
   call dein#begin(expand('~/dotfiles/neovim/.config/nvim'))
 endif
@@ -25,8 +27,6 @@ if !has('win32')
 endif
 
 call dein#add('Shougo/dein.vim')
-call dein#add('haya14busa/dein-command.vim')
-call dein#add('wsdjeg/dein-ui.vim')
 "}}}
 " system {{{
 call dein#add('tpope/vim-surround')
@@ -55,11 +55,22 @@ call dein#add('pocari/vim-denite-gists')
 call dein#add('tpope/vim-fugitive')
 call dein#add('mhinz/vim-signify')
 " }}}}
-" javascript {{{
-call dein#add('othree/yajs.vim')
-" REQUIRED: Add a syntax file. YATS is the best
-call dein#add('HerringtonDarkholme/yats.vim')
+" syntax highlighting {{{
+" One to rule them all
+" One to find them
+" One to bring them on
+" And in the darkness bind them
+call dein#add('sheerun/vim-polyglot')
+
+" Check what syntax it is for debug highlighting
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 " }}}
+
 " Has to be last according to docs
 call dein#add('ryanoasis/vim-devicons')
 
@@ -69,6 +80,7 @@ if dein#check_install()
 endif
 
 call dein#end()
+
 filetype plugin indent on
 " }}}
 " System Settings  ----------------------------------------------------------{{{
@@ -126,11 +138,13 @@ set undofile
 set undodir="$HOME/.VIM_UNDO_FILES"
 set undolevels=1000
 set undoreload=10000
+
 " Remember cursor position between vim sessions
 autocmd BufReadPost *
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
       \   exe "normal! g'\"" |
       \ endif
+
 " center buffer around cursor when opening files
 autocmd BufRead * normal zz
 set complete=.,w,b,u,t,k
@@ -145,8 +159,10 @@ let g:indentLine_color_gui = '#343d46'
 
 " Highlight searches.
 set hlsearch
+
 " Highlight the current line.
 set cursorline
+
 " Send more characters to the terminal at once.
 " Makes things smoother, will probably be enabled by my terminal anyway.
 set ttyfast
@@ -166,9 +182,10 @@ set cmdheight=2
 
 " always show signcolumns
 set signcolumn=yes
+
 " }}}
 " System mappings  ----------------------------------------------------------{{{
-" Navigate between display lines
+" Navigate between display lines as normal lines
 nnoremap <silent><expr> k      v:count == 0 ? 'gk' : 'k'
 nnoremap <silent><expr> j      v:count == 0 ? 'gj' : 'j'
 vnoremap <silent><expr> k      v:count == 0 ? 'gk' : 'k'
@@ -176,15 +193,19 @@ vnoremap <silent><expr> j      v:count == 0 ? 'gj' : 'j'
 nnoremap <silent><expr> <Up>   v:count == 0 ? 'gk' : 'k'
 nnoremap <silent><expr> <Down> v:count == 0 ? 'gj' : 'j'
 
+" Make Home and End behave as them self
 noremap  <silent> <Home> g<Home>
 noremap  <silent> <End>  g<End>
 inoremap <silent> <Home> <C-o>g<Home>
 inoremap <silent> <End>  <C-o>g<End>
+
 " copy current files path to clipboard
-nmap cp :let @+= expand("%") <cr>
+nmap cp :let @+= expand("%:p")<cr>
+
 " Neovim terminal mapping
 " terminal 'normal mode'
 tmap <esc> <c-\><c-n><esc><cr>
+
 " exit insert, dd line, enter insert
 inoremap <c-d> <esc>ddi
 noremap H ^
@@ -192,20 +213,19 @@ noremap L g_
 noremap J 5j
 noremap K 5k
 " nnoremap K 5k
+
 " Map ; to : so instead to use
 " shift+: just type ;
 nnoremap ; :
+
 inoremap <c-f> <c-x><c-f>
-" Copy to clipboard
+
+" Copy to system clipboard
 vnoremap <C-c> "*y<CR>
 vnoremap y "*y<CR>
 noremap Y y$
 vnoremap y myy`y
 vnoremap Y myY`y
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-" let g:multi_cursor_quit_key='<Esc>'
 
 " Align blocks of text and keep them selected
 vmap < <gv
@@ -532,6 +552,18 @@ if !has('win32')
   endif
 endif
 
+" Get common extensions
+let g:coc_global_extensions = [
+      \'coc-css',
+      \'coc-emmet',
+      \'coc-eslint',
+      \'coc-html',
+      \'coc-json',
+      \'coc-prettier',
+      \'coc-tsserver',
+      \'coc-tslint',
+      \'coc-snippets'
+      \]
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -640,16 +672,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 autocmd FileType json syntax match Comment +\/\/.\+$+
-let g:coc_global_extensions = [
-    \'coc-css',
-    \'coc-emmet',
-    \'coc-eslint',
-    \'coc-html',
-    \'coc-json',
-    \'coc-prettier',
-    \'coc-tsserver',
-    \'coc-tslint'
-    \]
 " emmet {{{
 " use <TAB> for expansion
 " go to next/previous edit point <c-j> <c-k>
@@ -669,7 +691,4 @@ function! s:expand()
 endfunction
 " }}}
 " MultiCursor ---------------------------------------------------------------{{{
-
-let g:multi_cursor_exit_from_visual_mode=0
-let g:multi_cursor_exit_from_insert_mode=0
 "}}}

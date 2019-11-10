@@ -3,8 +3,6 @@
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "html", "json", "css"],
   "coc.preferences.extensionUpdateCheck": "daily",
-  "prettier.singleQuote":true,
-  "prettier.tabWidth":2,
   "emmet.includeLanguages": {
     "vue-html": "html",
     "cubec": "html",
