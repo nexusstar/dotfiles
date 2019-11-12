@@ -562,7 +562,8 @@ let g:coc_global_extensions = [
       \'coc-prettier',
       \'coc-tsserver',
       \'coc-tslint',
-      \'coc-snippets'
+      \'coc-snippets',
+      \'https://github.com/dsznajder/vscode-es7-javascript-react-snippets'
       \]
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
