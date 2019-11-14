@@ -72,7 +72,9 @@ function! SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 " }}}
-
+" snippets {{{{
+call dein#add("SirVer/ultisnips")
+" }}}}
 " Has to be last according to docs
 call dein#add('ryanoasis/vim-devicons')
 
@@ -158,6 +160,9 @@ set shortmess=atIc
 set isfname-==
 set spell
 let g:indentLine_color_gui = '#343d46'
+
+" Open help bellow
+autocmd! BufEnter * if &ft ==# 'help' | wincmd J | endif
 
 " Highlight searches.
 set hlsearch
