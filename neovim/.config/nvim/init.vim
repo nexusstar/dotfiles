@@ -73,7 +73,7 @@ function! SynStack()
 endfunc
 " }}}
 " snippets {{{{
-call dein#add("SirVer/ultisnips")
+"call dein#add("SirVer/ultisnips")
 " }}}}
 " Has to be last according to docs
 call dein#add('ryanoasis/vim-devicons')
