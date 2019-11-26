@@ -63,6 +63,9 @@ call dein#add('wincent/scalpel')
 " One to bring them on
 " And in the darkness bind them
 call dein#add('sheerun/vim-polyglot')
+" for nerdtree
+call dein#add('Xuyuanp/nerdtree-git-plugin')
+call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 
 " Check what syntax it is for debug highlighting
 function! SynStack()
@@ -73,7 +76,7 @@ function! SynStack()
 endfunc
 " }}}
 " snippets {{{{
-call dein#add("SirVer/ultisnips")
+call dein#add('SirVer/ultisnips')
 " }}}}
 " Has to be last according to docs
 call dein#add('ryanoasis/vim-devicons')
@@ -87,7 +90,7 @@ call dein#end()
 
 filetype plugin indent on
 " }}}
-" System Settings  ----------------------------------------------------------{{{
+:" System Settings  ----------------------------------------------------------{{{
 "
 " Check for local configuration
 if (isdirectory(expand("$HOME/.local.vim")))
@@ -136,8 +139,8 @@ autocmd BufEnter * silent! lcd %:p:h
 " set numberwidth=5
 
 " Set leadear
-" leader is \
-"let mapleader = '\'
+" leader is <space>
+let mapleader = ' '
 set undofile
 set undodir="$HOME/.VIM_UNDO_FILES"
 set undolevels=1000
@@ -206,9 +209,6 @@ noremap  <silent> <End>  g<End>
 inoremap <silent> <Home> <C-o>g<Home>
 inoremap <silent> <End>  <C-o>g<End>
 
-" copy current files path to clipboard
-nmap cp :let @+= expand("%:p")<cr>
-
 " Neovim terminal mapping
 " terminal 'normal mode'
 tmap <esc> <c-\><c-n><esc><cr>
@@ -234,6 +234,9 @@ noremap Y y$
 vnoremap y myy`y
 vnoremap Y myY`y
 
+" copy current files path to clipboard
+nmap cp :let @+= expand("%:p")<cr>
+
 " Align blocks of text and keep them selected
 vmap < <gv
 vmap > >gv
@@ -242,18 +245,23 @@ vnoremap <leader>d "_d
 vnoremap <c-/> :TComment<cr>
 nnoremap <silent> <esc> :noh<cr>
 
+
+"}}}"
+" Custom mappings  ----------------------------------------------------------{{{
 function! s:PlaceholderImgTag(size)
   let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
   let [width,height] = split(a:size, 'x')
   execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
 endfunction
 command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
-
-" Use <CR> to clear the highlighting of :set hlsearch.
+"  Use <CR> to clear the highlighting of :set hlsearch
 nnoremap <CR> :nohlsearch<CR>/<BS>
 
-"}}}"
-" Custom mappings  ----------------------------------------------------------{{{
+" Clears the search term from search register
+function! s:clear_search_results()
+  let @/=""
+endfunction
+
 nnoremap <silent> <leader>/d :call <SID>clear_search_results()<CR>
 
 " Shows the amount of matches for the previous search.
@@ -310,7 +318,7 @@ nnoremap <silent> <leader>tm :call <SID>start_terminal_timer()<CR>
 inoremap <C-u> <esc>mzgUiw`za
 
 " zt is okay for putting something at the top of the screen, but when I'm
-" writing prose I often want to put something at not-quite-the-top of the
+" writing I often want to put something at not-quite-the-top of the
 " screen.  zh is "zoom to head level"
 nnoremap zh mzzt10<c-u>`z
 
@@ -321,7 +329,12 @@ nnoremap <leader>D :diffoff!<cr>
 nnoremap Q mzgg=G`z
 vnoremap Q mz=`z
 
+" Tabs
+nnoremap <leader>[ :tabprev<cr>
+nnoremap <leader>] :tabnext<cr>
+
 " Window Resizing {{{
+" TODO this does not work on windows powershell
 "Alt right/up : bigger
 "Alt left/down : smaller
 nnoremap <m-right> :vertical resize +3<cr>
@@ -649,11 +662,12 @@ let g:airline#extensions#tabline#buffer_idx_format = {
       \ '9': '9 ',
       \}
 
+" Add coc customization
+let g:airline#extensions#coc#enabled = 1
 "}}}
 " coc -----------------------------------------------------------------------{{{
 
 " Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 "
 " Set config path
 if has('win32')
@@ -680,27 +694,26 @@ let g:coc_global_extensions = [
       \'coc-snippets',
       \'coc-tsserver',
       \'coc-tslint',
+      \'coc-ultisnips',
       \'https://github.com/dsznajder/vscode-es7-javascript-react-snippets'
       \]
+
+" use <TAB> for trigger completion
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+"TODO need to change this could not use it like this
+let g:UltiSnipsExpandTrigger='<S-space>'
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -769,7 +782,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
+" Add status line support, for integration with other plugin, check `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
@@ -790,23 +803,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 autocmd FileType json syntax match Comment +\/\/.\+$+
-" emmet {{{
-" use <TAB> for expansion
-" go to next/previous edit point <c-j> <c-k>
-let g:user_emmet_leader_key = '<C-e>'
-let g:user_emmet_expandabbr_key = '<C-x><C-e>'
-imap <silent><expr> <Tab> <SID>expand()
-" }}}
-function! s:expand()
-  if pumvisible()
-    return "\<C-y>"
-  endif
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1]  =~# '\s'
-    return "\<Tab>"
-  endif
-  return "\<C-x>\<C-e>"
-endfunction
 " }}}
 " MultiCursor ---------------------------------------------------------------{{{
 "}}}
