@@ -76,7 +76,11 @@ function! SynStack()
 endfunc
 " }}}
 " snippets {{{{
+<<<<<<< HEAD
 call dein#add('SirVer/ultisnips')
+=======
+"call dein#add("SirVer/ultisnips")
+>>>>>>> 0d9ece3c55a0848c0adbec05491a41db0a05bd83
 " }}}}
 " Has to be last according to docs
 call dein#add('ryanoasis/vim-devicons')
