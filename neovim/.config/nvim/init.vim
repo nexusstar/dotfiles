@@ -150,6 +150,8 @@ autocmd BufReadPost *
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
       \   exe "normal! g'\"" |
       \ endif
+" Automaticaly change the current directory
+autocmd BufEnter * silent! lcd %:p:h
 
 " center buffer around cursor when opening files
 autocmd BufRead * normal zz
