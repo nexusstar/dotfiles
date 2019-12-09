@@ -1,9 +1,6 @@
 {
   "suggest.labelMaxLength": 200,
-  "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "html", "json", "css"],
   "coc.preferences.extensionUpdateCheck": "daily",
-  "prettier.singleQuote":true,
   "emmet.includeLanguages": {
     "vue-html": "html",
     "cubec": "html",
