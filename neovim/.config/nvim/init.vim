@@ -189,10 +189,13 @@ set nowritebackup
 set cmdheight=2
 
 " don't give |ins-completion-menu| messages.
-"set shortmess+=c
+set shortmess+=c
 
 " always show signcolumns
 set signcolumn=yes
+
+" Automaticaly change the current directory
+autocmd BufEnter * silent! lcd %:p:h
 
 " }}}
 " System mappings  ----------------------------------------------------------{{{
@@ -216,6 +219,8 @@ tmap <esc> <c-\><c-n><esc><cr>
 
 " exit insert, dd line, enter insert
 inoremap <c-d> <esc>ddi
+
+" navigate jumps
 noremap H ^
 noremap L g_
 noremap J 5j
@@ -226,7 +231,6 @@ noremap K 5k
 " shift+: just type ;
 nnoremap ; :
 
-inoremap <c-f> <c-x><c-f>
 
 " Copy to system clipboard
 vnoremap <C-c> "*y<CR>
