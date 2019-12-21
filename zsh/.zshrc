@@ -1,4 +1,4 @@
-# Options section
+## Options section
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
@@ -23,12 +23,7 @@ SAVEHIST=500
 #export EDITOR=/usr/bin/nano
 #export VISUAL=/usr/bin/nano
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
-# display how long all tasks over 10 seconds take
-export REPORTTIME=10
-# define the workspace directory
-# This is where my code exists and where I want the `c` autocomplete to work from exclusively
-if [[ -d ~/workspace ]]; then
-  export CODE_DIR=~/workspace
+
 
 ## Keybindings section
 bindkey -e
@@ -192,26 +187,6 @@ svn_dirty(){
     fi
   }
 
-# source fzf
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-    # source nvm
-    if [ -d $HOME/.nvm ]; then
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-    fi
-
-    # add Composer directory
-    if [[ -d ~/.composer ]]; then
-      export PATH="$HOME/.composer/vendor/bin:$PATH"
-    fi
-
-    # add rbenv for Ruby and autocompletion
-    if [[ -d ~/.rbenv ]]; then
-      export PATH="$HOME/.rbenv/bin:$PATH"
-      eval "$(rbenv init -)"
-    fi
 # get the status of the current branch and it's remote
 # If there are changes upstream, display a ⇣
 # If there are changes that have been committed but not yet pushed, display a ⇡
@@ -314,6 +289,7 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
     ;;
 esac
+export VISUAL=nvim
 # Adding nvm and nvm completion
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
