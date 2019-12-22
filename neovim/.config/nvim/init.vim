@@ -115,7 +115,7 @@ set noswapfile
 filetype on
 set  number
 set numberwidth=1
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 set conceallevel=0
 set virtualedit=
 set wildmenu
