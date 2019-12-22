@@ -3,12 +3,6 @@
   "coc.preferences.extensionUpdateCheck": "daily",
   "eslint.autoFixOnSave":true,
   "eslint.run":"onType",
-  "eslint.options":{
-    "configFile": "/home/nexus/.eslintrc.yml",
-    "ignoreFile": "/home/nexus/.eslintignore"
-  },
-  "eslint.packageManager": "npm",
-  "eslint.nodePath": "~/.nvm/versions/node/v13.1.0/lib/node_modules",
   "emmet.includeLanguages": {
     "vue-html": "html",
     "cubec": "html",

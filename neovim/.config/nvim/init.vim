@@ -224,7 +224,7 @@ inoremap <c-d> <esc>ddi
 noremap H ^
 noremap L g_
 noremap J 5j
-noremap K 5k
+"noremap K 5k
 " nnoremap K 5k
 
 " Map ; to : so instead to use
@@ -338,7 +338,7 @@ vnoremap Q mz=`z
 nnoremap <leader>[ :tabprev<cr>
 nnoremap <leader>] :tabnext<cr>
 
-" Window Resizing {{{
+" Window Resizing        ----------------------------------------------------{{{
 " TODO this does not work on windows powershell
 "Alt right/up : bigger
 "Alt left/down : smaller
