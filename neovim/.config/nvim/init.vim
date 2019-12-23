@@ -56,6 +56,7 @@ call dein#add('mhinz/vim-signify')
 " }}}}
 " Test new plugins {{{
 call dein#add('wincent/scalpel')
+call dein#add('heavenshell/vim-jsdoc')
 " }}}
 " syntax highlighting {{{
 " One to rule them all
@@ -113,7 +114,12 @@ autocmd BufWritePre * %s/\s\+$//e
 set noshowmode
 set noswapfile
 filetype on
-set  number
+:set number relativenumber
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
 set numberwidth=1
 set tabstop=4 shiftwidth=4 expandtab
 set conceallevel=0
@@ -136,6 +142,14 @@ set sessionoptions=blank,curdir,folds,help,tabpages,winsize
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h
 " set numberwidth=5
+"
+" Search for project root
+" assumes that there is .git folder present
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+command! ProjectFiles execute 'Files' s:find_git_root()
 
 " Set leadear
 " leader is <space>
@@ -537,10 +551,12 @@ endtry
 "   <C-p> - Browse list of files in current directory
 "   <C-f> - Search current directory for occurences of given term and close window if no results
 "   <C-F> - Search current directory for occurences of word under cursor
+"   <C-t> - Search current file for occurences of word TODO
 "   ----------------------------------------------------------------{{{
 nmap , :Denite buffer<CR>
 nmap <C-p> :DeniteProjectDir file/rec<CR>
 nnoremap <C-f> :<C-u>Denite grep:. -no-empty<CR>
+nnoremap <C-t> :<C-u>Denite grep:::`expand('TODO')`<CR>
 nnoremap <C-F> :<C-u>DeniteCursorWord grep:.<CR>
 "}}}
 "
