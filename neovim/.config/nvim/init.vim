@@ -310,6 +310,8 @@ function! s:start_terminal_mode()
 endfunction
 
 nnoremap <silent> <leader>t :call <SID>start_terminal_mode()<CR>
+" search for visually hightlighted text
+vnoremap <c-s-r> y<ESC>/<c-r>"<CR>
 
 "Start gtd timer with 20 minute session and 4 min break
 function! s:start_terminal_timer()
@@ -796,7 +798,7 @@ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+"nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
