@@ -1,27 +1,28 @@
 [user]
 	name = Petar Nikov
-	email = petar.nikov@gmail.com
+    email = petar.nikov@gmail.com
+[github]
+    user = nexusstar
 [core]
     editor = nvim
     excludesfile = ~/.gitexcludes
+[push]
+    default = simple
 
 [color]
     ui = true
     branch = auto
     diff = auto
     status = auto
-
 [color "branch"]
     current = green bold
     local = green
     remote = yellow
-
 [color "diff"]
     frag = magenta
     meta = yellow
     new = green
     old = red
-
 [color "status"]
     added = green reverse
     changed = yellow reverse
@@ -29,15 +30,12 @@
 
 [diff]
     tool = vimdiff
-
 [merge]
     tool = vimdiff
-
 [mergetool]
     path = nvim
     prompt = true
     keepBackup = false
-
 [mergetool "vimdiff"]
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
