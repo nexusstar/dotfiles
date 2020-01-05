@@ -114,6 +114,8 @@ autocmd BufWritePre * %s/\s\+$//e
 set noshowmode
 set noswapfile
 filetype on
+" Setting relative and number toggle
+" on enter and exit edit mode
 :set number relativenumber
 :augroup numbertoggle
 :  autocmd!
@@ -131,6 +133,7 @@ set wildmode=full
 set autoread
 set updatetime=300
 set fillchars+=vert:│
+"set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 
 " More natural splitting.
@@ -238,8 +241,7 @@ inoremap <c-d> <esc>ddi
 noremap H ^
 noremap L g_
 noremap J 5j
-"noremap K 5k
-" nnoremap K 5k
+noremap K 5k
 
 " Map ; to : so instead to use
 " shift+: just type ;
@@ -272,7 +274,9 @@ function! s:PlaceholderImgTag(size)
   let [width,height] = split(a:size, 'x')
   execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
 endfunction
+
 command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
+
 "  Use <CR> to clear the highlighting of :set hlsearch
 nnoremap <CR> :nohlsearch<CR>/<BS>
 
@@ -280,7 +284,6 @@ nnoremap <CR> :nohlsearch<CR>/<BS>
 function! s:clear_search_results()
   let @/=""
 endfunction
-
 nnoremap <silent> <leader>/d :call <SID>clear_search_results()<CR>
 
 " Shows the amount of matches for the previous search.
@@ -324,6 +327,7 @@ function! s:start_terminal_mode()
 endfunction
 
 nnoremap <silent> <leader>t :call <SID>start_terminal_mode()<CR>
+
 " search for visually hightlighted text
 vnoremap <c-s-r> y<ESC>/<c-r>"<CR>
 
@@ -485,7 +489,8 @@ try
 "   --glob:  Include or exclues files for searching that match the given glob
 "            (aka ignore .git files)
 "   ----------------------------------------------------------------{{{
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!{.git,node_modules}'])
+call denite#custom#var('file/rec', 'command',
+            \ ['rg', '--files', '--glob', '!{.git,node_modules}'])
 
 " Use ripgrep in place of "grep"
 call denite#custom#var('grep', 'command', ['rg'])
@@ -498,10 +503,10 @@ call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
 
 " Recommended defaults for ripgrep via Denite docs
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
+"call denite#custom#var('grep', 'recursive_opts', [])
+"call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+"call denite#custom#var('grep', 'separator', ['--'])
+"call denite#custom#var('grep', 'final_opts', [])
 
 " Remove date from buffer list
 call denite#custom#var('buffer', 'date_format', '')
@@ -527,7 +532,7 @@ let s:denite_options = {'default' : {
 \ 'highlight_matched_char': 'QuickFixLine',
 \ 'highlight_matched_range': 'Visual',
 \ 'highlight_window_background': 'Visual',
-\ 'highlight_filter_background': 'DiffAdd',
+\ 'highlight_filter_background': 'NormalFloat',
 \ 'winrow': 1,
 \ 'vertical_preview': 1
 \ }}
@@ -811,8 +816,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Using CocList
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
 "nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
