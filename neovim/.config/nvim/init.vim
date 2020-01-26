@@ -358,6 +358,13 @@ vnoremap Q mz=`z
 nnoremap <leader>[ :tabprev<cr>
 nnoremap <leader>] :tabnext<cr>
 
+" Don't move on *
+nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
+
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 " Window Resizing        ----------------------------------------------------{{{
 " TODO this does not work on windows powershell
 "Alt right/up : bigger
@@ -723,6 +730,7 @@ let g:coc_global_extensions = [
       \'coc-tsserver',
       \'coc-tslint',
       \'coc-ultisnips',
+      \'coc-go',
       \'https://github.com/dsznajder/vscode-es7-javascript-react-snippets'
       \]
 
