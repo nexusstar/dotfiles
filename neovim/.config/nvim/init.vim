@@ -432,8 +432,10 @@ autocmd FileType javascript,typescript,typescript.tsx,json setl foldmethod=synta
 
 " }}}
 " NERDTree ------------------------------------------------------------------{{{
-
+" Use  - regular minus sign to open NERDTree at root of VCS dir
+" and _ (underscore) to open NERDTree of the file buffer
 map <silent> - :NERDTreeToggleVCS<CR>
+map <silent> _ :NERDTreeToggle<CR>
 augroup ntinit
   autocmd FileType nerdtree call s:nerdtreeinit()
 augroup END
