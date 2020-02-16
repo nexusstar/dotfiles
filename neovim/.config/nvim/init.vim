@@ -35,7 +35,7 @@ call dein#add('Shougo/context_filetype.vim')
 call dein#add('terryma/vim-multiple-cursors')
 call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
 call dein#add('junegunn/fzf.vim')
-call dein#add('scrooloose/nerdcommenter')
+call dein#add('preservim/nerdcommenter')
 " }}}
 " UI {{{
 call dein#add('scrooloose/nerdtree')
@@ -433,7 +433,7 @@ autocmd FileType javascript,typescript,typescript.tsx,json setl foldmethod=synta
 " }}}
 " NERDTree ------------------------------------------------------------------{{{
 
-map <silent> - :NERDTreeToggle<CR>
+map <silent> - :NERDTreeToggleVCS<CR>
 augroup ntinit
   autocmd FileType nerdtree call s:nerdtreeinit()
 augroup END
@@ -479,9 +479,6 @@ let g:NERDTreeGitStatusIndicatorMap = {
 "}}}
 " Nvim terminal -------------------------------------------------------------{{{
 
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-autocmd BufEnter term://* startinsert
-autocmd TermOpen * set bufhidden=hide
 
 " }}}
 " Denite --------------------------------------------------------------------{{{
@@ -510,10 +507,10 @@ call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
 
 " Recommended defaults for ripgrep via Denite docs
-"call denite#custom#var('grep', 'recursive_opts', [])
-"call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-"call denite#custom#var('grep', 'separator', ['--'])
-"call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 
 " Remove date from buffer list
 call denite#custom#var('buffer', 'date_format', '')
