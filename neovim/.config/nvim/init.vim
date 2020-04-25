@@ -346,7 +346,8 @@ inoremap <C-u> <esc>mzgUiw`za
 " writing I often want to put something at not-quite-the-top of the
 " screen.  zh is "zoom to head level"
 nnoremap zh mzzt10<c-u>`z
-
+" Adding <c-s> as write current buffer
+nnoremap <C-s> :w<CR>
 " Diffoff
 nnoremap <leader>D :diffoff!<cr>
 
@@ -719,6 +720,7 @@ endif
 " Get common extensions
 let g:coc_global_extensions = [
       \'coc-css',
+      \'coc-stylelint',
       \'coc-emmet',
       \'coc-eslint',
       \'coc-html',
@@ -728,9 +730,7 @@ let g:coc_global_extensions = [
       \'coc-snippets',
       \'coc-tsserver',
       \'coc-tslint',
-      \'coc-ultisnips',
       \'coc-go',
-      \'https://github.com/dsznajder/vscode-es7-javascript-react-snippets'
       \]
 
 " use <TAB> for trigger completion
