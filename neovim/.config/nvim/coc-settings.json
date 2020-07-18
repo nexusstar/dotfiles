@@ -1,27 +1,32 @@
 {
-  "suggest.labelMaxLength": 200,
-  "coc.preferences.extensionUpdateCheck": "daily",
-  "eslint.autoFixOnSave":true,
-  "eslint.run":"onType",
-  "css.validate":false,
-  "emmet.includeLanguages": {
-    "vue-html": "html",
-    "cubec": "html",
-    "template": "html",
-    "handlebars": "html",
-    "mustache": "html",
-    "javascript": "javascriptreact",
-    "typescript": "typescriptreact",
-    "javascript.jsx": "javascriptreact",
-    "typescript.tsx": "typescriptreact",
-    "scss":"css",
-    "sass": "css"
-  },
-  "languageserver":{
-      "golang":{
-          "command":"gopls",
-          "rootPatterns":["go.mod"],
-          "filetypes":["go"]
-      }
-  }
+    "suggest.labelMaxLength": 200,
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "eslint.autoFixOnSave":true,
+    "eslint.run":"onType",
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "wxss.validate": false,
+    "stylelintplus.autoFixOnSave": true,
+    "stylelintplus.autoFixOnFormat": true,
+    "emmet.includeLanguages": {
+        "vue-html": "html",
+        "cubec": "html",
+        "template": "html",
+        "handlebars": "html",
+        "mustache": "html",
+        "javascript": "javascriptreact",
+        "typescript": "typescriptreact",
+        "javascript.jsx": "javascriptreact",
+        "typescript.tsx": "typescriptreact",
+        "scss":"css",
+        "sass": "css"
+    },
+    "languageserver":{
+        "golang":{
+            "command":"gopls",
+            "rootPatterns":["go.mod"],
+            "filetypes":["go"]
+        }
+    }
 }
