@@ -55,8 +55,8 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('mhinz/vim-signify')
 " }}}}
 " Test new plugins {{{
-call dein#add('wincent/scalpel')
 call dein#add('heavenshell/vim-jsdoc')
+call dein#add('mbbill/undotree')
 " }}}
 " syntax highlighting {{{
 " One to rule them all
@@ -90,7 +90,7 @@ call dein#end()
 
 filetype plugin indent on
 " }}}
-:" System Settings  ----------------------------------------------------------{{{
+" System Settings  ----------------------------------------------------------{{{
 "
 " Check for local configuration
 if (isdirectory(expand("$HOME/.local.vim")))
@@ -161,6 +161,7 @@ set undofile
 set undodir="$HOME/.VIM_UNDO_FILES"
 set undolevels=1000
 set undoreload=10000
+nnoremap <C-u> :UndotreeToggle<CR>
 
 " Remember cursor position between vim sessions
 autocmd BufReadPost *
@@ -293,6 +294,10 @@ endfunction
 
 nnoremap <silent> <leader>/c :call <SID>count_search_results()<CR>
 
+" Search inside files with ripgrep
+nnoremap <C-g> :Rg<Cr>
+nnoremap <C-G> *:Rg<Cr>
+
 " Deletes the hidden buffers.
 function! s:delete_hidden_buffers()
   let tpbl=[]
@@ -366,6 +371,19 @@ nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(st
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" jump to prev next errors from link list
+nnoremap <silent> <C-j> :lnext<cr>
+nnoremap <silent> <C-k> :lprev<cr>
+
+" Fugitive mappings      ----------------------------------------------------{{{
+" Mostly easy mappings for now
+"
+"<space>gs - git status
+nnoremap <leader>gs :G<cr>
+"<space>gl - git status
+nnoremap <leader>gl :Glog<cr>
+"
+" }}}
 " Window Resizing        ----------------------------------------------------{{{
 " TODO this does not work on windows powershell
 "Alt right/up : bigger
@@ -385,6 +403,11 @@ let g:oceanic_next_terminal_italic = 1
 let g:vim_monokai_tasty_italic = 1
 colorscheme OceanicNext
 let g:airline_theme='oceanicnext'
+"preserve my poor eyes and add more contrast
+if &background != "light"
+    highlight CocErrorFloat ctermfg=White guifg=#f99157
+    highlight Search ctermfg=Black guifg=#444444
+endif
 "}}}
 " Fold, gets it's own section  ----------------------------------------------{{{
 
@@ -636,7 +659,6 @@ function! s:denite_my_settings() abort
 endfunction
 "}}}
 "}}}
-"
 " vim-airline ---------------------------------------------------------------{{{
 
 let g:webdevicons_enable_airline_statusline = 1
@@ -720,7 +742,7 @@ endif
 " Get common extensions
 let g:coc_global_extensions = [
       \'coc-css',
-      \'coc-stylelint',
+      \'coc-stylelintplus',
       \'coc-emmet',
       \'coc-eslint',
       \'coc-html',
