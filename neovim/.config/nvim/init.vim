@@ -1,92 +1,75 @@
 " Plugins  ------------------------------------------------------------------{{{
-" Setup dein {{{
-" Auto install dein
-if has('win32')
-  if !isdirectory(expand('~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim'))
-    echo "Installing dein.vim..."
-    silent !powershell -Command "New-Item -ItemType Directory -Path $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo -Force"
-    silent !powershell -Command "git clone https://github.com/Shougo/dein.vim $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim"
-  endif
-  set runtimepath+=~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim
-endif
+" Setup VimPlug {{{
+" Auto install VimPlug
 if !has('win32')
-  if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
-    echo "Installing udner .config/nvim dein.vim..."
-    call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
-    call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
-  endif
-  set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
+    if (!isdirectory(expand("$HOME/.config/nvim/plugged")))
+        echo "Installing udner .config/nvim/plugged vim-plug..."
+        call system(expand("mkdir -p $HOME/.config/nvim/plugged"))
+        call system(expand("sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'"))
+    endif
 endif
-
-" Set plugin path
-if has('win32')
-  call dein#begin(expand('~/dotfiles/neovim/.config/nvim'))
-endif
-if !has('win32')
-  call dein#begin(expand('~/.config/nvim'))
-endif
-
-call dein#add('Shougo/dein.vim')
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('$HOME/.config/nvim/plugged')
 "}}}
 " system {{{
-call dein#add('tpope/vim-surround')
-call dein#add('junegunn/vim-easy-align')
-call dein#add('Shougo/context_filetype.vim')
-call dein#add('terryma/vim-multiple-cursors')
-call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
-call dein#add('junegunn/fzf.vim')
-call dein#add('preservim/nerdcommenter')
+Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
+Plug 'Shougo/context_filetype.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/fzf', { 'build': './install', 'merged': 0 }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdcommenter'
 " }}}
 " UI {{{
-call dein#add('scrooloose/nerdtree')
-call dein#add('mhartington/oceanic-next')
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
+Plug 'scrooloose/nerdtree'
+Plug 'mhartington/oceanic-next'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " }}}
 " completion {{{
-call dein#add('neoclide/coc.nvim', {'merge':0, 'rev': 'release'})
+Plug 'neoclide/coc.nvim', {'merge':0, 'rev': 'release'}
 " }}}
 " denite {{{
-call dein#add('Shougo/denite.nvim')
-call dein#add('neoclide/denite-git')
+Plug 'Shougo/denite.nvim'
+Plug 'neoclide/denite-git'
 " }}}
 " git {{{{
-call dein#add('tpope/vim-fugitive')
-call dein#add('mhinz/vim-signify')
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
 " }}}}
 " Test new plugins {{{
-call dein#add('heavenshell/vim-jsdoc')
-call dein#add('mbbill/undotree')
+Plug 'heavenshell/vim-jsdoc'
+Plug 'mbbill/undotree'
+Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 " }}}
 " syntax highlighting {{{
 " One to rule them all
 " One to find them
 " One to bring them on
 " And in the darkness bind them
-call dein#add('sheerun/vim-polyglot')
+Plug 'sheerun/vim-polyglot'
 " for nerdtree
-call dein#add('Xuyuanp/nerdtree-git-plugin')
-call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Check what syntax it is for debug highlighting
 function! SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 " }}}
 " snippets {{{{
 " }}}}
 " Has to be last according to docs
-call dein#add('ryanoasis/vim-devicons')
+Plug 'ryanoasis/vim-devicons'
 
-if dein#check_install()
-  call dein#install()
-  let pluginsExist=1
-endif
-
-call dein#end()
+" Initialize plugin system
+call plug#end()
 
 filetype plugin indent on
 " }}}
@@ -94,18 +77,18 @@ filetype plugin indent on
 "
 " Check for local configuration
 if (isdirectory(expand("$HOME/.local.vim")))
-  source ~/.local.vim
+    source ~/.local.vim
 endif
 
 if exists('g:GuiLoaded')
-  Guifont Hasklig:h15
+    Guifont Hasklig:h15
 endif
 
 " Neovim Settings
 set termguicolors
 set mouse=a
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+"set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 set clipboard+=unnamedplus
 set pastetoggle=<f6>
 set nopaste
@@ -149,7 +132,7 @@ autocmd BufEnter * silent! lcd %:p:h
 " Search for project root
 " assumes that there is .git folder present
 function! s:find_git_root()
-  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+    return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
 endfunction
 
 command! ProjectFiles execute 'Files' s:find_git_root()
@@ -165,9 +148,9 @@ nnoremap <C-u> :UndotreeToggle<CR>
 
 " Remember cursor position between vim sessions
 autocmd BufReadPost *
-      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \   exe "normal! g'\"" |
-      \ endif
+            \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+            \   exe "normal! g'\"" |
+            \ endif
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h
 
@@ -271,9 +254,9 @@ nnoremap <silent> <esc> :noh<cr>
 "}}}"
 " Custom mappings  ----------------------------------------------------------{{{
 function! s:PlaceholderImgTag(size)
-  let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
-  let [width,height] = split(a:size, 'x')
-  execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
+    let url = 'http://dummyimage.com/' . a:size . '/000000/555555'
+    let [width,height] = split(a:size, 'x')
+    execute "normal a<img src=\"".url."\" width=\"".width."\" height=\"".height."\" />"
 endfunction
 
 command! -nargs=1 PlaceholderImgTag call s:PlaceholderImgTag(<f-args>)
@@ -283,13 +266,13 @@ nnoremap <CR> :nohlsearch<CR>/<BS>
 
 " Clears the search term from search register
 function! s:clear_search_results()
-  let @/=""
+    let @/=""
 endfunction
 nnoremap <silent> <leader>/d :call <SID>clear_search_results()<CR>
 
 " Shows the amount of matches for the previous search.
 function! s:count_search_results()
-  %s///gn
+    %s///gn
 endfunction
 
 nnoremap <silent> <leader>/c :call <SID>count_search_results()<CR>
@@ -300,25 +283,25 @@ nnoremap <C-G> *:Rg<Cr>
 
 " Deletes the hidden buffers.
 function! s:delete_hidden_buffers()
-  let tpbl=[]
-  call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-  for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-    silent execute 'bwipeout' buf
-  endfor
+    let tpbl=[]
+    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+        silent execute 'bwipeout' buf
+    endfor
 endfunction
 
 nnoremap <silent> <leader>bd :call <SID>delete_hidden_buffers()<CR>
 
 " Corrects the spelling under the cursor with the first suggestion.
 function! s:correct_to_first_spelling_suggestion()
-  normal 1z=
+    normal 1z=
 endfunction
 
 nnoremap <silent> <leader>z :call <SID>correct_to_first_spelling_suggestion()<CR>
 
 " Trim the trailing white space from the file.
 function! s:trim_trailing_whitespace()
-  %s/\s\+$//e
+    %s/\s\+$//e
 endfunction
 
 nnoremap <silent> <leader>cw :call <SID>trim_trailing_whitespace()<CR>
@@ -328,7 +311,7 @@ nnoremap <silent> <leader>wf :tab sp<CR>
 
 "Start terminal mode with \t
 function! s:start_terminal_mode()
-  autocmd BufEnter term://* startinsert
+    autocmd BufEnter term://* startinsert
 endfunction
 
 nnoremap <silent> <leader>t :call <SID>start_terminal_mode()<CR>
@@ -338,7 +321,7 @@ vnoremap <c-s-r> y<ESC>/<c-r>"<CR>
 
 "Start gtd timer with 20 minute session and 4 min break
 function! s:start_terminal_timer()
-  :te ~/dotfiles/gtd/gtd -n 20
+    :te ~/dotfiles/gtd/gtd -n 20
 endfunction
 
 nnoremap <silent> <leader>tm :call <SID>start_terminal_timer()<CR>
@@ -412,19 +395,19 @@ endif
 " Fold, gets it's own section  ----------------------------------------------{{{
 
 function! MyFoldText() " {{{
-  let line = getline(v:foldstart)
+    let line = getline(v:foldstart)
 
-  let nucolwidth = &fdc + &number * &numberwidth
-  let windowwidth = winwidth(0) - nucolwidth - 3
-  let foldedlinecount = v:foldend - v:foldstart
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
 
-  " expand tabs into spaces
-  let onetab = strpart('          ', 0, &tabstop)
-  let line = substitute(line, '\t', onetab, 'g')
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
 
-  let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-  let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-  return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
 endfunction " }}}
 set foldtext=MyFoldText()
 
@@ -461,15 +444,15 @@ autocmd FileType javascript,typescript,typescript.tsx,json setl foldmethod=synta
 map <silent> - :NERDTreeToggleVCS<CR>
 map <silent> _ :NERDTreeToggle<CR>
 augroup ntinit
-  autocmd FileType nerdtree call s:nerdtreeinit()
+    autocmd FileType nerdtree call s:nerdtreeinit()
 augroup END
 function! s:nerdtreeinit() abort
-  set nolist
-  if !has("gui_running")
-    nunmap <buffer> K
-    nunmap <buffer> J
-    map <silent> <Tab> :call nerdtree#ui_glue#invokeKeyMap("A")<CR>
-  endif
+    set nolist
+    if !has("gui_running")
+        nunmap <buffer> K
+        nunmap <buffer> J
+        map <silent> <Tab> :call nerdtree#ui_glue#invokeKeyMap("A")<CR>
+    endif
 endf
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=45
@@ -490,17 +473,17 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
 let g:NERDTreeGitStatusIndicatorMap = {
-      \ 'Modified'  : '✹',
-      \ 'Staged'    : '✚',
-      \ 'Untracked' : '✭',
-      \ 'Renamed'   : '➜',
-      \ 'Unmerged'  : '═',
-      \ 'Deleted'   : '✖',
-      \ 'Dirty'     : '✗',
-      \ 'Clean'     : '✔︎',
-      \ 'Ignored'   : 'i',
-      \ 'Unknown'   : '?'
-      \ }
+            \ 'Modified'  : '✹',
+            \ 'Staged'    : '✚',
+            \ 'Untracked' : '✭',
+            \ 'Renamed'   : '➜',
+            \ 'Unmerged'  : '═',
+            \ 'Deleted'   : '✖',
+            \ 'Dirty'     : '✗',
+            \ 'Clean'     : '✔︎',
+            \ 'Ignored'   : 'i',
+            \ 'Unknown'   : '?'
+            \ }
 
 "}}}
 " Nvim terminal -------------------------------------------------------------{{{
@@ -513,74 +496,74 @@ let g:NERDTreeGitStatusIndicatorMap = {
 " Wrap in try/catch to avoid errors on initial install before plugin is available
 try
 
-" Use ripgrep for searching current directory for files
-" By default, ripgrep will respect rules in .gitignore
-"   --files: Print each file that would be searched (but don't search)
-"   --glob:  Include or exclues files for searching that match the given glob
-"            (aka ignore .git files)
-"   ----------------------------------------------------------------{{{
-call denite#custom#var('file/rec', 'command',
-            \ ['rg', '--files', '--glob', '!{.git,node_modules}'])
+    " Use ripgrep for searching current directory for files
+    " By default, ripgrep will respect rules in .gitignore
+    "   --files: Print each file that would be searched (but don't search)
+    "   --glob:  Include or exclues files for searching that match the given glob
+    "            (aka ignore .git files)
+    "   ----------------------------------------------------------------{{{
+    call denite#custom#var('file/rec', 'command',
+                \ ['rg', '--files', '--glob', '!{.git,node_modules}'])
 
-" Use ripgrep in place of "grep"
-call denite#custom#var('grep', 'command', ['rg'])
+    " Use ripgrep in place of "grep"
+    call denite#custom#var('grep', 'command', ['rg'])
 
-" Custom options for ripgrep
-"   --vimgrep:  Show results with every match on it's own line
-"   --hidden:   Search hidden directories and files
-"   --heading:  Show the file name above clusters of matches from each file
-"   --S:        Search case insensitively if the pattern is all lowercase
-call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
+    " Custom options for ripgrep
+    "   --vimgrep:  Show results with every match on it's own line
+    "   --hidden:   Search hidden directories and files
+    "   --heading:  Show the file name above clusters of matches from each file
+    "   --S:        Search case insensitively if the pattern is all lowercase
+    call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
 
-" Recommended defaults for ripgrep via Denite docs
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
+    " Recommended defaults for ripgrep via Denite docs
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
 
-" Remove date from buffer list
-call denite#custom#var('buffer', 'date_format', '')
-"}}}
-"
-" Custom options for Denite
-"   auto_resize             - Auto resize the Denite window height automatically.
-"   prompt                  - Customize denite prompt
-"   direction               - Specify Denite window direction as directly below current pane
-"   winminheight            - Specify min height for Denite window
-"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
-"   prompt_highlight        - Specify color of prompt
-"   highlight_matched_char  - Matched characters highlight
-"   highlight_matched_range - matched range highlight
-"   ----------------------------------------------------------------{{{
-let s:denite_options = {'default' : {
-\ 'split': 'floating',
-\ 'start_filter': 1,
-\ 'auto_resize': 1,
-\ 'source_names': 'short',
-\ 'prompt': '» ',
-\ 'statusline': 0,
-\ 'highlight_matched_char': 'QuickFixLine',
-\ 'highlight_matched_range': 'Visual',
-\ 'highlight_window_background': 'Visual',
-\ 'highlight_filter_background': 'NormalFloat',
-\ 'winrow': 1,
-\ 'vertical_preview': 1
-\ }}
+    " Remove date from buffer list
+    call denite#custom#var('buffer', 'date_format', '')
+    "}}}
+    "
+    " Custom options for Denite
+    "   auto_resize             - Auto resize the Denite window height automatically.
+    "   prompt                  - Customize denite prompt
+    "   direction               - Specify Denite window direction as directly below current pane
+    "   winminheight            - Specify min height for Denite window
+    "   highlight_mode_insert   - Specify h1-CursorLine in insert mode
+    "   prompt_highlight        - Specify color of prompt
+    "   highlight_matched_char  - Matched characters highlight
+    "   highlight_matched_range - matched range highlight
+    "   ----------------------------------------------------------------{{{
+    let s:denite_options = {'default' : {
+                \ 'split': 'floating',
+                \ 'start_filter': 1,
+                \ 'auto_resize': 1,
+                \ 'source_names': 'short',
+                \ 'prompt': '» ',
+                \ 'statusline': 0,
+                \ 'highlight_matched_char': 'QuickFixLine',
+                \ 'highlight_matched_range': 'Visual',
+                \ 'highlight_window_background': 'Visual',
+                \ 'highlight_filter_background': 'NormalFloat',
+                \ 'winrow': 1,
+                \ 'vertical_preview': 1
+                \ }}
 
-" Loop through denite options and enable them
-function! s:profile(opts) abort
-  for l:fname in keys(a:opts)
-    for l:dopt in keys(a:opts[l:fname])
-      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
-    endfor
-  endfor
-endfunction
+    " Loop through denite options and enable them
+    function! s:profile(opts) abort
+        for l:fname in keys(a:opts)
+            for l:dopt in keys(a:opts[l:fname])
+                call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
+            endfor
+        endfor
+    endfunction
 
-call s:profile(s:denite_options)
-"}}}
-"
+    call s:profile(s:denite_options)
+    "}}}
+    "
 catch
-  echo 'Denite not installed. call dein#install()'
+    echo 'Denite not installed. call dein#install()'
 endtry
 
 "  Denite mappings"
@@ -607,20 +590,20 @@ nnoremap <C-F> :<C-u>DeniteCursorWord grep:.<CR>
 "   ----------------------------------------------------------------{{{
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
-  imap <silent><buffer> <C-o>
-  \ <Plug>(denite_filter_quit)
-  inoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  inoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  inoremap <silent><buffer><expr> <C-t>
-  \ denite#do_map('do_action', 'tabopen')
-  inoremap <silent><buffer><expr> <C-v>
-  \ denite#do_map('do_action', 'vsplit')
-  inoremap <silent><buffer><expr> <C-h>
-  \ denite#do_map('do_action', 'split')
+    imap <silent><buffer> <C-o>
+                \ <Plug>(denite_filter_quit)
+    inoremap <silent><buffer><expr> <Esc>
+                \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> <Esc>
+                \ denite#do_map('quit')
+    inoremap <silent><buffer><expr> <CR>
+                \ denite#do_map('do_action')
+    inoremap <silent><buffer><expr> <C-t>
+                \ denite#do_map('do_action', 'tabopen')
+    inoremap <silent><buffer><expr> <C-v>
+                \ denite#do_map('do_action', 'vsplit')
+    inoremap <silent><buffer><expr> <C-h>
+                \ denite#do_map('do_action', 'split')
 endfunction
 "}}}
 "
@@ -636,26 +619,26 @@ endfunction
 "   ----------------------------------------------------------------{{{
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <Esc>
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <C-o>
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <C-t>
-  \ denite#do_map('do_action', 'tabopen')
-  nnoremap <silent><buffer><expr> <C-v>
-  \ denite#do_map('do_action', 'vsplit')
-  nnoremap <silent><buffer><expr> <C-h>
-  \ denite#do_map('do_action', 'split')
+    nnoremap <silent><buffer><expr> <CR>
+                \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> q
+                \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> <Esc>
+                \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> d
+                \ denite#do_map('do_action', 'delete')
+    nnoremap <silent><buffer><expr> p
+                \ denite#do_map('do_action', 'preview')
+    nnoremap <silent><buffer><expr> i
+                \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> <C-o>
+                \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> <C-t>
+                \ denite#do_map('do_action', 'tabopen')
+    nnoremap <silent><buffer><expr> <C-v>
+                \ denite#do_map('do_action', 'vsplit')
+    nnoremap <silent><buffer><expr> <C-h>
+                \ denite#do_map('do_action', 'split')
 endfunction
 "}}}
 "}}}
@@ -663,7 +646,7 @@ endfunction
 
 let g:webdevicons_enable_airline_statusline = 1
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 
 let g:airline_powerline_fonts = 1
@@ -707,17 +690,17 @@ let g:airline_section_c = '%f%m'
 let g:airline_section_z = '%l:%c'
 let g:airline#parts#ffenc#skip_expected_string=''
 let g:airline#extensions#tabline#buffer_idx_format = {
-      \ '0': '0 ',
-      \ '1': '1 ',
-      \ '2': '2 ',
-      \ '3': '3 ',
-      \ '4': '4 ',
-      \ '5': '5 ',
-      \ '6': '6 ',
-      \ '7': '7 ',
-      \ '8': '8 ',
-      \ '9': '9 ',
-      \}
+            \ '0': '0 ',
+            \ '1': '1 ',
+            \ '2': '2 ',
+            \ '3': '3 ',
+            \ '4': '4 ',
+            \ '5': '5 ',
+            \ '6': '6 ',
+            \ '7': '7 ',
+            \ '8': '8 ',
+            \ '9': '9 ',
+            \}
 
 " Add coc customization
 let g:airline#extensions#coc#enabled = 1
@@ -728,44 +711,45 @@ let g:airline#extensions#coc#enabled = 1
 "
 " Set config path
 if has('win32')
-  if !isdirectory(expand('~/dotfiles/neovim/.config/nvim/coc-settings.json'))
-    let g:coc_user_config='~/dotfiles/neovim/.config/nvim/coc-settings.json'
-  endif
+    if !isdirectory(expand('~/dotfiles/neovim/.config/nvim/coc-settings.json'))
+        let g:coc_user_config='~/dotfiles/neovim/.config/nvim/coc-settings.json'
+    endif
 endif
 
 if !has('win32')
-  if (!isdirectory(expand("$HOME/dotfiles/neovim/.config/nvim/coc-settings.json")))
-    let g:coc_user_config='$HOME/dotfiles/neovim/.config/nvim/coc-settings.json'
-  endif
+    if (!isdirectory(expand("$HOME/dotfiles/neovim/.config/nvim/coc-settings.json")))
+        let g:coc_user_config='$HOME/dotfiles/neovim/.config/nvim/coc-settings.json'
+    endif
 endif
 
 " Get common extensions
 let g:coc_global_extensions = [
-      \'coc-css',
-      \'coc-stylelintplus',
-      \'coc-emmet',
-      \'coc-eslint',
-      \'coc-html',
-      \'coc-json',
-      \'coc-prettier',
-      \'coc-pairs',
-      \'coc-snippets',
-      \'coc-tsserver',
-      \'coc-tslint',
-      \'coc-go',
-      \]
+            \'coc-css',
+            \'coc-stylelint',
+            \'coc-stylelintplus',
+            \'coc-emmet',
+            \'coc-eslint',
+            \'coc-html',
+            \'coc-json',
+            \'coc-prettier',
+            \'coc-pairs',
+            \'coc-snippets',
+            \'coc-tsserver',
+            \'coc-tslint',
+            \'coc-go',
+            \]
 
 " use <TAB> for trigger completion
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? coc#_select_confirm() :
+            \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 "TODO need to change this could not use it like this
@@ -786,11 +770,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 " Highlight symbol under cursor on CursorHold
@@ -804,11 +788,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
