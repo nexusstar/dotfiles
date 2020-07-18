@@ -296,3 +296,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=./node_modules/.bin:$PATH
+ export PATH=/home/nexus/.gem/ruby/2.7.0/bin:$PATH
+# Go config
+export GOPATH=$HOME/workspace/gocode
