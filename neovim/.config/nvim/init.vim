@@ -279,7 +279,7 @@ nnoremap <silent> <leader>/c :call <SID>count_search_results()<CR>
 
 " Search inside files with ripgrep
 nnoremap <C-g> :Rg<Cr>
-nnoremap <C-G> *:Rg<Cr>
+nnoremap <C-G> :Rg <C-R>=expand("<cword>")<CR><CR>
 
 " Deletes the hidden buffers.
 function! s:delete_hidden_buffers()
@@ -468,7 +468,7 @@ let g:netrw_banner = 0
 let NERDTreeCascadeSingleChildDir=0
 let NERDTreeCascadeOpenSingleChildDir=0
 let g:NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeShowIgnoredStatus = 1
+let g:NERDTreeGitStatusShowIgnored = 1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
@@ -725,8 +725,6 @@ endif
 " Get common extensions
 let g:coc_global_extensions = [
             \'coc-css',
-            \'coc-stylelint',
-            \'coc-stylelintplus',
             \'coc-emmet',
             \'coc-eslint',
             \'coc-html',
@@ -734,6 +732,7 @@ let g:coc_global_extensions = [
             \'coc-prettier',
             \'coc-pairs',
             \'coc-snippets',
+            \'coc-stylelintplus',
             \'coc-tsserver',
             \'coc-tslint',
             \'coc-go',

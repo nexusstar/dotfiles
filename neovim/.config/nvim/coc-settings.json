@@ -9,6 +9,7 @@
     "wxss.validate": false,
     "stylelintplus.autoFixOnSave": true,
     "stylelintplus.autoFixOnFormat": true,
+    "stylelintplus.validateOnSave": true,
     "emmet.includeLanguages": {
         "vue-html": "html",
         "cubec": "html",
