@@ -22,9 +22,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'build': './install', 'merged': 0 }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 " }}}
 " UI {{{
-Plug 'scrooloose/nerdtree'
 Plug 'mhartington/oceanic-next'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
