@@ -87,8 +87,7 @@ endif
 " Neovim Settings
 set termguicolors
 set mouse=a
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-"set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 set clipboard+=unnamedplus
 set pastetoggle=<f6>
 set nopaste
