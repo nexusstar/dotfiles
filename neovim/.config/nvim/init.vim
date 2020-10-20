@@ -1,32 +1,22 @@
 " Plugins  ------------------------------------------------------------------{{{
 " Setup dein {{{
-" Auto install dein
-if has('win32')
-  if !isdirectory(expand('~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim'))
-    echo "Installing dein.vim..."
-    silent !powershell -Command "New-Item -ItemType Directory -Path $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo -Force"
-    silent !powershell -Command "git clone https://github.com/Shougo/dein.vim $HOME/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim"
-  endif
-  set runtimepath+=~/dotfiles/neovim/.config/nvim/repos/github.com/Shougo/dein.vim
-endif
-if !has('win32')
-  if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
-    echo "Installing udner .config/nvim dein.vim..."
-    call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
-    call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
-  endif
-  set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
-" Set plugin path
-if has('win32')
-  call dein#begin(expand('~/dotfiles/neovim/.config/nvim'))
-endif
-if !has('win32')
-  call dein#begin(expand('~/.config/nvim'))
-endif
+" Required:
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-call dein#add('Shougo/dein.vim')
+" Required:
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+
+  " Let dein manage dein
+  " Required:
+call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here like this:
 "}}}
 " system {{{
 call dein#add('tpope/vim-surround')
@@ -55,6 +45,7 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('mhinz/vim-signify')
 " }}}}
 " Test new plugins {{{
+call dein#add('ryanoasis/vim-devicons')
 call dein#add('wincent/scalpel')
 " }}}
 " syntax highlighting {{{
@@ -67,6 +58,19 @@ call dein#add('sheerun/vim-polyglot')
 call dein#add('Xuyuanp/nerdtree-git-plugin')
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+"End dein Scripts-------------------------
+"
+" Required:
+filetype plugin indent on
+syntax enable
+
+
+
+
 " Check what syntax it is for debug highlighting
 function! SynStack()
   if !exists("*synstack")
@@ -78,14 +82,8 @@ endfunc
 " snippets {{{{
 " }}}}
 " Has to be last according to docs
-call dein#add('ryanoasis/vim-devicons')
 
-if dein#check_install()
-  call dein#install()
-  let pluginsExist=1
-endif
 
-call dein#end()
 
 filetype plugin indent on
 " }}}
@@ -113,8 +111,8 @@ autocmd BufWritePre * %s/\s\+$//e
 set noshowmode
 set noswapfile
 filetype on
-set  number
 set numberwidth=1
+set rnu " set relative numbers
 set tabstop=2 shiftwidth=2 expandtab
 set conceallevel=0
 set virtualedit=
@@ -428,7 +426,7 @@ let g:netrw_banner = 0
 let NERDTreeCascadeSingleChildDir=0
 let NERDTreeCascadeOpenSingleChildDir=0
 let g:NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeShowIgnoredStatus = 1
+let g:NERDTreeGitStatusShowIgnored = 1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
