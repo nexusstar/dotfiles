@@ -39,6 +39,8 @@ Plug 'neoclide/denite-git'
 " git {{{{
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 " }}}}
 " Test new plugins {{{
 Plug 'heavenshell/vim-jsdoc'
