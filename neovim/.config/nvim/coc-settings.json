@@ -1,5 +1,6 @@
 {
     "suggest.labelMaxLength": 200,
+    "diagnostic.checkCurrentLine": true,
     "coc.preferences.extensionUpdateCheck": "daily",
     "eslint.autoFixOnSave":true,
     "eslint.run":"onType",

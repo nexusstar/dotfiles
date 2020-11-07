@@ -201,13 +201,14 @@ set signcolumn=yes
 autocmd BufEnter * silent! lcd %:p:h
 
 " FAR related settings      ----------------------------------------------------{{{
-set regexpengine=1        " use old regexp engine
-set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
-
+set regexpengine=1          " use old regexp engine
+set ignorecase smartcase    " ignore case only when the pattern contains no capital letters
+let g:far#enable_undo=1     " allow Farundo
+let g:far#source='rgnvim'   " using rgnvim source as default
 "
 " }}}
 " }}}
-" System mappings  ----------------------------------------------------------{{{
+" System mappings    ----------------------------------------------------------{{{
 " Navigate between display lines as normal lines
 nnoremap <silent><expr> k      v:count == 0 ? 'gk' : 'k'
 nnoremap <silent><expr> j      v:count == 0 ? 'gj' : 'j'
@@ -862,7 +863,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
-" Show all diagnostics
+"" Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Show commands
 "nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
