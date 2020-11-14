@@ -299,3 +299,4 @@ export PATH=./node_modules/.bin:$PATH
  export PATH=/home/nexus/.gem/ruby/2.7.0/bin:$PATH
 # Go config
 export GOPATH=$HOME/workspace/gocode
+export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH

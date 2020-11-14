@@ -30,7 +30,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " }}}
 " completion {{{
-Plug 'neoclide/coc.nvim', {'merge':0, 'rev': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 " }}}
 " denite {{{
 Plug 'Shougo/denite.nvim'
@@ -47,6 +47,8 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'mbbill/undotree'
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'brooth/far.vim'
+" }}}
+" Golang {{{
 " }}}
 " syntax highlighting {{{
 " One to rule them all
@@ -67,6 +69,7 @@ function! SynStack()
 endfunc
 " }}}
 " snippets {{{{
+"
 " }}}}
 " Has to be last according to docs
 Plug 'ryanoasis/vim-devicons'
@@ -208,7 +211,7 @@ let g:far#source='rgnvim'   " using rgnvim source as default
 "
 " }}}
 " }}}
-" System mappings    ----------------------------------------------------------{{{
+" System mappings  ----------------------------------------------------------{{{
 " Navigate between display lines as normal lines
 nnoremap <silent><expr> k      v:count == 0 ? 'gk' : 'k'
 nnoremap <silent><expr> j      v:count == 0 ? 'gj' : 'j'
@@ -879,5 +882,11 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " }}}
-" MultiCursor ---------------------------------------------------------------{{{
+" Language servers ----------------------------------------------------------{{{
+
+" Go ---------------------------------------------------------------{{{
+autocmd BufWritePre *.go :call CocAction('organizeImport')
+autocmd BufWritePre *.go :call CocAction('format')
+"}}}
+
 "}}}
