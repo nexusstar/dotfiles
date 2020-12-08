@@ -47,6 +47,7 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'mbbill/undotree'
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'brooth/far.vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " }}}
 " Golang {{{
 " }}}
