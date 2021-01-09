@@ -2,7 +2,23 @@
     "suggest.labelMaxLength": 200,
     "diagnostic.checkCurrentLine": true,
     "coc.preferences.extensionUpdateCheck": "daily",
+    "prettier.parser": "typescript",
+    "prettier.eslintIntegration": true,
+    "tslint.enable": true,
+    "eslint.enable": true,
+    "eslint.filetypes": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
     "eslint.autoFixOnSave":true,
+   "lit-html.tags": [
+       "html",
+       "raw",
+       "f"
+   ],
+    "lit-html.format.enabled": true,
     "eslint.run":"onType",
     "css.validate": false,
     "less.validate": false,
@@ -36,6 +52,5 @@
     },
   "go.goplsOptions": {
       "linksInHover": true
-
-  }
+  },
 }

@@ -25,6 +25,10 @@ Plug 'preservim/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 " }}}
 " UI {{{
+"
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'mhartington/oceanic-next'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -44,10 +48,11 @@ Plug 'junegunn/gv.vim'
 " }}}}
 " Test new plugins {{{
 Plug 'heavenshell/vim-jsdoc'
-Plug 'mbbill/undotree'
-Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'brooth/far.vim'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'lilydjwg/colorizer'
+Plug 'jonsmithers/vim-html-template-literals'
+Plug 'alvan/vim-closetag'
 " }}}
 " Golang {{{
 " }}}
@@ -92,7 +97,9 @@ if exists('g:GuiLoaded')
 endif
 
 " Neovim Settings
-set termguicolors
+if has('termguicolors')
+    set termguicolors
+endif
 set mouse=a
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 set clipboard+=unnamedplus
@@ -150,8 +157,6 @@ set undofile
 set undodir="$HOME/.VIM_UNDO_FILES"
 set undolevels=1000
 set undoreload=10000
-nnoremap <C-u> :UndotreeToggle<CR>
-
 " Remember cursor position between vim sessions
 autocmd BufReadPost *
             \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -421,17 +426,29 @@ nnoremap <m-down> :resize -3<cr>
 "}}}"
 " Themes, Commands, etc  ----------------------------------------------------{{{
 syntax on
-let g:one_allow_italics = 1
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-let g:vim_monokai_tasty_italic = 1
-colorscheme OceanicNext
-let g:airline_theme='oceanicnext'
+"let g:one_allow_italics = 1
+"let g:oceanic_next_terminal_bold = 1
+"let g:oceanic_next_terminal_italic = 1
+"let g:vim_monokai_tasty_italic = 1
+"colorscheme OceanicNext
+"let g:airline_theme='oceanicnext'
 "preserve my poor eyes and add more contrast
 if &background != "light"
     highlight CocErrorFloat ctermfg=White guifg=#f99157
     highlight Search ctermfg=Black guifg=#444444
 endif
+" For dark version.
+set background=dark
+" Set contrast.
+" This configuration option should be placed before `colorscheme gruvbox-material`.
+" Available values: '_hard', 'medium'(default), '_soft'
+colorscheme gruvbox8_soft
+let g:airline_theme='gruvbox'
+let g:gruvbox_filetype_hi_groups = 1
+let g:gruvbox_plugin_hi_groups = 1
+hi CocFloating guifg=#bdae93 guibg=#504945 gui=NONE cterm=NONE
+hi CocErrorFloat guifg=#bdae93 guibg=#504945 gui=NONE cterm=NONE
+
 "}}}
 " Fold, gets it's own section  ----------------------------------------------{{{
 
@@ -770,6 +787,7 @@ let g:coc_global_extensions = [
             \'coc-eslint',
             \'coc-html',
             \'coc-json',
+            \'coc-lit-html',
             \'coc-prettier',
             \'coc-pairs',
             \'coc-snippets',
@@ -882,6 +900,16 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 autocmd FileType json syntax match Comment +\/\/.\+$+
+" }}}
+" Template literals ---------------------------------------------------------{{{
+let g:htl_all_templates=1
+let g:closetag_filetypes = 'html,xhtml,phtml,javascript,typescript'
+let g:closetag_regions = {
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion,litHtmlRegion',
+      \ 'javascript.jsx': 'jsxRegion,litHtmlRegion',
+      \ 'javascript':     'litHtmlRegion',
+      \ 'typescript':     'litHtmlRegion',
+      \ }
 " }}}
 " Language servers ----------------------------------------------------------{{{
 
