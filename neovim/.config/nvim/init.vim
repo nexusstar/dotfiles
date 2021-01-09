@@ -210,7 +210,6 @@ set signcolumn=yes
 autocmd BufEnter * silent! lcd %:p:h
 
 " FAR related settings      ----------------------------------------------------{{{
-set regexpengine=1          " use old regexp engine
 set ignorecase smartcase    " ignore case only when the pattern contains no capital letters
 let g:far#enable_undo=1     " allow Farundo
 let g:far#source='rgnvim'   " using rgnvim source as default
