@@ -333,8 +333,8 @@ endfunction
 
 nnoremap <silent> <leader>t :call <SID>start_terminal_mode()<CR>
 
-" search for visually hightlighted text
-vnoremap <c-s-r> y<ESC>/<c-r>"<CR>
+" search for visually highlighted text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 "Start gtd timer with 20 minute session and 4 min break
 function! s:start_terminal_timer()
@@ -789,6 +789,7 @@ let g:coc_global_extensions = [
             \'coc-lit-html',
             \'coc-prettier',
             \'coc-pairs',
+            \'coc-react-refactor',
             \'coc-snippets',
             \'coc-stylelintplus',
             \'coc-tsserver',
