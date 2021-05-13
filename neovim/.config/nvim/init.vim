@@ -130,7 +130,7 @@ set autoread
 set updatetime=300
 set fillchars+=vert:│
 "set list
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,space:·,nbsp:␣,lead:.,trail:◦,conceal:∅
 
 " More natural splitting.
 set splitbelow
@@ -205,7 +205,6 @@ set shortmess+=c
 
 " always show signcolumns
 set signcolumn=yes
-
 " Automaticaly change the current directory
 autocmd BufEnter * silent! lcd %:p:h
 
