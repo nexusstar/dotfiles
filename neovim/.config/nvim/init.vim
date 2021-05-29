@@ -918,3 +918,6 @@ autocmd BufWritePre *.go :call CocAction('format')
 "}}}
 
 "}}}
+"
+"Extra stuff just for Mitko
+" autocmd FileType typescript setlocal tabstop=4 shiftwidth=4 noexpandtab

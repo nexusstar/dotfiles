@@ -5,6 +5,7 @@
     "prettier.parser": "typescript",
     "prettier.eslintIntegration": true,
     "tslint.enable": true,
+    "tslint.autoFixOnSave": true,
     "eslint.enable": true,
     "eslint.filetypes": [
         "javascript",
