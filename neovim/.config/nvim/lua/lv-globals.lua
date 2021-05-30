@@ -5,13 +5,13 @@ CACHE_PATH = vim.fn.stdpath('cache')
 O = {
     auto_close_tree = 0,
     auto_complete = true,
-    colorscheme = 'lunar',
+    colorscheme = 'gruvbox',
     hidden_files = true,
     wrap_lines = false,
     number = true,
     relative_number = true,
     shell = 'bash',
-	timeoutlen = 100,
+    timeoutlen = 100,
     nvim_tree_disable_netrw = 0,
     extras = false,
 
@@ -51,10 +51,10 @@ O = {
     },
     tsserver = {
         -- @usage can be 'eslint'
-        linter = '',
+        linter = 'eslint',
         -- @usage can be 'prettier'
-        formatter = '',
-        autoformat = false,
+        formatter = 'prettier',
+        autoformat = true,
         diagnostics = {virtual_text = {spacing = 0, prefix = ""}, signs = true, underline = true}
     },
     json = {
@@ -65,12 +65,12 @@ O = {
     },
     tailwindls = {filetypes = {'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact'}},
     clang = {diagnostics = {virtual_text = {spacing = 0, prefix = ""}, signs = true, underline = true}},
-	ruby = {
-		diagnostics = {virtualtext = {spacing = 0, prefix = ""}, signs = true, underline = true},
-		filetypes = {'rb', 'erb', 'rakefile'}
-	},
+    ruby = {
+      diagnostics = {virtualtext = {spacing = 0, prefix = ""}, signs = true, underline = true},
+      filetypes = {'rb', 'erb', 'rakefile'}
+    },
     go = {},
-    -- css = {formatter = '', autoformat = false, virtual_text = true},
+    css = {formatter = 'prettier', autoformat = true, virtual_text = false},
     -- json = {formatter = '', autoformat = false, virtual_text = true}
 
 	dashboard = {
