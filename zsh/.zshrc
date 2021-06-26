@@ -300,3 +300,4 @@ export PATH=./node_modules/.bin:$PATH
 # Go config
 export GOPATH=$HOME/workspace/gocode
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+export PATH=/home/nexus/.cargo/bin:$PATH

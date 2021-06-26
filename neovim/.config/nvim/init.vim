@@ -913,8 +913,9 @@ let g:closetag_regions = {
 " Language servers ----------------------------------------------------------{{{
 
 " Go ---------------------------------------------------------------{{{
-autocmd BufWritePre *.go :call CocAction('organizeImport')
 autocmd BufWritePre *.go :call CocAction('format')
+" add missing imports on save
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 "}}}
 
 "}}}
