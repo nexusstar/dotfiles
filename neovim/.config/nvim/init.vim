@@ -55,6 +55,7 @@ Plug 'jonsmithers/vim-html-template-literals'
 Plug 'alvan/vim-closetag'
 " }}}
 " Golang {{{
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " }}}
 " syntax highlighting {{{
 " One to rule them all

@@ -66,6 +66,8 @@ alias cp="cp -i"                                                # Confirm before
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
 alias gitu='git add . && git commit && git push'
+alias gitc='git checkout'
+alias gits='git status'
 
 # Theming section
 autoload -U compinit colors zcalc
@@ -301,3 +303,11 @@ export PATH=./node_modules/.bin:$PATH
 export GOPATH=$HOME/workspace/gocode
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 export PATH=/home/nexus/.cargo/bin:$PATH
+
+# Pyton config
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+# Load pyenv into the shell
+eval "$(pyenv init --path)"
+# Load pyenv virtual envirionment plugin
+eval "$(pyenv virtualenv-init -)"
