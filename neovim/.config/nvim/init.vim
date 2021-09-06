@@ -120,7 +120,7 @@ filetype on
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 set numberwidth=1
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=2 shiftwidth=2 expandtab
 set conceallevel=0
 set virtualedit=
 set wildmenu
@@ -828,7 +828,7 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
+    if (index(['vim'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
     else
         call CocAction('doHover')
