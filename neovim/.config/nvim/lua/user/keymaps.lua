@@ -46,7 +46,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<CR>", ":nohlsearch<CR>/<BS>", opts)
 
 -- Corrects the spelling under the cursor with first suggestion
-keymap("n", "<leader-z>", "1z=", opts)
+keymap("n", "<S-z>", "1z=", {silent = true}) -- FIXME Does not work
 
 -- Insert --
 -- Press jk fast to exit insert mode
@@ -63,6 +63,8 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+
+-- Put in visual mode
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
