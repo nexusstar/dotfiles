@@ -45,13 +45,15 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 -- Clear highlighting
 keymap("n", "<CR>", ":nohlsearch<CR>/<BS>", opts)
 
--- Corrects the speling under the cursor with first suggestion
--- TODO map it to leader-z
-keymap("n", "<A-z>", "1z=", opts)
+-- Corrects the spelling under the cursor with first suggestion
+keymap("n", "<leader-z>", "1z=", opts)
 
 -- Insert --
--- Press jk fast to exit instert mode
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
+
+-- Make word uppercase with <C-u>
+keymap("i", "<C-u>", "<Esc>mzgUiw`za", opts)
 
 -- Visual --
 -- Stay in indent mode
