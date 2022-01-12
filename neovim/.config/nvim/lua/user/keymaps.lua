@@ -46,7 +46,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<CR>", ":nohlsearch<CR>/<BS>", opts)
 
 -- Corrects the spelling under the cursor with first suggestion
-keymap("n", "<S-z>", "1z=", {silent = true}) -- FIXME Does not work
+keymap("n", "<Leader>z", "<cmd>normal 1z=<CR>", {silent = true}) -- FIXME Does not work
 
 -- Default formatting, and keep the cursor in place
 keymap("n", "Q", "mzgg=G`z", opts)
