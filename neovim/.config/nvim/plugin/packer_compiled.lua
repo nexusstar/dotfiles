@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/nexusstar/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/home/nexusstar/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/nexusstar/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -118,6 +123,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nexusstar/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["copilot.vim"] = {
+    config = { "\27LJ\2\n˜\2\0\0\2\0\b\0\0176\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0+\1\2\0=\1\3\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0005\1\a\0=\1\6\0K\0\1\0\1\0\14\trust\2\ago\2\6*\1\thtml\2\6c\2\tjava\2\vpython\2\20javascriptreact\2\20typescriptreact\2\15typescript\2\14terraform\2\15javascript\2\bcpp\2\blua\2\22copilot_filetypes\5\25copilot_tab_fallback\26copilot_assume_mapped\23copilot_no_tab_map\6g\bvim\0" },
+    loaded = true,
+    path = "/home/nexusstar/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
   },
   ["darkplus.nvim"] = {
     loaded = true,
@@ -229,6 +240,11 @@ _G.packer_plugins = {
     path = "/home/nexusstar/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  tokyonight = {
+    loaded = true,
+    path = "/home/nexusstar/.local/share/nvim/site/pack/packer/start/tokyonight",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["vim-bbye"] = {
     loaded = true,
     path = "/home/nexusstar/.local/share/nvim/site/pack/packer/start/vim-bbye",
@@ -242,6 +258,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: copilot.vim
+time([[Config for copilot.vim]], true)
+try_loadstring("\27LJ\2\n˜\2\0\0\2\0\b\0\0176\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0+\1\2\0=\1\3\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0005\1\a\0=\1\6\0K\0\1\0\1\0\14\trust\2\ago\2\6*\1\thtml\2\6c\2\tjava\2\vpython\2\20javascriptreact\2\20typescriptreact\2\15typescript\2\14terraform\2\15javascript\2\bcpp\2\blua\2\22copilot_filetypes\5\25copilot_tab_fallback\26copilot_assume_mapped\23copilot_no_tab_map\6g\bvim\0", "config", "copilot.vim")
+time([[Config for copilot.vim]], false)
 if should_profile then save_profiles() end
 
 end)
