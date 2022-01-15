@@ -10,20 +10,20 @@ local date = thingy:read "*a"
 thingy:close()
 dashboard.section.header.val = "╭─ " .. kind.icons.calendar .. " Today is " .. date .." ─╮" 
 dashboard.section.buttons.val = {
-	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-	dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
-	dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
+	dashboard.button("r", "  Recent", ":Telescope oldfiles <CR>"),
+	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
 	dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
-	dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
-	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+	dashboard.button("p", "  Project", ":Telescope projects <CR>"),
+	dashboard.button("c", "  Config", ":e ~/.config/nvim/init.lua <CR>"),
+	dashboard.button("q", "  Quit", ":qa<CR>"),
 }
+dashboard.section.buttons.opts.width = 30
 
 local function footer()
 -- NOTE: requires the fortune-mod package to work
 	local handle = io.popen("fortune")
   local fortune = require "alpha.fortune"()
-	--local fortune = handle:read("*a")
 	handle:close()
 	return fortune
 end
