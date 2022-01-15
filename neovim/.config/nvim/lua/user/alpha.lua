@@ -8,7 +8,7 @@ local dashboard = require("alpha.themes.dashboard")
 local thingy = io.popen 'echo "$(date +%a) $(date +%d) $(date +%b)" | tr -d "\n"'
 local date = thingy:read "*a"
 thingy:close()
-dashboard.section.header.val = "╭────── " .. kind.icons.calendar .. " Today is " .. date .. " ───────┐"
+dashboard.section.header.val = "╭─ " .. kind.icons.calendar .. " Today is " .. date .." ─╮" 
 dashboard.section.buttons.val = {
 	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
 	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
