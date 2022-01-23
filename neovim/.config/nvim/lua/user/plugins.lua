@@ -70,8 +70,9 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
-  
+  use "hrsh7th/cmp-nvim-lsp" -- nvim-cmp source for neovim's built-in language server client.
+  use "hrsh7th/cmp-nvim-lua" -- nvim-cmp source for neovim Lua API.
+
   -- AI completion
   use {
     "github/copilot.vim",
