@@ -35,7 +35,12 @@ nls.setup({
       end,
       prefer_local = "node_modules/.bin",
     },
-    diagnostics.luacheck,
+    --diagnostics.luacheck,
+    diagnostics.luacheck.with{
+      condition = function(utils)
+        return utils.root_has_file { ".luacheckrc"}
+      end
+    },
     -- Code actions
     code_actions.eslint_d.with {
       condition = function(utils)
