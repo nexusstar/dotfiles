@@ -16,13 +16,13 @@ nls.setup({
 	sources = {
     formatting.prettierd.with {
       condition = function(utils)
-        return not utils.root_has_file { ".eslintrc", ".eslintrc.js" }
+        return not utils.root_has_file { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
       end,
       prefer_local = "node_modules/.bin",
     },
     formatting.eslint_d.with {
       condition = function(utils)
-        return utils.root_has_file { ".eslintrc", ".eslintrc.js" }
+        return utils.root_has_file { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
       end,
       prefer_local = "node_modules/.bin",
     },
@@ -31,7 +31,7 @@ nls.setup({
     -- Diagnostics
     diagnostics.eslint_d.with {
       condition = function(utils)
-        return utils.root_has_file { ".eslintrc", ".eslintrc.js" }
+        return utils.root_has_file { ".eslintrc", ".eslintrc.js",".eslintrc.json"  }
       end,
       prefer_local = "node_modules/.bin",
     },
