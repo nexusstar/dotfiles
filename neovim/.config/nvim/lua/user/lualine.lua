@@ -7,6 +7,10 @@ local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
 end
 
+local function clock()
+  return kind.icons.clock .. os.date "%H:%M"
+end
+
 local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
@@ -119,9 +123,9 @@ lualine.setup({
 		lualine_b = { mode },
 		lualine_c = {},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { diff, spaces, "encoding", filetype },
-		lualine_y = { location },
-		lualine_z = { progress },
+		lualine_x = { diff, "encoding", filetype },
+		lualine_y = { location, progress },
+		lualine_z = { clock },
 	},
 	inactive_sections = {
 		lualine_a = {},
