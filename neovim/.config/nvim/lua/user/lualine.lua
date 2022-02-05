@@ -28,10 +28,10 @@ local diff = {
   cond = hide_in_width
 }
 
-local mode = {
+local nvimMode = {
 	"mode",
 	fmt = function(str)
-		return "-- " .. str .. " --"
+		return "-- " .. string.sub(str, 1, 3) .. " --"
 	end,
 }
 
@@ -65,6 +65,14 @@ end
 local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
+
+local function keymap()
+  if vim.opt.iminsert:get() > 0 and vim.b.keymap_name then
+    return '⌨ ' .. vim.b.keymap_name
+  end
+  return ''
+end
+
 local mode = function()
   local mod = vim.fn.mode()
   local _time = os.date "*t"
@@ -74,6 +82,7 @@ local mode = function()
     "  ",
     "  ",
   }
+
   if mod == "n" or mod == "no" or mod == "nov" then
     return normal_icons[selector]
   elseif mod == "i" or mod == "ic" or mod == "ix" then
@@ -120,11 +129,11 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { branch, diagnostics },
-		lualine_b = { mode },
-		lualine_c = {},
+		lualine_b = { mode, keymap },
+		lualine_c = {  },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, "encoding", filetype },
-		lualine_y = { location, progress },
+		lualine_y = { nvimMode, location, progress },
 		lualine_z = { clock },
 	},
 	inactive_sections = {
