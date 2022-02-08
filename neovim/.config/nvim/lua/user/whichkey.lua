@@ -79,7 +79,14 @@ local opts = {
 }
 
 local mappings = {
-  ["a"] = { "<cmd>Alpha<cr>", "Dashboard" },
+  -- keymap for Harpoon plugin
+  ["a"] = {  "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add Harpoon Mark" },
+  ["1"] = { "<CMD>lua require('harpoon.ui').nav_file(1)<CR>", "goto1" },
+  ["2"] = { "<CMD>lua require('harpoon.ui').nav_file(2)<CR>", "goto2" },
+  ["3"] = { "<CMD>lua require('harpoon.ui').nav_file(3)<CR>", "goto3" },
+  ["4"] = { "<CMD>lua require('harpoon.ui').nav_file(4)<CR>", "goto4" },
+  ["j"] = { "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoon"},
+
   b = {
     mame = "Buffers",
     c = {"<cmd>Bdelete!<CR>", "Close Buffer" },

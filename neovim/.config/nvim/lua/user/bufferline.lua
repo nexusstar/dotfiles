@@ -16,7 +16,7 @@ bufferline.setup {
     indicator_icon = "▎",
     buffer_close_icon = "",
     -- buffer_close_icon = '',
-    modified_icon = "●",
+    modified_icon = "",
     close_icon = "",
     -- close_icon = '',
     left_trunc_marker = "",
@@ -66,6 +66,7 @@ bufferline.setup {
     separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
     enforce_regular_tabs = true,
     always_show_bufferline = true,
+
     -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
     --   -- add custom logic
     --   return buffer_a.modified > buffer_b.modified
@@ -86,6 +87,7 @@ bufferline.setup {
     --   guibg = {attribute='bg',highlight='#0000ff'},
     --   gui = 'none'
     --   },
+
     buffer_visible = {
       guifg = { attribute = "fg", highlight = "TabLine" },
       guibg = { attribute = "bg", highlight = "TabLine" },
@@ -99,6 +101,7 @@ bufferline.setup {
       guifg = { attribute = "fg", highlight = "TabLine" },
       guibg = { attribute = "bg", highlight = "TabLine" },
     },
+
     -- close_button_selected = {
     --   guifg = {attribute='fg',highlight='TabLineSel'},
     --   guibg ={attribute='bg',highlight='TabLineSel'}
@@ -155,10 +158,12 @@ bufferline.setup {
       guifg = { attribute = "bg", highlight = "Normal" },
       guibg = { attribute = "bg", highlight = "Normal" },
     },
+
     -- separator_visible = {
     --   guifg = {attribute='bg',highlight='TabLine'},
     --   guibg = {attribute='bg',highlight='TabLine'}
     --   },
+
     indicator_selected = {
       guifg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
       guibg = { attribute = "bg", highlight = "Normal" },

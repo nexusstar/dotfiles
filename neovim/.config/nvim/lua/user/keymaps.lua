@@ -51,6 +51,9 @@ keymap("n", "<S-z>", "<Cmd>normal 1z=<CR>", {silent = true}) -- FIXME Does not w
 -- Default formatting, and keep the cursor in place
 keymap("n", "Q", "mzgg=G`z", opts)
 
+-- Harpoon UI
+keymap("n", "<C-Space>", "<cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>", opts)
+
 -- Insert --
 -- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
