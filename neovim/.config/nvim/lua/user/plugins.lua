@@ -51,14 +51,14 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
-  use "akinsho/toggleterm.nvim"
+  use "akinsho/toggleterm.nvim" -- Toggle multiple terminals
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
-  use "goolord/alpha-nvim"
+  use "goolord/alpha-nvim" -- nvim Dashboard
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
-  use "ThePrimeagen/harpoon"
+  use "ThePrimeagen/harpoon" -- file navigation on steroids
 
   -- Colorschemes
   use "lunarvim/darkplus.nvim"
@@ -73,6 +73,17 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- nvim-cmp source for neovim's built-in language server client.
   use "hrsh7th/cmp-nvim-lua" -- nvim-cmp source for neovim Lua API.
+
+  use{
+    "andymass/vim-matchup",
+    event = "BufReadPost",
+    config = function()
+      vim.g.matchup_enabled = 1
+      vim.g.matchup_surround_enabled = 1
+      vim.g.matchup_matchparen_deferred = 1
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  }
 
   -- AI completion
   use {
