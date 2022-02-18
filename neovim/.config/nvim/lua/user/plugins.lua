@@ -59,6 +59,13 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
   use "ThePrimeagen/harpoon" -- file navigation on steroids
+  use {
+      "phaazon/hop.nvim",
+      event = "BufRead",
+      config = function()
+        require("user.hop").config()
+      end,
+    } -- Buffer search and jump to 
 
   -- Colorschemes
   use "lunarvim/darkplus.nvim"
@@ -74,7 +81,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp" -- nvim-cmp source for neovim's built-in language server client.
   use "hrsh7th/cmp-nvim-lua" -- nvim-cmp source for neovim Lua API.
 
-  use{
+  use {
     "andymass/vim-matchup",
     event = "BufReadPost",
     config = function()

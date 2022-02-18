@@ -113,6 +113,9 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  
+  -- Hop pattern search
+  ["/"] = {"<cmd>HopPattern<cr>", "Hop Pattern"},
 
   p = {
     name = "Packer",
@@ -199,6 +202,7 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
+  
 }
 
 which_key.setup(setup)
