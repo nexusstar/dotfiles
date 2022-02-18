@@ -61,6 +61,9 @@ keymap("i", "jk", "<ESC>", opts)
 -- Make word uppercase with <C-u>
 keymap("i", "<C-u>", "<Esc>mzgUiw`za", opts)
 
+-- Copilot accept when tab is disabled
+keymap("i", "<C-/>", "copilot#Accept('<CR>')", {expr=true, silent=true})
+
 -- Visual --
 -- Default formatting, and keep the cursor in place
 keymap("v", "Q", "mz=`z", opts)
