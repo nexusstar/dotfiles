@@ -56,7 +56,7 @@ nvim_tree.setup {
       hint = "",
       info = "",
       warning = "",
-      error = "",
+      error = " ",
     },
   },
   update_focused_file = {
@@ -71,6 +71,7 @@ nvim_tree.setup {
   filters = {
     dotfiles = false,
     custom = {},
+    exclude = {".env", ".env.local"}
   },
   git = {
     enable = true,
