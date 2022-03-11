@@ -49,7 +49,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
-  use "moll/vim-bbye"
+  use "moll/vim-bbye" -- Close buffers without messing up the layout
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim" -- Toggle multiple terminals
   use "ahmedkhalf/project.nvim"
@@ -147,6 +147,15 @@ return packer.startup(function(use)
       require("user.colorizer").config()
     end
   }
+-- DAP debugging
+  use "mfussenegger/nvim-dap"
+  use "rcarriga/nvim-dap-ui"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "leoluz/nvim-dap-go"
+  use "nvim-telescope/telescope-dap.nvim"
+
+  -- Grammar checker
+  -- use "rhysd/vim-grammarous"
 
   -- Automatically set up configuration after cloning packer.nvim
   -- Put this at the end after all plugins

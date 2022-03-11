@@ -88,7 +88,7 @@ local mappings = {
   ["j"] = { "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoon"},
 
   b = {
-    mame = "Buffers",
+    name = "Buffers",
     c = {"<cmd>Bdelete!<CR>", "Close Buffer" },
     f = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -97,13 +97,17 @@ local mappings = {
     p = { "<Cmd>BufferLinePick<CR>", "pick buffer" },
     t = {  "<Cmd>BufferLineGroupToggle docs<CR>", "toggle groups" },
   },
-  -- ["b"] = {
-  --   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  --   "Buffers",
-  -- },
-  -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+
+  ["c"] = { "<CMD>%bd|e#|bd#<CR>`.", "Close others"}, -- close other buffers and return to last edit
+
+  d ={
+    name = "DAP",
+    b = {"<cmd>lua require('dap').toggle_breakpoint()<CR>", "toggle breakpoint"},
+    B = {"<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", "condition breakpoint"}
+  },
 
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["k"] = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -113,7 +117,7 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-  
+
   -- Hop pattern search
   ["/"] = {"<cmd>HopPattern<cr>", "Hop Pattern"},
 

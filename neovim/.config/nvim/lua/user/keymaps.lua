@@ -54,6 +54,17 @@ keymap("n", "Q", "mzgg=G`z", opts)
 -- Harpoon UI
 keymap("n", "<C-Space>", "<cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>", opts)
 
+-- Debugger (DAP)
+keymap("n",  "<F5>", "<cmd>lua require('dap').continue()<CR>", opts)
+keymap("n",  "<F10>", "<cmd>lua require('dap').step_over()<CR>", opts)
+keymap("n",  "<F11>", "<cmd>lua require('dap').step_into()<CR>", opts)
+keymap("n",  "<F12>", "<cmd>lua require('dap').step_out()<CR>", opts)
+keymap("n",  "<leader>lp", "<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
+keymap("n",  "<leader>dr", "<cmd>lua require('dap').repl.open()<CR>", opts)
+keymap("n", "<leader>dt", "<cmd>lua require('dap-go').debug_test()<CR>", opts)
+require("dap-go").setup();
+require("dapui").setup();
+
 -- Insert --
 -- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
