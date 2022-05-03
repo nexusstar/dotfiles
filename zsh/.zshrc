@@ -65,9 +65,19 @@ bindkey '^?' backward-delete-char
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
-alias gitu='git add . && git commit && git push'
+alias gitu='git add . && git commit && git push'                # git up add commit push
 alias gitc='git checkout'
 alias gits='git status'
+ ### Alias help commands
+ alias open="dolphin . &"                                        # open current directory in dolphin
+
+ ### Alias work directories
+if [ -f ~/.zsh/zshalias ]; then
+    source ~/.zsh/zshalias
+else
+    print "404: ~/.zsh/zshalias not found."
+fi
+
 
 # Theming section
 autoload -U compinit colors zcalc
@@ -313,3 +323,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 # Load pyenv virtual envirionment plugin
 eval "$(pyenv virtualenv-init -)"
+# Android
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
