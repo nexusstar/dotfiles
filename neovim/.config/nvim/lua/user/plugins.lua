@@ -157,6 +157,7 @@ return packer.startup(function(use)
 
   -- Grammar checker
   -- use "rhysd/vim-grammarous"
+  use "mustache/vim-mustache-handlebars"
 
   -- Automatically set up configuration after cloning packer.nvim
   -- Put this at the end after all plugins
