@@ -106,6 +106,7 @@ nvim_tree.setup {
     require_confirm = true,
   },
   renderer ={
+    highlight_opened_files = "icon", -- 0 "none", 1 "icon", 2 "name", 3 "all"
     icons = {
       glyphs = {
         default = "",
