@@ -6,8 +6,8 @@ end
 local header = {
     type = "text",
     val = {
-[[]],
-[[]],
+      [[]],
+      [[]],
     },
     opts = {
         position = "center",
