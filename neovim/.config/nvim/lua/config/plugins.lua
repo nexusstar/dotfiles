@@ -63,7 +63,7 @@ return packer.startup(function(use)
       "phaazon/hop.nvim",
       event = "BufRead",
       config = function()
-        require("user.hop").config()
+        require("config.hop").config()
       end,
     } -- Buffer search and jump to
 
@@ -144,17 +144,27 @@ return packer.startup(function(use)
   use {
     "norcalli/nvim-colorizer.lua", -- colorize color codes
     config = function()
-      require("user.colorizer").config()
+      require("config.colorizer").config()
     end
   }
 -- DAP debugging
-  use "mfussenegger/nvim-dap"
-  use "rcarriga/nvim-dap-ui"
-  use "theHamsta/nvim-dap-virtual-text"
-  use "nvim-telescope/telescope-dap.nvim"
-  -- - DAP for go with delve
-  use "leoluz/nvim-dap-go"
-
+  --[[ use { ]]
+  --[[   "mfussenegger/nvim-dap", ]]
+  --[[   module = "dap", ]]
+  --[[   event = "BufReadPre", ]]
+  --[[   requires = { ]]
+  --[[     { "Pocco81/dap-buddy.nvim", branc="dev" }, ]]
+  --[[     "theHamsta/nvim-dap-virtual-text", ]]
+  --[[     "rcarriga/nvim-dap-ui", ]]
+  --[[     "mfussenegger/nvim-dap-python", ]]
+  --[[     "nvim-telescope/telescope-dap.nvim", ]]
+  --[[     { "leoluz/nvim-dap-go", module = "dap-go" }, ]]
+  --[[     { "jbyuki/one-small-step-for-vimkind", module = "osv" }, ]]
+  --[[   }, ]]
+  --[[   config = function() ]]
+  --[[     require("dap").setup() ]]
+  --[[   end, ]]
+  --[[ } ]]
   -- Grammar checker
   -- use "rhysd/vim-grammarous"
   -- [[ use "mustache/vim-mustache-handlebars" ]]

@@ -2,7 +2,7 @@ local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
 	return
 end
-local kind = require "user.lsp_kind"
+local kind = require "config.lsp_kind"
 local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
 end

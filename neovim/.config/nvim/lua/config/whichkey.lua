@@ -100,11 +100,6 @@ local mappings = {
 
   ["c"] = { "<CMD>%bd|e#|bd#<CR>`.", "Close others"}, -- close other buffers and return to last edit
 
-  d ={
-    name = "DAP",
-    b = {"<cmd>lua require('dap').toggle_breakpoint()<CR>", "toggle breakpoint"},
-    B = {"<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", "condition breakpoint"}
-  },
 
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["k"] = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
@@ -214,7 +209,6 @@ local mappings = {
     t = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
-  
 }
 
 which_key.setup(setup)
