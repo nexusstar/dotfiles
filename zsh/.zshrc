@@ -20,8 +20,8 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
 HISTSIZE=1000
 SAVEHIST=500
-#export EDITOR=/usr/bin/nano
-#export VISUAL=/usr/bin/nano
+export LANG=en_US.UTF-8
+
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
 
@@ -65,18 +65,15 @@ bindkey '^?' backward-delete-char
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
-alias gitu='git add . && git commit && git push'                # git up add commit push
 alias gitc='git checkout'
 alias gits='git status'
- ### Alias help commands
- alias open="dolphin . &"                                        # open current directory in dolphin
 
  ### Alias work directories
-if [ -f ~/.zsh/zshalias ]; then
-    source ~/.zsh/zshalias
-else
-    print "404: ~/.zsh/zshalias not found."
-fi
+ if [ -f ~/.zsh/zshalias ]; then
+   source ~/.zsh/zshalias
+ else
+   print "404: ~/.zsh/zshalias not found."
+ fi
 
 
 # Theming section
@@ -92,7 +89,7 @@ setopt prompt_subst
 # Maia prompt
 #PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[cyan]%}>%B%(?.%{$fg[cyan]%}.%{$fg[red]%})>%{$reset_color%}%b " # Print some system information when the shell is first started
 # Print a greeting message when shell is started
-echo $USER@$HOST  $(uname -srm) $(lsb_release -rcs)
+# echo $USER@$HOST  $(uname -srm) $(uname -srm sw_vers)
 ## Prompt on right side:
 #  - shows status of git when in git repository
 #  - shows exit status of previous command (if previous command finished with an error)
@@ -256,12 +253,11 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-
 ## Plugins section: Enable fish style features
 # Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Use history substring search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -296,7 +292,7 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
   *)
     # RPROMPT='$(git_prompt_string)'
     # Use autosuggestion
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
     ;;
@@ -308,24 +304,30 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=./node_modules/.bin:$PATH
-export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
-# Go config
-export GOPATH=$HOME/workspace/gocode
-export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+# export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
+
+# Go config
+export GOPATH=$HOME/workspace/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+
 # Pyton config
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-# Load pyenv into the shell
-eval "$(pyenv init --path)"
-# Load pyenv virtual envirionment plugin
-eval "$(pyenv virtualenv-init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# # Load pyenv into the shell
+# eval "$(pyenv init --path)"
+# # Load pyenv virtual envirionment plugin
+# eval "$(pyenv virtualenv-init -)"
 # Android
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Neovim
+export PATH="$HOME/neovim/bin:$PATH"
