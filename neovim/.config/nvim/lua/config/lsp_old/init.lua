@@ -1,5 +1,7 @@
 local M = {}
 
+-- local util = require "lspconfig.util"
+
 local servers = {
   gopls = {},
   html = {},
@@ -8,7 +10,6 @@ local servers = {
       typeCheckingMode = "off",
     },
   },
-  -- pylsp = {}, -- Integration with rope for refactoring - https://github.com/python-rope/pylsp-rope
   rust_analyzer = {
     settings = {
       ["rust-analyzer"] = {

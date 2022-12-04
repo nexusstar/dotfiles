@@ -29,6 +29,13 @@ M.cmp_kind = {
   Variable = " ",
 }
 
+M.diagnostics = {
+  error = " ",
+  warn = " ",
+  info = "",
+  hint = " ",
+}
+
 M.icons = {
   error = " ",
   warn = " ",
