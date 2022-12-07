@@ -20,11 +20,15 @@ vim.g.maplocalleader = " "
 -- Map ; to : so instead of Shift+; just use ;
 keymap("n", ";", ":", opts)
 
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- Center screen on search
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+keymap("n", "g", "g,zvzz", opts)
+keymap("n", "g", "g,zvzz", opts)
+
+-- Better scrolling
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -44,7 +48,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<CR>", ":nohlsearch<CR>/<BS>", opts)
 
 -- Corrects the spelling under the cursor with first suggestion
-keymap("n", "<S-z>", "<Cmd>normal 1z=<CR>", {silent = true}) -- FIXME Does not work
+keymap("n", "<S-z>", "<Cmd>normal 1z=<CR>", { silent = true }) -- FIXME Does not work
 
 -- Default formatting, and keep the cursor in place
 keymap("n", "Q", "mzgg=G`z", opts)
@@ -53,23 +57,29 @@ keymap("n", "Q", "mzgg=G`z", opts)
 keymap("n", "<C-Space>", "<cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>", opts)
 
 -- Debugger (DAP)
- keymap("n",  "<F5>", "<cmd>lua require('dap').continue()<CR>", opts)
- keymap("n",  "<F3>", "<cmd>lua require('dap').step_into()<CR>", opts)
- keymap("n",  "<F4>", "<cmd>lua require('dap').step_over()<CR>", opts)
- keymap("n",  "<F8>", "<cmd>lua require('dap').step_out()<CR>", opts)
- keymap("n",  "<leader>lp", "<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
- keymap("n",  "<leader>dr", "<cmd>lua require('dap').repl.open()<CR>", opts)
- keymap("n", "<leader>dt", "<cmd>lua require('dap-go').debug_test()<CR>", opts)
+keymap("n", "<F5>", "<cmd>lua require('dap').continue()<CR>", opts)
+keymap("n", "<F3>", "<cmd>lua require('dap').step_into()<CR>", opts)
+keymap("n", "<F4>", "<cmd>lua require('dap').step_over()<CR>", opts)
+keymap("n", "<F8>", "<cmd>lua require('dap').step_out()<CR>", opts)
+keymap(
+	"n",
+	"<leader>lp",
+	"<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
+	opts
+)
+keymap("n", "<leader>dr", "<cmd>lua require('dap').repl.open()<CR>", opts)
+keymap("n", "<leader>dt", "<cmd>lua require('dap-go').debug_test()<CR>", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
+keymap("t", "jk", "<C-\\><C-n>", opts)
 
 -- Make word uppercase with <C-u>
 keymap("i", "<C-u>", "<Esc>mzgUiw`za", opts)
 
 -- Remap copilot accept
-keymap("i", "<C-J>", "copilot#Accept(\"\\<CR>\")", {expr = true, silent= true})
+keymap("i", "<C-j>", 'copilot#Accept("\\<CR>")', { expr = true, silent = true })
 
 -- Visual --
 -- Default formatting, and keep the cursor in place
