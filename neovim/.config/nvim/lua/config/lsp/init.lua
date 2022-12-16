@@ -1,11 +1,34 @@
 local M = {}
 
+-- local util = require "lspconfig.util"
+
 local servers = {
-  gopls = {},
+  gopls = {
+    settings = {
+      gopls = {
+        hints = {
+          assignVariableTypes = true,
+          compositeLiteralFields = true,
+          compositeLiteralTypes = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true,
+        },
+      },
+    },
+  },
   html = {},
   pyright = {
-    analysis = {
-      typeCheckingMode = "off",
+    settings = {
+      python = {
+        analysis = {
+          typeCheckingMode = "off",
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+          diagnosticMode = "workspace",
+        },
+      },
     },
   },
   -- pylsp = {}, -- Integration with rope for refactoring - https://github.com/python-rope/pylsp-rope
@@ -14,7 +37,7 @@ local servers = {
       ["rust-analyzer"] = {
         cargo = { allFeatures = true },
         checkOnSave = {
-          command = "clippy",
+          command = "cargo clippy",
           extraArgs = { "--no-deps" },
         },
       },
@@ -31,7 +54,7 @@ local servers = {
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
-          globals = { "vim", "describe", "it", "before_each", "after_each", "packer_plugins" },
+          globals = { "vim", "describe", "it", "before_each", "after_each", "packer_plugins", "MiniTest" },
           -- disable = { "lowercase-global", "undefined-global", "unused-local", "unused-vararg", "trailing-space" },
         },
         workspace = {
@@ -44,33 +67,94 @@ local servers = {
           maxPreload = 2000,
           preloadFileSize = 50000,
         },
-        completion = { callSnippet = "Both" },
+        completion = { callSnippet = "Replace" },
         telemetry = { enable = false },
+        hint = {
+          enable = false,
+        },
       },
     },
   },
-  tsserver = { disable_formatting = true },
+  tsserver = {
+    disable_formatting = true,
+    settings = {
+      javascript = {
+        inlayHints = {
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = true,
+        },
+      },
+      typescript = {
+        inlayHints = {
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = true,
+        },
+      },
+    },
+  },
   vimls = {},
-  tailwindcss = {},
+  -- tailwindcss = {},
+  yamlls = {
+    schemastore = {
+      enable = true,
+    },
+    settings = {
+      yaml = {
+        hover = true,
+        completion = true,
+        validate = true,
+        --schemas = require("schemastore").json.schemas(),
+      },
+    },
+  },
   jdtls = {},
   dockerls = {},
-  graphql = {},
+  -- graphql = {},
   bashls = {},
-  omnisharp = {},
-  kotlin_language_server = {},
-  emmet_ls = {},
-  marksman = {},
-  angularls = {},
+  taplo = {},
+  -- omnisharp = {},
+  -- kotlin_language_server = {},
+  -- emmet_ls = {},
+  -- marksman = {},
+  -- angularls = {},
+  -- sqls = {
+  -- settings = {
+  --   sqls = {
+  --     connections = {
+  --       {
+  --         driver = "sqlite3",
+  --         dataSourceName = os.getenv "HOME" .. "/workspace/db/chinook.db",
+  --       },
+  --     },
+  --   },
+  -- },
+  -- },
 }
 
 function M.on_attach(client, bufnr)
+  local caps = client.server_capabilities
+
   -- Enable completion triggered by <C-X><C-O>
   -- See `:help omnifunc` and `:help ins-completion` for more information.
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  if caps.completionProvider then
+    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+  end
 
   -- Use LSP as the handler for formatexpr.
   -- See `:help formatexpr` for more information.
-  vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr()")
+  if caps.documentFormattingProvider then
+    vim.bo[bufnr].formatexpr = "v:lua.vim.lsp.formatexpr()"
+  end
 
   -- Configure key mappings
   require("config.lsp.keymaps").setup(client, bufnr)
@@ -82,8 +166,13 @@ function M.on_attach(client, bufnr)
   require("config.lsp.null-ls.formatters").setup(client, bufnr)
 
   -- tagfunc
-  if client.server_capabilities.definitionProvider then
-    vim.api.nvim_buf_set_option(bufnr, "tagfunc", "v:lua.vim.lsp.tagfunc")
+  if caps.definitionProvider then
+    vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
+  end
+
+  -- sqls
+  if client.name == "sqls" then
+    require("sqls").on_attach(client, bufnr)
   end
 
   -- Configure for jdtls
@@ -93,13 +182,30 @@ function M.on_attach(client, bufnr)
     vim.lsp.codelens.refresh()
   end
 
-  -- aerial.nvim
-  require("aerial").on_attach(client, bufnr)
-
   -- nvim-navic
-  if client.server_capabilities.documentSymbolProvider then
+  if caps.documentSymbolProvider then
     local navic = require "nvim-navic"
     navic.attach(client, bufnr)
+  end
+
+  if client.name ~= "null-ls" then
+    -- inlay-hints
+    local ih = require "inlay-hints"
+    ih.on_attach(client, bufnr)
+
+    -- semantic highlighting
+    if caps.semanticTokensProvider and caps.semanticTokensProvider.full then
+      local augroup = vim.api.nvim_create_augroup("SemanticTokens", {})
+      vim.api.nvim_create_autocmd("TextChanged", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.semantic_tokens_full()
+        end,
+      })
+      -- fire it first time on load as well
+      vim.lsp.buf.semantic_tokens_full()
+    end
   end
 end
 

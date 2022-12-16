@@ -23,8 +23,6 @@ keymap("n", ";", ":", opts)
 -- Center screen on search
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
-keymap("n", "g", "g,zvzz", opts)
-keymap("n", "g", "g,zvzz", opts)
 
 -- Better scrolling
 keymap("n", "<C-d>", "<C-d>zz", opts)
