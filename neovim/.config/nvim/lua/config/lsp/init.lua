@@ -19,6 +19,13 @@ local servers = {
     },
   },
   html = {},
+  jsonls = {
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+      },
+    },
+  },
   pyright = {
     settings = {
       python = {
@@ -113,7 +120,7 @@ local servers = {
         hover = true,
         completion = true,
         validate = true,
-        --schemas = require("schemastore").json.schemas(),
+        schemas = require("schemastore").json.schemas(),
       },
     },
   },

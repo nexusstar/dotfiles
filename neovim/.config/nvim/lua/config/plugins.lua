@@ -139,6 +139,7 @@ local function plugins(use)
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
 	-- LSP
+	use({ "b0o/schemastore.nvim", module = { "schemastore" } })
 	use({
 		"neovim/nvim-lspconfig",
 		config = function()
@@ -231,6 +232,29 @@ local function plugins(use)
 		module = { "aerial", "telescope._extensions.aerial" },
 		cmd = { "AerialToggle" },
 	})
+
+  -- Rust
+  use {
+    "simrat39/rust-tools.nvim",
+    requires = { "nvim-lua/plenary.nvim", "rust-lang/rust.vim" },
+    opt = true,
+    module = "rust-tools",
+    ft = { "rust" },
+  }
+  use {
+    "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    requires = { { "nvim-lua/plenary.nvim" } },
+    config = function()
+      require("crates").setup {
+        null_ls = {
+          enabled = true,
+          name = "crates.nvim",
+        },
+      }
+    end,
+    disable = false,
+  }
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
